@@ -1,3 +1,4 @@
+<!-- cat > /mnt/user-data/outputs/blog.html << 'HTMLEOF' -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,17 +32,8 @@
             --header-h: 58px;
         }
 
-        *,
-        ::before,
-        ::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
+        *, ::before, ::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
 
         body {
             font-family: 'Fira Code', monospace;
@@ -52,1081 +44,409 @@
             cursor: none;
         }
 
-        /* ===== CURSOR ===== */
+        /* CURSOR */
         #cursor {
-            position: fixed;
-            z-index: 9999;
-            pointer-events: none;
-            width: 20px;
-            height: 20px;
+            position: fixed; z-index: 9999; pointer-events: none;
+            width: 20px; height: 20px;
             border: 1.5px solid var(--green);
             transform: translate(-50%, -50%);
             transition: width 0.15s, height 0.15s;
-            box-shadow: 0 0 10px var(--green), 0 0 20px rgba(0, 255, 65, 0.3);
+            box-shadow: 0 0 10px var(--green), 0 0 20px rgba(0,255,65,0.3);
         }
-
         #cursor-dot {
-            position: fixed;
-            z-index: 9999;
-            pointer-events: none;
-            width: 4px;
-            height: 4px;
-            border-radius: 50%;
+            position: fixed; z-index: 9999; pointer-events: none;
+            width: 4px; height: 4px; border-radius: 50%;
             background: var(--green);
             transform: translate(-50%, -50%);
             box-shadow: 0 0 6px var(--green);
         }
 
-        /* ===== CRT EFFECTS ===== */
+        /* CRT */
         body::before {
-            content: '';
-            position: fixed;
-            inset: 0;
-            z-index: 9990;
-            background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0, 0, 0, 0.04) 2px, rgba(0, 0, 0, 0.04) 4px);
+            content: ''; position: fixed; inset: 0; z-index: 9990;
+            background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.04) 2px, rgba(0,0,0,0.04) 4px);
             pointer-events: none;
         }
-
         body::after {
-            content: '';
-            position: fixed;
-            inset: 0;
-            z-index: 9989;
-            background: radial-gradient(ellipse at center, transparent 60%, rgba(0, 0, 0, 0.55) 100%);
+            content: ''; position: fixed; inset: 0; z-index: 9989;
+            background: radial-gradient(ellipse at center, transparent 60%, rgba(0,0,0,0.55) 100%);
             pointer-events: none;
         }
 
-        /* ===== MATRIX CANVAS ===== */
+        /* MATRIX */
         #matrix-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            opacity: 0.06;
-            pointer-events: none;
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 0; opacity: 0.06; pointer-events: none;
         }
 
-        /* ===== LOADING ===== */
+        /* ===== LOADING — SLIM ===== */
         #loading-screen {
-            position: fixed;
-            inset: 0;
-            z-index: 9998;
-            background: #000;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            position: fixed; inset: 0; z-index: 9998; background: #000;
+            display: flex; flex-direction: column; align-items: center;
             justify-content: center;
-            gap: 1.5rem;
             font-family: 'Share Tech Mono', monospace;
         }
-
         .ls-terminal {
-            width: min(580px, 90vw);
-            border: 1px solid var(--green);
-            border-radius: 4px;
-            box-shadow: 0 0 30px rgba(0, 255, 65, 0.2);
+            width: min(480px, 92vw);           /* narrower than index.html */
+            border: 1px solid var(--green); border-radius: 4px;
+            box-shadow: 0 0 24px rgba(0,255,65,0.18);
         }
-
         .ls-titlebar {
-            background: var(--green-dark);
-            border-bottom: 1px solid var(--border);
-            padding: 0.4rem 0.75rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 0.75rem;
-            color: var(--green);
+            background: var(--green-dark); border-bottom: 1px solid var(--border);
+            padding: 0.3rem 0.65rem;           /* less tall */
+            display: flex; align-items: center;
+            gap: 0.45rem; font-size: 0.72rem; color: var(--green);
         }
-
-        .ls-titlebar-dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-        }
-
-        .ls-titlebar-dot:nth-child(1) {
-            background: #ff5f56
-        }
-
-        .ls-titlebar-dot:nth-child(2) {
-            background: #ffbd2e
-        }
-
-        .ls-titlebar-dot:nth-child(3) {
-            background: #27c93f
-        }
-
+        .ls-titlebar-dot { width: 9px; height: 9px; border-radius: 50%; }
+        .ls-titlebar-dot:nth-child(1) { background: #ff5f56; }
+        .ls-titlebar-dot:nth-child(2) { background: #ffbd2e; }
+        .ls-titlebar-dot:nth-child(3) { background: #27c93f; }
         .ls-body {
-            padding: 1.25rem 1.5rem;
-            min-height: 200px;
-            max-height: 300px;
+            padding: 0.9rem 1.1rem;            /* tighter padding */
+            min-height: 0;                     /* no forced height */
+            max-height: 260px;
             overflow-y: auto;
         }
-
-        .ls-line {
-            font-size: 0.82rem;
-            color: var(--green);
-            line-height: 2;
-        }
-
-        .ls-line .prompt {
-            color: var(--muted)
-        }
-
-        .ls-line .out {
-            color: #5dde74
-        }
-
-        .ls-line .warn {
-            color: var(--amber)
-        }
-
+        .ls-line { font-size: 0.8rem; color: var(--green); line-height: 1.85; }
+        .ls-line .prompt { color: var(--muted); }
         .ls-cursor-blink {
-            display: inline-block;
-            width: 8px;
-            height: 14px;
+            display: inline-block; width: 7px; height: 13px;
             background: var(--green);
             animation: blink 0.75s step-start infinite;
-            vertical-align: middle
+            vertical-align: middle;
         }
-
-        @keyframes blink {
-
-            0%,
-            100% {
-                opacity: 1
-            }
-
-            50% {
-                opacity: 0
-            }
-        }
-
+        @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
         .ls-bar-wrap {
-            margin-top: 0.5rem;
-            height: 3px;
-            background: var(--green-dark);
-            border-radius: 99px;
-            overflow: hidden
+            margin-top: 0.5rem; height: 2px;   /* thinner bar */
+            background: var(--green-dark); border-radius: 99px; overflow: hidden;
         }
-
         .ls-bar {
-            height: 100%;
-            width: 0;
-            background: var(--green);
+            height: 100%; width: 0; background: var(--green);
             border-radius: 99px;
-            animation: barGrow 2.2s cubic-bezier(0.4, 0, 0.2, 1) forwards
+            animation: barGrow 2.2s cubic-bezier(0.4,0,0.2,1) forwards;
         }
+        @keyframes barGrow { to { width: 100%; } }
 
-        @keyframes barGrow {
-            to {
-                width: 100%
-            }
+        /* Real input row (mobile-friendly) */
+        .ls-input-row {
+            display: flex; align-items: center; margin-top: 0.2rem;
         }
+        .ls-input-prompt {
+            color: var(--green); font-size: 0.8rem;
+            font-family: 'Share Tech Mono', monospace;
+            white-space: nowrap; line-height: 1;
+        }
+        .ls-real-input {
+            flex: 1; background: transparent; border: none; outline: none;
+            color: var(--cyan); font-size: 0.8rem;
+            font-family: 'Share Tech Mono', monospace;
+            caret-color: var(--green); padding: 0; margin: 0;
+            text-shadow: 0 0 8px var(--cyan);
+            -webkit-appearance: none; appearance: none; border-radius: 0;
+        }
+        .ls-real-input::selection { background: rgba(0,255,65,0.3); }
 
-        /* ===== HEADER ===== */
+        /* HEADER */
         .l-header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: var(--header-h);
-            z-index: 100;
-            background: rgba(1, 11, 3, 0.92);
-            backdrop-filter: blur(12px);
+            position: fixed; top: 0; left: 0; right: 0;
+            height: var(--header-h); z-index: 100;
+            background: rgba(1,11,3,0.92); backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--border);
         }
-
         .l-header::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
+            content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
             background: linear-gradient(90deg, transparent, var(--green), transparent);
             opacity: 0.4;
         }
-
         .nav {
-            max-width: 1200px;
-            margin: 0 auto;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+            max-width: 1200px; margin: 0 auto; height: 100%;
+            display: flex; align-items: center; justify-content: space-between;
             padding: 0 1.5rem;
         }
-
         .nav__logo {
-            font-family: 'VT323', monospace;
-            font-size: 1.5rem;
-            color: var(--green);
-            text-decoration: none;
-            letter-spacing: 2px;
-            text-shadow: 0 0 10px var(--green), 0 0 20px rgba(0, 255, 65, 0.4);
+            font-family: 'VT323', monospace; font-size: 1.5rem; color: var(--green);
+            text-decoration: none; letter-spacing: 2px;
+            text-shadow: 0 0 10px var(--green), 0 0 20px rgba(0,255,65,0.4);
         }
-
-        .nav__logo span {
-            color: var(--amber)
-        }
-
-        .nav__list {
-            display: flex;
-            align-items: center;
-            gap: 0.25rem;
-            list-style: none;
-        }
-
+        .nav__logo span { color: var(--amber); }
+        .nav__list { display: flex; align-items: center; gap: 0.25rem; list-style: none; }
         .nav__link {
-            text-decoration: none;
-            font-size: 0.76rem;
-            color: var(--muted);
-            padding: 0.4rem 0.65rem;
-            border-radius: 3px;
+            text-decoration: none; font-size: 0.76rem; color: var(--muted);
+            padding: 0.4rem 0.65rem; border-radius: 3px;
             transition: color 0.2s, background 0.2s;
-            font-family: 'Share Tech Mono', monospace;
-            letter-spacing: 1px;
+            font-family: 'Share Tech Mono', monospace; letter-spacing: 1px;
         }
-
-        .nav__link::before {
-            content: './';
-            color: var(--green-dim);
-            opacity: 0.6
+        .nav__link::before { content: './'; color: var(--green-dim); opacity: 0.6; }
+        .nav__link:hover, .nav__link.active-link {
+            color: var(--green); background: var(--green-glow);
+            text-shadow: 0 0 8px var(--green);
         }
-
-        .nav__link:hover,
-        .nav__link.active-link {
-            color: var(--green);
-            background: var(--green-glow);
-            text-shadow: 0 0 8px var(--green)
-        }
-
         .nav__cv-btn {
-            background: transparent;
-            color: var(--green);
-            text-decoration: none;
-            font-size: 0.75rem;
-            font-family: 'Share Tech Mono', monospace;
-            padding: 0.4rem 0.9rem;
-            border-radius: 3px;
-            border: 1px solid var(--border-bright);
-            transition: all 0.2s;
-            letter-spacing: 1px;
+            background: transparent; color: var(--green); text-decoration: none;
+            font-size: 0.75rem; font-family: 'Share Tech Mono', monospace;
+            padding: 0.4rem 0.9rem; border-radius: 3px;
+            border: 1px solid var(--border-bright); transition: all 0.2s; letter-spacing: 1px;
         }
-
-        .nav__cv-btn:hover {
-            background: var(--green-glow);
-            box-shadow: 0 0 12px rgba(0, 255, 65, 0.3)
-        }
-
-        .nav__toggle {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--green);
-            font-size: 1.4rem;
-            cursor: none
-        }
-
+        .nav__cv-btn:hover { background: var(--green-glow); box-shadow: 0 0 12px rgba(0,255,65,0.3); }
+        .nav__toggle { display: none; background: none; border: none; color: var(--green); font-size: 1.4rem; cursor: none; }
         @media(max-width:768px) {
             .nav__menu {
-                position: fixed;
-                top: var(--header-h);
-                left: 0;
-                right: 0;
-                background: var(--bg);
-                padding: 1.5rem;
-                transform: translateY(-120%);
-                transition: transform 0.3s ease;
-                border-bottom: 1px solid var(--border)
+                position: fixed; top: var(--header-h); left: 0; right: 0;
+                background: var(--bg); padding: 1.5rem;
+                transform: translateY(-120%); transition: transform 0.3s ease;
+                border-bottom: 1px solid var(--border);
             }
-
-            .nav__menu.show {
-                transform: translateY(0)
-            }
-
-            .nav__list {
-                flex-direction: column;
-                align-items: flex-start
-            }
-
-            .nav__toggle {
-                display: block
-            }
+            .nav__menu.show { transform: translateY(0); }
+            .nav__list { flex-direction: column; align-items: flex-start; }
+            .nav__toggle { display: block; }
         }
 
-        /* ===== HERO ===== */
+        /* HERO */
         .blog-hero {
-            padding: 4.5rem 1.5rem 3rem;
-            position: relative;
-            z-index: 1;
+            padding: 4.5rem 1.5rem 3rem; position: relative; z-index: 1;
             border-bottom: 1px solid var(--border);
-            background: linear-gradient(180deg, rgba(0, 255, 65, 0.04) 0%, transparent 100%);
+            background: linear-gradient(180deg, rgba(0,255,65,0.04) 0%, transparent 100%);
         }
-
-        .blog-hero__inner {
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
+        .blog-hero__inner { max-width: 1100px; margin: 0 auto; }
         .blog-hero__label {
-            font-size: 0.72rem;
-            letter-spacing: 0.2em;
-            color: var(--muted);
-            margin-bottom: 0.5rem;
-            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.72rem; letter-spacing: 0.2em; color: var(--muted);
+            margin-bottom: 0.5rem; font-family: 'Share Tech Mono', monospace;
         }
-
-        .blog-hero__label::before {
-            content: '// ';
-            color: var(--green-dim);
-        }
-
+        .blog-hero__label::before { content: '// '; color: var(--green-dim); }
         .blog-hero__title {
             font-family: 'VT323', monospace;
             font-size: clamp(2.5rem, 6vw, 4.5rem);
-            color: var(--green);
-            text-shadow: 0 0 30px rgba(0, 255, 65, 0.4);
-            line-height: 1;
-            letter-spacing: 3px;
-            margin-bottom: 1rem;
+            color: var(--green); text-shadow: 0 0 30px rgba(0,255,65,0.4);
+            line-height: 1; letter-spacing: 3px; margin-bottom: 1rem;
         }
-
-        .blog-hero__title em {
-            color: var(--amber);
-            font-style: normal;
-            text-shadow: 0 0 20px rgba(255, 183, 0, 0.5);
-        }
-
+        .blog-hero__title em { color: var(--amber); font-style: normal; text-shadow: 0 0 20px rgba(255,183,0,0.5); }
         .blog-hero__sub {
-            font-size: 0.9rem;
-            color: var(--muted);
-            max-width: 520px;
-            line-height: 1.75;
-            margin-bottom: 1.75rem;
-            border-left: 2px solid var(--border-bright);
-            padding-left: 1rem;
+            font-size: 0.9rem; color: var(--muted); max-width: 520px;
+            line-height: 1.75; margin-bottom: 1.75rem;
+            border-left: 2px solid var(--border-bright); padding-left: 1rem;
         }
-
-        .blog-pills {
-            display: flex;
-            gap: 0.6rem;
-            flex-wrap: wrap;
-        }
-
+        .blog-pills { display: flex; gap: 0.6rem; flex-wrap: wrap; }
         .blog-pill {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.35rem;
-            font-size: 0.72rem;
-            padding: 0.3rem 0.8rem;
-            border-radius: 2px;
-            background: var(--surface);
-            border: 1px solid var(--border);
-            color: var(--muted);
-            font-family: 'Share Tech Mono', monospace;
-            letter-spacing: 1px;
+            display: inline-flex; align-items: center; gap: 0.35rem;
+            font-size: 0.72rem; padding: 0.3rem 0.8rem; border-radius: 2px;
+            background: var(--surface); border: 1px solid var(--border);
+            color: var(--muted); font-family: 'Share Tech Mono', monospace; letter-spacing: 1px;
         }
+        .blog-pill::before { content: '['; color: var(--green-dim); }
+        .blog-pill::after { content: ']'; color: var(--green-dim); }
 
-        .blog-pill::before {
-            content: '[';
-            color: var(--green-dim);
-        }
+        /* BLOG SECTION */
+        .blog-section { padding: 3rem 1.5rem 5rem; position: relative; z-index: 1; }
+        .blog-section__inner { max-width: 1100px; margin: 0 auto; }
 
-        .blog-pill::after {
-            content: ']';
-            color: var(--green-dim);
-        }
-
-        /* ===== BLOG SECTION ===== */
-        .blog-section {
-            padding: 3rem 1.5rem 5rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .blog-section__inner {
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        /* ===== CONTROLS ===== */
-        .blog-controls {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            align-items: center;
-            margin-bottom: 2.5rem;
-        }
-
+        /* CONTROLS */
+        .blog-controls { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; margin-bottom: 2.5rem; }
         .blog__search {
-            flex: 1;
-            min-width: 200px;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 3px;
-            padding: 0.55rem 0.85rem;
-            transition: border-color 0.2s;
+            flex: 1; min-width: 200px; display: flex; align-items: center; gap: 0.5rem;
+            background: var(--surface); border: 1px solid var(--border);
+            border-radius: 3px; padding: 0.55rem 0.85rem; transition: border-color 0.2s;
         }
-
-        .blog__search:focus-within {
-            border-color: var(--border-bright);
-            box-shadow: 0 0 10px rgba(0, 255, 65, 0.1);
-        }
-
-        .blog__search i {
-            color: var(--green);
-            font-size: 1rem;
-        }
-
+        .blog__search:focus-within { border-color: var(--border-bright); box-shadow: 0 0 10px rgba(0,255,65,0.1); }
+        .blog__search i { color: var(--green); font-size: 1rem; }
         .blog__search input {
-            flex: 1;
-            background: none;
-            border: none;
-            outline: none;
-            color: var(--text);
-            font-size: 0.82rem;
-            font-family: 'Share Tech Mono', monospace;
-            letter-spacing: 1px;
+            flex: 1; background: none; border: none; outline: none; color: var(--text);
+            font-size: 0.82rem; font-family: 'Share Tech Mono', monospace; letter-spacing: 1px;
         }
-
-        .blog__search input::placeholder {
-            color: var(--muted);
-        }
-
-        .blog__filter {
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-        }
-
-        .blog__filter label {
-            font-size: 0.75rem;
-            color: var(--muted);
-            font-family: 'Share Tech Mono', monospace;
-        }
-
-        .blog__filter label::before {
-            content: '$ ';
-            color: var(--green);
-        }
-
+        .blog__search input::placeholder { color: var(--muted); }
+        .blog__filter { display: flex; align-items: center; gap: 0.6rem; }
+        .blog__filter label { font-size: 0.75rem; color: var(--muted); font-family: 'Share Tech Mono', monospace; }
+        .blog__filter label::before { content: '$ '; color: var(--green); }
         .blog__filter select {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 3px;
-            padding: 0.5rem 0.8rem;
-            color: var(--text);
-            font-family: 'Share Tech Mono', monospace;
-            font-size: 0.78rem;
-            outline: none;
-            cursor: none;
-            transition: border-color 0.2s;
+            background: var(--surface); border: 1px solid var(--border);
+            border-radius: 3px; padding: 0.5rem 0.8rem; color: var(--text);
+            font-family: 'Share Tech Mono', monospace; font-size: 0.78rem;
+            outline: none; cursor: none; transition: border-color 0.2s;
         }
+        .blog__filter select:focus { border-color: var(--border-bright); }
 
-        .blog__filter select:focus {
-            border-color: var(--border-bright);
-        }
-
-        /* ===== GRID ===== */
-        .blog__grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1.25rem;
-        }
-
+        /* GRID */
+        .blog__grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.25rem; }
         .blog-card {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 4px;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
+            background: var(--surface); border: 1px solid var(--border);
+            border-radius: 4px; overflow: hidden; display: flex; flex-direction: column;
             transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
         }
-
         .blog-card:hover {
-            border-color: var(--border-bright);
-            transform: translateY(-4px);
-            box-shadow: 0 16px 50px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 255, 65, 0.08);
+            border-color: var(--border-bright); transform: translateY(-4px);
+            box-shadow: 0 16px 50px rgba(0,0,0,0.5), 0 0 20px rgba(0,255,65,0.08);
         }
-
-        .blog-card__cover-wrap {
-            position: relative;
-            height: 165px;
-            overflow: hidden;
-        }
-
+        .blog-card__cover-wrap { position: relative; height: 165px; overflow: hidden; }
         .blog-card__cover {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
+            width: 100%; height: 100%; object-fit: cover; display: block;
             background: var(--bg3);
             filter: grayscale(50%) brightness(0.55) sepia(30%) hue-rotate(90deg);
             transition: filter 0.3s;
         }
-
-        .blog-card:hover .blog-card__cover {
-            filter: grayscale(20%) brightness(0.75) sepia(20%) hue-rotate(90deg);
-        }
-
+        .blog-card:hover .blog-card__cover { filter: grayscale(20%) brightness(0.75) sepia(20%) hue-rotate(90deg); }
         .blog-card__cover-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(180deg, transparent 40%, rgba(1, 11, 3, 0.9) 100%);
+            position: absolute; inset: 0;
+            background: linear-gradient(180deg, transparent 40%, rgba(1,11,3,0.9) 100%);
         }
-
-        .blog-card__body {
-            padding: 1.1rem 1.25rem;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            gap: 0.55rem;
-        }
-
-        .blog-card__category {
-            font-size: 0.68rem;
-            font-family: 'Share Tech Mono', monospace;
-            letter-spacing: 1px;
-            color: var(--cyan);
-        }
-
-        .blog-card__category::before {
-            content: '» ';
-            color: var(--green-dim);
-        }
-
-        .blog-card__title {
-            font-family: 'VT323', monospace;
-            font-size: 1.25rem;
-            color: var(--green);
-            line-height: 1.2;
-            letter-spacing: 1px;
-        }
-
-        .blog-card__meta {
-            font-size: 0.72rem;
-            color: var(--muted);
-            font-family: 'Share Tech Mono', monospace;
-        }
-
-        .blog-card__meta::before {
-            content: '// ';
-            color: var(--green-dim);
-        }
-
-        .blog-card__excerpt {
-            font-size: 0.8rem;
-            color: var(--muted);
-            line-height: 1.65;
-            flex: 1;
-        }
-
-        .blog-card__tags {
-            display: flex;
-            gap: 0.35rem;
-            flex-wrap: wrap;
-        }
-
+        .blog-card__body { padding: 1.1rem 1.25rem; flex: 1; display: flex; flex-direction: column; gap: 0.55rem; }
+        .blog-card__category { font-size: 0.68rem; font-family: 'Share Tech Mono', monospace; letter-spacing: 1px; color: var(--cyan); }
+        .blog-card__category::before { content: '» '; color: var(--green-dim); }
+        .blog-card__title { font-family: 'VT323', monospace; font-size: 1.25rem; color: var(--green); line-height: 1.2; letter-spacing: 1px; }
+        .blog-card__meta { font-size: 0.72rem; color: var(--muted); font-family: 'Share Tech Mono', monospace; }
+        .blog-card__meta::before { content: '// '; color: var(--green-dim); }
+        .blog-card__excerpt { font-size: 0.8rem; color: var(--muted); line-height: 1.65; flex: 1; }
+        .blog-card__tags { display: flex; gap: 0.35rem; flex-wrap: wrap; }
         .blog-tag {
-            font-size: 0.68rem;
-            padding: 0.18rem 0.5rem;
-            border-radius: 2px;
-            background: rgba(0, 245, 255, 0.05);
-            border: 1px solid rgba(0, 245, 255, 0.15);
-            color: var(--cyan);
-            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.68rem; padding: 0.18rem 0.5rem; border-radius: 2px;
+            background: rgba(0,245,255,0.05); border: 1px solid rgba(0,245,255,0.15);
+            color: var(--cyan); font-family: 'Share Tech Mono', monospace;
         }
-
         .blog-card__btn {
-            margin-top: auto;
-            width: 100%;
-            background: transparent;
-            color: var(--green);
-            border: 1px solid var(--border-bright);
-            border-radius: 2px;
-            padding: 0.6rem;
-            cursor: none;
-            font-weight: 600;
-            font-size: 0.78rem;
-            font-family: 'Share Tech Mono', monospace;
-            letter-spacing: 1px;
+            margin-top: auto; width: 100%; background: transparent; color: var(--green);
+            border: 1px solid var(--border-bright); border-radius: 2px; padding: 0.6rem;
+            cursor: none; font-weight: 600; font-size: 0.78rem;
+            font-family: 'Share Tech Mono', monospace; letter-spacing: 1px;
             transition: background 0.2s, box-shadow 0.2s;
         }
-
-        .blog-card__btn::before {
-            content: '→ ';
-        }
-
-        .blog-card__btn:hover {
-            background: var(--green-glow-strong);
-            box-shadow: 0 0 14px rgba(0, 255, 65, 0.2);
-        }
-
+        .blog-card__btn::before { content: '→ '; }
+        .blog-card__btn:hover { background: var(--green-glow-strong); box-shadow: 0 0 14px rgba(0,255,65,0.2); }
         .blog-empty {
-            grid-column: 1/-1;
-            padding: 4rem;
-            text-align: center;
-            color: var(--muted);
-            background: var(--surface);
-            border-radius: 4px;
-            border: 1px dashed var(--border);
+            grid-column: 1/-1; padding: 4rem; text-align: center; color: var(--muted);
+            background: var(--surface); border-radius: 4px; border: 1px dashed var(--border);
             font-family: 'Share Tech Mono', monospace;
         }
+        .blog-empty::before { content: 'ERROR_404 :: '; color: var(--red); }
 
-        .blog-empty::before {
-            content: 'ERROR_404 :: ';
-            color: var(--red);
-        }
-
-        /* ===== MODAL ===== */
+        /* MODAL */
         .blog-modal {
-            position: fixed;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.82);
-            display: none;
-            align-items: center;
-            justify-content: center;
-            z-index: 10000;
-            padding: 1rem;
-            backdrop-filter: blur(6px);
+            position: fixed; inset: 0; background: rgba(0,0,0,0.82);
+            display: none; align-items: center; justify-content: center;
+            z-index: 10000; padding: 1rem; backdrop-filter: blur(6px);
         }
-
-        .blog-modal.active {
-            display: flex;
-        }
-
+        .blog-modal.active { display: flex; }
         .blog-modal__card {
-            width: min(860px, 100%);
-            max-height: min(88vh, 920px);
-            background: var(--bg2);
-            border: 1px solid var(--border-bright);
-            border-radius: 4px;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.7), 0 0 40px rgba(0, 255, 65, 0.1);
+            width: min(860px, 100%); max-height: min(88vh, 920px);
+            background: var(--bg2); border: 1px solid var(--border-bright);
+            border-radius: 4px; overflow: hidden; display: flex; flex-direction: column;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.7), 0 0 40px rgba(0,255,65,0.1);
         }
-
         .blog-modal__header {
-            padding: 1.25rem 1.5rem 1rem;
-            border-bottom: 1px solid var(--border);
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            gap: 1rem;
-            background: var(--bg3);
+            padding: 1.25rem 1.5rem 1rem; border-bottom: 1px solid var(--border);
+            display: flex; justify-content: space-between; align-items: flex-start;
+            gap: 1rem; background: var(--bg3);
         }
-
-        .blog-modal__category {
-            font-size: 0.7rem;
-            font-family: 'Share Tech Mono', monospace;
-            color: var(--cyan);
-            margin-bottom: 0.4rem;
-            letter-spacing: 1px;
-        }
-
-        .blog-modal__category::before {
-            content: '[';
-        }
-
-        .blog-modal__category::after {
-            content: ']';
-        }
-
-        .blog-modal__title {
-            font-family: 'VT323', monospace;
-            font-size: 1.75rem;
-            color: var(--green);
-            text-shadow: 0 0 15px rgba(0, 255, 65, 0.3);
-            letter-spacing: 1px;
-        }
-
-        .blog-modal__meta {
-            font-size: 0.75rem;
-            color: var(--muted);
-            margin-top: 0.35rem;
-            font-family: 'Share Tech Mono', monospace;
-        }
-
-        .blog-modal__meta::before {
-            content: '// ';
-            color: var(--green-dim);
-        }
-
+        .blog-modal__category { font-size: 0.7rem; font-family: 'Share Tech Mono', monospace; color: var(--cyan); margin-bottom: 0.4rem; letter-spacing: 1px; }
+        .blog-modal__category::before { content: '['; }
+        .blog-modal__category::after { content: ']'; }
+        .blog-modal__title { font-family: 'VT323', monospace; font-size: 1.75rem; color: var(--green); text-shadow: 0 0 15px rgba(0,255,65,0.3); letter-spacing: 1px; }
+        .blog-modal__meta { font-size: 0.75rem; color: var(--muted); margin-top: 0.35rem; font-family: 'Share Tech Mono', monospace; }
+        .blog-modal__meta::before { content: '// '; color: var(--green-dim); }
         .blog-modal__close {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 3px;
-            width: 38px;
-            height: 38px;
-            cursor: none;
-            color: var(--muted);
-            font-size: 1.2rem;
-            display: grid;
-            place-items: center;
-            flex-shrink: 0;
-            transition: all 0.2s;
+            background: var(--surface); border: 1px solid var(--border); border-radius: 3px;
+            width: 38px; height: 38px; cursor: none; color: var(--muted); font-size: 1.2rem;
+            display: grid; place-items: center; flex-shrink: 0; transition: all 0.2s;
         }
-
-        .blog-modal__close:hover {
-            color: var(--red);
-            border-color: var(--red);
-            background: rgba(255, 42, 42, 0.08);
-        }
-
-        .blog-modal__body {
-            padding: 1.5rem;
-            overflow-y: auto;
-            flex: 1;
-            line-height: 1.8;
-            color: var(--muted);
-            font-size: 0.88rem;
-        }
-
-        .blog-modal__body p {
-            margin-bottom: 1rem;
-        }
-
-        .blog-modal__body h4 {
-            font-family: 'VT323', monospace;
-            font-size: 1.35rem;
-            color: var(--green);
-            margin: 1.5rem 0 0.5rem;
-            letter-spacing: 1px;
-        }
-
-        .blog-modal__body h4::before {
-            content: '## ';
-            color: var(--green-dim);
-        }
-
-        .blog-modal__body ul,
-        .blog-modal__body ol {
-            padding-left: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .blog-modal__body li {
-            margin-bottom: 0.4rem;
-        }
-
-        .blog-modal__body li::marker {
-            color: var(--green);
-        }
-
-        .blog-modal__body strong {
-            color: var(--text);
-        }
-
-        .blog-modal__body code {
-            font-family: 'Share Tech Mono', monospace;
-            background: var(--bg3);
-            border: 1px solid var(--border);
-            padding: 0.1rem 0.4rem;
-            border-radius: 2px;
-            color: var(--cyan);
-            font-size: 0.85em;
-        }
-
-        .blog-modal__cover img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-            border-radius: 3px;
-            margin-bottom: 1.25rem;
-            filter: grayscale(30%) brightness(0.7) sepia(20%) hue-rotate(90deg);
-        }
-
-        .blog-modal__footer {
-            padding: 0.85rem 1.5rem;
-            border-top: 1px solid var(--border);
-            display: flex;
-            justify-content: space-between;
-            gap: 1rem;
-            background: var(--bg3);
-        }
-
+        .blog-modal__close:hover { color: var(--red); border-color: var(--red); background: rgba(255,42,42,0.08); }
+        .blog-modal__body { padding: 1.5rem; overflow-y: auto; flex: 1; line-height: 1.8; color: var(--muted); font-size: 0.88rem; }
+        .blog-modal__body p { margin-bottom: 1rem; }
+        .blog-modal__body h4 { font-family: 'VT323', monospace; font-size: 1.35rem; color: var(--green); margin: 1.5rem 0 0.5rem; letter-spacing: 1px; }
+        .blog-modal__body h4::before { content: '## '; color: var(--green-dim); }
+        .blog-modal__body ul, .blog-modal__body ol { padding-left: 1.5rem; margin-bottom: 1rem; }
+        .blog-modal__body li { margin-bottom: 0.4rem; }
+        .blog-modal__body li::marker { color: var(--green); }
+        .blog-modal__body strong { color: var(--text); }
+        .blog-modal__body code { font-family: 'Share Tech Mono', monospace; background: var(--bg3); border: 1px solid var(--border); padding: 0.1rem 0.4rem; border-radius: 2px; color: var(--cyan); font-size: 0.85em; }
+        .blog-modal__cover img { width: 100%; height: 220px; object-fit: cover; border-radius: 3px; margin-bottom: 1.25rem; filter: grayscale(30%) brightness(0.7) sepia(20%) hue-rotate(90deg); }
+        .blog-modal__footer { padding: 0.85rem 1.5rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; gap: 1rem; background: var(--bg3); }
         .blog-modal__btn {
-            background: transparent;
-            color: var(--green);
-            border: 1px solid var(--border-bright);
-            border-radius: 2px;
-            padding: 0.55rem 1.1rem;
-            cursor: none;
-            font-weight: 600;
-            font-family: 'Share Tech Mono', monospace;
-            font-size: 0.75rem;
-            letter-spacing: 1px;
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
-            transition: all 0.2s;
+            background: transparent; color: var(--green); border: 1px solid var(--border-bright);
+            border-radius: 2px; padding: 0.55rem 1.1rem; cursor: none; font-weight: 600;
+            font-family: 'Share Tech Mono', monospace; font-size: 0.75rem; letter-spacing: 1px;
+            display: flex; align-items: center; gap: 0.4rem; transition: all 0.2s;
         }
+        .blog-modal__btn:hover:not([disabled]) { background: var(--green-glow); box-shadow: 0 0 12px rgba(0,255,65,0.25); }
+        .blog-modal__btn[disabled] { opacity: 0.3; cursor: not-allowed; }
 
-        .blog-modal__btn:hover:not([disabled]) {
-            background: var(--green-glow);
-            box-shadow: 0 0 12px rgba(0, 255, 65, 0.25);
-        }
-
-        .blog-modal__btn[disabled] {
-            opacity: 0.3;
-            cursor: not-allowed;
-        }
-
-        /* ===== CHATBOT ===== */
-        #chatbot-widget {
-            position: fixed;
-            bottom: 1.75rem;
-            right: 1.75rem;
-            z-index: 500;
-        }
-
+        /* CHATBOT */
+        #chatbot-widget { position: fixed; bottom: 1.75rem; right: 1.75rem; z-index: 500; }
         .chatbot-toggle-btn {
-            width: 50px;
-            height: 50px;
-            border-radius: 3px;
-            background: var(--bg);
-            color: var(--green);
-            border: 1px solid var(--green);
-            cursor: none;
-            font-size: 1.3rem;
-            box-shadow: 0 0 20px rgba(0, 255, 65, 0.3);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.2s;
+            width: 50px; height: 50px; border-radius: 3px; background: var(--bg);
+            color: var(--green); border: 1px solid var(--green); cursor: none; font-size: 1.3rem;
+            box-shadow: 0 0 20px rgba(0,255,65,0.3); display: flex; align-items: center; justify-content: center; transition: all 0.2s;
         }
-
-        .chatbot-toggle-btn:hover {
-            background: var(--green-glow);
-            box-shadow: 0 0 30px rgba(0, 255, 65, 0.5);
-            transform: scale(1.05)
-        }
-
+        .chatbot-toggle-btn:hover { background: var(--green-glow); box-shadow: 0 0 30px rgba(0,255,65,0.5); transform: scale(1.05); }
         .chatbot-window {
-            position: absolute;
-            bottom: 65px;
-            right: 0;
-            width: 320px;
-            max-height: 460px;
-            background: var(--bg2);
-            border: 1px solid var(--border-bright);
-            border-radius: 4px;
-            display: none;
-            flex-direction: column;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6), 0 0 25px rgba(0, 255, 65, 0.08);
+            position: absolute; bottom: 65px; right: 0; width: 320px; max-height: 460px;
+            background: var(--bg2); border: 1px solid var(--border-bright); border-radius: 4px;
+            display: none; flex-direction: column;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.6), 0 0 25px rgba(0,255,65,0.08);
         }
+        .chatbot-window.active { display: flex; }
+        .chatbot-header { background: var(--bg3); border-bottom: 1px solid var(--border); padding: 0.7rem 1rem; display: flex; align-items: center; justify-content: space-between; }
+        .chatbot-header h3 { color: var(--green); font-size: 0.8rem; font-family: 'Share Tech Mono', monospace; letter-spacing: 1px; }
+        .chatbot-header h3::before { content: '$ '; opacity: 0.6; }
+        .chatbot-close-btn { background: none; border: none; color: var(--muted); font-size: 1.2rem; cursor: none; transition: color 0.2s; }
+        .chatbot-close-btn:hover { color: var(--red); }
+        .chatbot-messages { flex: 1; overflow-y: auto; padding: 0.75rem; display: flex; flex-direction: column; gap: 0.5rem; }
+        .message { display: flex; flex-direction: column; }
+        .bot-message { align-items: flex-start; }
+        .user-message { align-items: flex-end; }
+        .message-content { max-width: 90%; border-radius: 3px; padding: 0.55rem 0.75rem; font-size: 0.78rem; line-height: 1.5; font-family: 'Share Tech Mono', monospace; }
+        .bot-message .message-content { background: var(--surface); color: var(--green); border-left: 2px solid var(--green); }
+        .bot-message .message-content::before { content: '> '; color: var(--green-dim); }
+        .user-message .message-content { background: var(--green-glow); color: var(--text); border-right: 2px solid var(--green); }
+        .chatbot-input-container { display: flex; gap: 0.4rem; padding: 0.6rem; border-top: 1px solid var(--border); }
+        #chatbot-input { flex: 1; background: var(--surface); border: 1px solid var(--border); border-radius: 2px; padding: 0.45rem 0.65rem; font-size: 0.75rem; color: var(--text); font-family: 'Share Tech Mono', monospace; outline: none; }
+        #chatbot-input:focus { border-color: var(--green); }
+        #chatbot-input::placeholder { color: var(--muted); }
+        #chatbot-send { width: 30px; height: 30px; border-radius: 2px; background: var(--green-dark); border: 1px solid var(--green); color: var(--green); cursor: none; font-size: 0.85rem; display: flex; align-items: center; justify-content: center; transition: all 0.15s; }
+        #chatbot-send:hover { background: var(--green-glow); box-shadow: 0 0 10px rgba(0,255,65,0.3); }
 
-        .chatbot-window.active {
-            display: flex
-        }
+        /* SCROLLBAR */
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-track { background: var(--bg); }
+        ::-webkit-scrollbar-thumb { background: var(--green-dark); border-radius: 99px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--green-dim); }
 
-        .chatbot-header {
-            background: var(--bg3);
-            border-bottom: 1px solid var(--border);
-            padding: 0.7rem 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between
-        }
-
-        .chatbot-header h3 {
-            color: var(--green);
-            font-size: 0.8rem;
-            font-family: 'Share Tech Mono', monospace;
-            letter-spacing: 1px
-        }
-
-        .chatbot-header h3::before {
-            content: '$ ';
-            opacity: 0.6
-        }
-
-        .chatbot-close-btn {
-            background: none;
-            border: none;
-            color: var(--muted);
-            font-size: 1.2rem;
-            cursor: none;
-            transition: color 0.2s
-        }
-
-        .chatbot-close-btn:hover {
-            color: var(--red)
-        }
-
-        .chatbot-messages {
-            flex: 1;
-            overflow-y: auto;
-            padding: 0.75rem;
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem
-        }
-
-        .message {
-            display: flex;
-            flex-direction: column
-        }
-
-        .bot-message {
-            align-items: flex-start
-        }
-
-        .user-message {
-            align-items: flex-end
-        }
-
-        .message-content {
-            max-width: 90%;
-            border-radius: 3px;
-            padding: 0.55rem 0.75rem;
-            font-size: 0.78rem;
-            line-height: 1.5;
-            font-family: 'Share Tech Mono', monospace
-        }
-
-        .bot-message .message-content {
-            background: var(--surface);
-            color: var(--green);
-            border-left: 2px solid var(--green)
-        }
-
-        .bot-message .message-content::before {
-            content: '> ';
-            color: var(--green-dim)
-        }
-
-        .user-message .message-content {
-            background: var(--green-glow);
-            color: var(--text);
-            border-right: 2px solid var(--green)
-        }
-
-        .chatbot-input-container {
-            display: flex;
-            gap: 0.4rem;
-            padding: 0.6rem;
-            border-top: 1px solid var(--border)
-        }
-
-        #chatbot-input {
-            flex: 1;
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 2px;
-            padding: 0.45rem 0.65rem;
-            font-size: 0.75rem;
-            color: var(--text);
-            font-family: 'Share Tech Mono', monospace;
-            outline: none
-        }
-
-        #chatbot-input:focus {
-            border-color: var(--green)
-        }
-
-        #chatbot-input::placeholder {
-            color: var(--muted)
-        }
-
-        #chatbot-send {
-            width: 30px;
-            height: 30px;
-            border-radius: 2px;
-            background: var(--green-dark);
-            border: 1px solid var(--green);
-            color: var(--green);
-            cursor: none;
-            font-size: 0.85rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.15s
-        }
-
-        #chatbot-send:hover {
-            background: var(--green-glow);
-            box-shadow: 0 0 10px rgba(0, 255, 65, 0.3)
-        }
-
-        /* ===== SCROLLBAR ===== */
-        ::-webkit-scrollbar {
-            width: 5px
-        }
-
-        ::-webkit-scrollbar-track {
-            background: var(--bg)
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: var(--green-dark);
-            border-radius: 99px
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--green-dim)
-        }
-
-        /* ===== REVEAL ===== */
-        .reveal {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease, transform 0.6s ease
-        }
-
-        .reveal.visible {
-            opacity: 1;
-            transform: none
-        }
+        /* REVEAL */
+        .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+        .reveal.visible { opacity: 1; transform: none; }
     </style>
 </head>
 
 <body>
 
-    <!-- CURSOR -->
     <div id="cursor"></div>
     <div id="cursor-dot"></div>
-
-    <!-- MATRIX CANVAS -->
     <canvas id="matrix-bg"></canvas>
 
-    <!-- LOADING -->
+    <!-- LOADING — slim terminal with site/blog prompt -->
     <div id="loading-screen">
         <div class="ls-terminal">
             <div class="ls-titlebar">
                 <div class="ls-titlebar-dot"></div>
                 <div class="ls-titlebar-dot"></div>
                 <div class="ls-titlebar-dot"></div>
-                <span style="margin-left:0.5rem">bss@blog:~</span>
+                <span style="margin-left:0.4rem">bss@terminal:~</span>
             </div>
-            <div class="ls-body">
-                <div class="ls-line"><span class="prompt">bss@blog:~$ </span><span>cat blog/index.md</span></div>
-                <div class="ls-line out" id="ls-1" style="opacity:0">[ OK ] Fetching posts database...</div>
-                <div class="ls-line out" id="ls-2" style="opacity:0">[ OK ] Parsing 15 articles...</div>
-                <div class="ls-line warn" id="ls-3" style="opacity:0">[ .. ] Rendering markdown...</div>
-                <div class="ls-line out" id="ls-4" style="opacity:0">[ OK ] Blog ready. Access granted.</div>
-                <div class="ls-line warn" id="ls-q" style="display:none; color: var(--amber);">[ ? ] If you want to open
-                    a Portfolio write 'site' or to open Blog write 'blog':</div>
-                <div id="ls-interactive-container">
-                    <div class="ls-line" id="ls-5" style="opacity:0">
-                        <span style="color:#00ff41">bss@blog:~$ </span><span id="ls-user-input"
-                            style="color:var(--cyan);text-shadow:0 0 8px var(--cyan)"></span><span
-                            class="ls-cursor-blink"></span>
-                    </div>
+            <div class="ls-body" id="ls-body">
+                <div class="ls-line"><span class="prompt">bss@dev:~$ </span><span>./boot_portfolio.sh</span></div>
+                <div class="ls-line" id="ls-1" style="opacity:0;color:#5dde74">[ OK ] Initializing environment...</div>
+                <div class="ls-line" id="ls-2" style="opacity:0;color:#5dde74">[ OK ] Loading AI/ML modules...</div>
+                <div class="ls-line" id="ls-3" style="opacity:0;color:var(--amber)">[ .. ] Connecting to matrix...</div>
+                <div class="ls-line" id="ls-4" style="opacity:0;color:#5dde74">[ OK ] Systems online. Welcome.</div>
+                <div class="ls-line" id="ls-q" style="display:none;color:var(--amber)">
+                    [ ? ] Type <span style="color:var(--cyan)">site</span> or
+                    <span style="color:var(--cyan)">blog</span> then press Enter:
                 </div>
-                <input type="text" id="ls-hidden-input"
-                    style="position: absolute; opacity: 0; pointer-events: none; width: 0; height: 0;"
-                    autocomplete="off" spellcheck="false">
-                <div class="ls-bar-wrap" id="ls-bar-wrap" style="opacity:0;margin-top:0.75rem">
+                <!-- interactive typed display -->
+                <div id="ls-interactive-container"></div>
+                <!-- real focusable input (mobile-safe) -->
+                <div class="ls-input-row" id="ls-input-row" style="display:none;margin-top:0.2rem;">
+                    <span class="ls-input-prompt">bss@dev:~$&nbsp;</span>
+                    <input type="text" id="ls-real-input" class="ls-real-input"
+                        autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false">
+                </div>
+                <div class="ls-bar-wrap" id="ls-bar-wrap" style="opacity:0;margin-top:0.6rem">
                     <div class="ls-bar"></div>
                 </div>
             </div>
@@ -1149,8 +469,7 @@
                 </ul>
             </div>
             <div style="display:flex;align-items:center;gap:0.5rem;">
-                <a href="assets/cv/Bhavya_Solanki_Resume.pdf" download class="nav__cv-btn"><i
-                        class='bx bx-download'></i> resume.pdf</a>
+                <a href="assets/cv/Bhavya_Solanki_Resume.pdf" download class="nav__cv-btn"><i class='bx bx-download'></i> resume.pdf</a>
                 <button class="nav__toggle" id="nav-toggle"><i class='bx bx-menu'></i></button>
             </div>
         </nav>
@@ -1161,8 +480,7 @@
         <div class="blog-hero__inner reveal">
             <p class="blog-hero__label">writing_and_thoughts.log</p>
             <h1 class="blog-hero__title">Bhavya's <em>Blog</em></h1>
-            <p class="blog-hero__sub">Articles on AI/ML, Python, Data Science, Web Development, and everything in
-                between. Raw thoughts. Real code.</p>
+            <p class="blog-hero__sub">Articles on AI/ML, Python, Data Science, Web Development, and everything in between. Raw thoughts. Real code.</p>
             <div class="blog-pills">
                 <span class="blog-pill">Articles</span>
                 <span class="blog-pill">Searchable</span>
@@ -1203,10 +521,8 @@
             </div>
             <div class="blog-modal__body" id="blogModalBody"></div>
             <div class="blog-modal__footer">
-                <button class="blog-modal__btn" id="blogModalPrev"><i class='bx bx-left-arrow-alt'></i>
-                    prev_post</button>
-                <button class="blog-modal__btn" id="blogModalNext">next_post <i
-                        class='bx bx-right-arrow-alt'></i></button>
+                <button class="blog-modal__btn" id="blogModalPrev"><i class='bx bx-left-arrow-alt'></i> prev_post</button>
+                <button class="blog-modal__btn" id="blogModalNext">next_post <i class='bx bx-right-arrow-alt'></i></button>
             </div>
         </div>
     </div>
@@ -1232,7 +548,7 @@
     </div>
 
     <script>
-        // ===== CURSOR =====
+        // CURSOR
         const cursor = document.getElementById('cursor');
         const cursorDot = document.getElementById('cursor-dot');
         document.addEventListener('mousemove', e => {
@@ -1244,12 +560,12 @@
             el.addEventListener('mouseleave', () => { cursor.style.width = '20px'; cursor.style.height = '20px'; });
         });
 
-        // ===== MATRIX =====
+        // MATRIX
         const canvas = document.getElementById('matrix-bg');
         const ctx = canvas.getContext('2d');
         function resizeCanvas() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
         resizeCanvas(); window.addEventListener('resize', resizeCanvas);
-        const chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ$#@%&*<>[]{}アイウエオカキ';
+        const chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ$#@%&*<>[]{}';
         const fontSize = 13; let cols, drops;
         function initMatrix() { cols = Math.floor(canvas.width / fontSize); drops = Array(cols).fill(0).map(() => Math.random() * -50); }
         initMatrix(); window.addEventListener('resize', initMatrix);
@@ -1268,619 +584,167 @@
         const preferredDest = sessionStorage.getItem('preferred_destination');
 
         function showLine(id, delay) {
-            return new Promise((resolve) => {
-                setTimeout(() => {
-                    const el = document.getElementById(id);
-                    if (el) el.style.opacity = '1';
-                    resolve();
-                }, delay);
+            return new Promise(resolve => {
+                setTimeout(() => { const el = document.getElementById(id); if (el) el.style.opacity = '1'; resolve(); }, delay);
             });
+        }
+
+        function hideLoadingScreen() {
+            const ls = document.getElementById('loading-screen');
+            if (ls) {
+                ls.style.transition = 'opacity 0.8s ease';
+                ls.style.opacity = '0';
+                setTimeout(() => ls.style.display = 'none', 800);
+            }
+        }
+
+        function scrollBody() {
+            const b = document.getElementById('ls-body'); if (b) b.scrollTop = b.scrollHeight;
+        }
+
+        function appendStatusLine(container, text, color) {
+            const d = document.createElement('div');
+            d.className = 'ls-line'; d.style.color = color || 'var(--green)';
+            d.textContent = text; container.appendChild(d); scrollBody();
+        }
+
+        function buildTypedLine(container, typedRef) {
+            const line = document.createElement('div');
+            line.className = 'ls-line';
+            line.style.cssText = 'display:flex;align-items:center;flex-wrap:wrap;';
+            const p = document.createElement('span'); p.style.color = '#00ff41'; p.textContent = 'bss@dev:~$ ';
+            const t = document.createElement('span'); t.style.color = '#00f5ff'; t.style.textShadow = '0 0 8px #00f5ff';
+            const c = document.createElement('span'); c.className = 'ls-cursor-blink';
+            line.appendChild(p); line.appendChild(t); line.appendChild(c);
+            container.appendChild(line);
+            typedRef.span = t; typedRef.cursor = c;
+            scrollBody();
         }
 
         async function startLoadingSequence() {
             await showLine('ls-1', 300);
-            await showLine('ls-2', 350);
-            await showLine('ls-3', 350);
-            await showLine('ls-4', 350);
-
+            await showLine('ls-2', 650);
+            await showLine('ls-3', 1000);
+            await showLine('ls-4', 1350);
             const bw = document.getElementById('ls-bar-wrap');
             if (bw) bw.style.opacity = '1';
 
+            // Already chose a destination this session — skip prompt
             if (preferredDest === 'site' || preferredDest === 'blog') {
-                // Destination already chosen in this session, fast-track loading
-                await showLine('ls-5', 350);
-                const hideLS = () => {
-                    setTimeout(() => {
-                        const ls = document.getElementById('loading-screen');
-                        if (ls) {
-                            ls.style.transition = 'opacity 0.8s ease';
-                            ls.style.opacity = '0';
-                            setTimeout(() => ls.style.display = 'none', 800);
-                        }
-                    }, 600);
-                };
-                if (document.readyState === 'complete') {
-                    hideLS();
-                } else {
-                    window.addEventListener('load', hideLS);
-                    setTimeout(hideLS, 3000); // Fallback
-                }
-            } else {
-                // First visit in this session - show interactive question
-                const lsQ = document.getElementById('ls-q');
-                if (lsQ) lsQ.style.display = 'block';
-                await showLine('ls-5', 350);
-
-                const hiddenInput = document.getElementById('ls-hidden-input');
-                const interactiveContainer = document.getElementById('ls-interactive-container');
-                let currentInputSpan = document.getElementById('ls-user-input');
-                const loadingScreen = document.getElementById('loading-screen');
-
-                // Focus hidden input on click/tap anywhere on loading screen
-                if (loadingScreen && hiddenInput) {
-                    const focusInput = () => { hiddenInput.focus(); };
-                    loadingScreen.addEventListener('click', focusInput);
-                    loadingScreen.addEventListener('touchstart', focusInput);
-                    hiddenInput.focus();
-                }
-
-                if (hiddenInput && currentInputSpan && interactiveContainer) {
-                    hiddenInput.addEventListener('input', () => {
-                        if (currentInputSpan) {
-                            currentInputSpan.textContent = hiddenInput.value;
-                        }
-                    });
-
-                    hiddenInput.addEventListener('keydown', async (e) => {
-                        if (e.key === 'Enter') {
-                            const val = hiddenInput.value;
-                            const valTrimmed = val.trim().toLowerCase();
-
-                            if (valTrimmed === 'site' || valTrimmed === 'portfolio') {
-                                hiddenInput.disabled = true;
-                                const activeLine = document.getElementById('ls-active-line') || document.getElementById('ls-5');
-                                if (activeLine) {
-                                    const cursorBlink = activeLine.querySelector('.ls-cursor-blink');
-                                    if (cursorBlink) cursorBlink.remove();
-                                }
-
-                                const okLine = document.createElement('div');
-                                okLine.className = 'ls-line out';
-                                okLine.textContent = '[ OK ] Redirecting to Portfolio...';
-                                interactiveContainer.appendChild(okLine);
-
-                                sessionStorage.setItem('preferred_destination', 'site');
-
-                                const lsBody = document.querySelector('.ls-body');
-                                if (lsBody) lsBody.scrollTop = lsBody.scrollHeight;
-
-                                setTimeout(() => {
-                                    window.location.href = 'index.html';
-                                }, 1000);
-                            } else if (valTrimmed === 'blog') {
-                                hiddenInput.disabled = true;
-                                const activeLine = document.getElementById('ls-active-line') || document.getElementById('ls-5');
-                                if (activeLine) {
-                                    const cursorBlink = activeLine.querySelector('.ls-cursor-blink');
-                                    if (cursorBlink) cursorBlink.remove();
-                                }
-
-                                const okLine = document.createElement('div');
-                                okLine.className = 'ls-line out';
-                                okLine.textContent = '[ OK ] Loading Blog...';
-                                interactiveContainer.appendChild(okLine);
-
-                                sessionStorage.setItem('preferred_destination', 'blog');
-
-                                const lsBody = document.querySelector('.ls-body');
-                                if (lsBody) lsBody.scrollTop = lsBody.scrollHeight;
-
-                                setTimeout(() => {
-                                    loadingScreen.style.transition = 'opacity 0.8s ease';
-                                    loadingScreen.style.opacity = '0';
-                                    setTimeout(() => loadingScreen.style.display = 'none', 800);
-                                }, 800);
-                            } else {
-                                // Invalid command - prompt again in a loop
-                                const activeLine = document.getElementById('ls-active-line') || document.getElementById('ls-5');
-                                if (activeLine) {
-                                    activeLine.removeAttribute('id');
-                                    const cursorBlink = activeLine.querySelector('.ls-cursor-blink');
-                                    if (cursorBlink) cursorBlink.remove();
-                                }
-
-                                const errLine = document.createElement('div');
-                                errLine.className = 'ls-line warn';
-                                errLine.textContent = `[ ERR ] Unknown command '${val.trim()}'. Choose 'site' or 'blog'.`;
-                                interactiveContainer.appendChild(errLine);
-
-                                hiddenInput.value = '';
-
-                                const newLine = document.createElement('div');
-                                newLine.className = 'ls-line';
-                                newLine.id = 'ls-active-line';
-
-                                const promptSpan = document.createElement('span');
-                                promptSpan.style.color = '#00ff41';
-                                promptSpan.textContent = 'bss@blog:~$ ';
-
-                                const inputSpan = document.createElement('span');
-                                inputSpan.style.color = 'var(--cyan)';
-                                inputSpan.style.textShadow = '0 0 8px var(--cyan)';
-
-                                const cursorSpan = document.createElement('span');
-                                cursorSpan.className = 'ls-cursor-blink';
-
-                                newLine.appendChild(promptSpan);
-                                newLine.appendChild(inputSpan);
-                                newLine.appendChild(cursorSpan);
-
-                                interactiveContainer.appendChild(newLine);
-                                currentInputSpan = inputSpan;
-
-                                const lsBody = document.querySelector('.ls-body');
-                                if (lsBody) lsBody.scrollTop = lsBody.scrollHeight;
-                            }
-                        }
-                    });
-                }
+                const hide = () => setTimeout(hideLoadingScreen, 600);
+                document.readyState === 'complete' ? hide() : (window.addEventListener('load', hide), setTimeout(hide, 3000));
+                return;
             }
+
+            // Show the prompt question
+            await new Promise(r => setTimeout(r, 400));
+            const lsQ = document.getElementById('ls-q');
+            if (lsQ) lsQ.style.display = 'block';
+            scrollBody();
+
+            const container = document.getElementById('ls-interactive-container');
+            const loadingScreen = document.getElementById('loading-screen');
+            const typedRef = { span: null, cursor: null };
+            buildTypedLine(container, typedRef);
+
+            // Invisible input that captures all keyboard / mobile input
+            const hiddenInput = document.createElement('input');
+            hiddenInput.type = 'text';
+            hiddenInput.setAttribute('autocomplete', 'off');
+            hiddenInput.setAttribute('autocorrect', 'off');
+            hiddenInput.setAttribute('autocapitalize', 'none');
+            hiddenInput.setAttribute('spellcheck', 'false');
+            hiddenInput.setAttribute('inputmode', 'text');
+            hiddenInput.setAttribute('enterkeyhint', 'go');
+            hiddenInput.style.cssText = 'position:fixed;top:0;left:0;opacity:0;pointer-events:none;width:1px;height:1px;border:none;outline:none;background:transparent;color:transparent;';
+            document.body.appendChild(hiddenInput);
+
+            const focusInput = () => hiddenInput.focus();
+            loadingScreen.addEventListener('click', focusInput);
+            loadingScreen.addEventListener('touchstart', focusInput, { passive: true });
+            setTimeout(focusInput, 150);
+
+            hiddenInput.addEventListener('input', () => {
+                if (typedRef.span) typedRef.span.textContent = hiddenInput.value;
+                scrollBody();
+            });
+
+            hiddenInput.addEventListener('keydown', function handler(e) {
+                if (e.key !== 'Enter') return;
+                const raw = hiddenInput.value;
+                const val = raw.trim().toLowerCase();
+
+                if (typedRef.cursor && typedRef.cursor.parentNode) typedRef.cursor.remove();
+
+                if (val === 'site' || val === 'portfolio') {
+                    appendStatusLine(container, '[ OK ] Redirecting to Portfolio...', '#5dde74');
+                    sessionStorage.setItem('preferred_destination', 'site');
+                    hiddenInput.removeEventListener('keydown', handler);
+                    hiddenInput.disabled = true;
+                    setTimeout(() => { window.location.href = 'index.html'; }, 900);
+
+                } else if (val === 'blog') {
+                    appendStatusLine(container, '[ OK ] Loading Blog...', '#5dde74');
+                    sessionStorage.setItem('preferred_destination', 'blog');
+                    hiddenInput.removeEventListener('keydown', handler);
+                    hiddenInput.disabled = true;
+                    setTimeout(hideLoadingScreen, 800);
+
+                } else {
+                    appendStatusLine(container, "[ ERR ] Unknown: '" + raw.trim() + "'. Try 'site' or 'blog'.", 'var(--amber)');
+                    hiddenInput.value = '';
+                    buildTypedLine(container, typedRef);
+                    setTimeout(focusInput, 50);
+                }
+            });
         }
 
         startLoadingSequence();
 
-        // ===== NAV =====
+        // NAV
         document.getElementById('nav-toggle').addEventListener('click', () => document.getElementById('nav-menu').classList.toggle('show'));
 
-        // ===== REVEAL =====
+        // REVEAL
         const revObs = new IntersectionObserver(entries => {
             entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revObs.unobserve(e.target); } });
         }, { threshold: 0.08 });
         document.querySelectorAll('.reveal').forEach(r => revObs.observe(r));
 
-        // ===== BLOG DATA =====
+        // BLOG DATA
         const posts = [
-            {
-                id: 1, title: "Getting Started with Machine Learning in Python",
-                category: "Machine Learning", date: "May 2025", readTime: "8 min read",
-                excerpt: "A beginner-friendly guide to understanding core ML concepts and implementing your first model using Scikit-learn.",
-                tags: ["Python", "ML", "Scikit-learn"],
-                cover: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&q=80",
-                content: `<div class="blog-modal__cover"><img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=860&q=80" alt="ML"></div>
-            <p>Machine learning has transformed how we build intelligent applications. In this guide, I'll walk you through the fundamental concepts and help you implement your first predictive model using Python and Scikit-learn.</p>
-            <h4>What is Machine Learning?</h4>
-            <p>Machine learning is a subset of artificial intelligence where systems learn from data to make predictions or decisions. Instead of explicit programming, we feed data to algorithms that learn patterns automatically.</p>
-            <h4>Types of Machine Learning</h4>
-            <ul><li><strong>Supervised Learning:</strong> Learning from labelled data (e.g., SVM, Linear Regression)</li><li><strong>Unsupervised Learning:</strong> Finding patterns in unlabelled data (e.g., K-Means Clustering)</li><li><strong>Reinforcement Learning:</strong> Learning through rewards and feedback</li></ul>
-            <h4>Your First ML Model</h4>
-            <p>Start by installing: <code>pip install scikit-learn pandas numpy matplotlib</code>. Load a dataset, preprocess, split into train/test, train your model, then evaluate. Simple, but powerful.</p>
-            <p>The key is to experiment. Don't wait until you understand everything — start building and learning along the way.</p>`
-            },
-            {
-                id: 2, title: "Building AI-Powered Apps with Streamlit",
-                category: "Web Development", date: "April 2025", readTime: "6 min read",
-                excerpt: "How I build and deploy interactive AI dashboards in Python without needing a full web framework.",
-                tags: ["Python", "Streamlit", "AI"],
-                cover: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&q=80",
-                content: `<div class="blog-modal__cover"><img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=860&q=80" alt="Streamlit"></div>
-            <p>Streamlit has completely changed how I prototype and ship AI applications. It lets you build interactive dashboards purely in Python — no HTML, no CSS, no JavaScript required.</p>
-            <h4>Why Streamlit?</h4>
-            <p>As an AI/ML developer, I want to focus on the intelligence layer, not the plumbing. Streamlit lets you go from a Python script to a shareable web app in minutes.</p>
-            <h4>Key Features I Love</h4>
-            <ul><li>Hot-reloading during development</li><li>Native support for Pandas DataFrames and Plotly charts</li><li>Easy file upload and download</li><li>Built-in session state for multi-step apps</li><li>Free deployment via Streamlit Community Cloud</li></ul>
-            <h4>My Favourite Pattern</h4>
-            <p>I structure Streamlit apps with a sidebar for user inputs, a main area for outputs, and helper modules for the ML logic. Keeps code clean and testable.</p>`
-            },
-            {
-                id: 3, title: "Chess and Coding: How Strategy Improves My Code",
-                category: "Personal", date: "March 2025", readTime: "5 min read",
-                excerpt: "Surprising parallels between chess strategy and software architecture — lessons from the board that made me a better developer.",
-                tags: ["Chess", "Productivity", "Mindset"],
-                cover: "https://images.unsplash.com/photo-1528819622765-d6bcf132f793?w=800&q=80",
-                content: `<div class="blog-modal__cover"><img src="https://images.unsplash.com/photo-1528819622765-d6bcf132f793?w=860&q=80" alt="Chess"></div>
-            <p>I've been playing chess seriously for years, and recently I've noticed how deeply it's shaped the way I write and design software.</p>
-            <h4>Think Ahead, Plan Early</h4>
-            <p>Strong players think 5–10 moves ahead. In coding, this means designing your architecture before writing a single line — thinking about edge cases, scaling, and maintainability upfront.</p>
-            <h4>Evaluate Every Move</h4>
-            <p>Chess teaches you to ask "what's the best option here?" before committing. In code reviews, I question every design decision: is there a simpler approach? A more performant one?</p>
-            <h4>Learn from Losses</h4>
-            <p>In chess, you analyse your losses more than your wins. Similarly, my biggest coding growth has come from debugging hard problems and understanding why my initial approach failed.</p>`
-            },
-            {
-                id: 4, title: "Understanding SVM: Intuition and Implementation",
-                category: "Machine Learning", date: "February 2025", readTime: "10 min read",
-                excerpt: "Breaking down Support Vector Machines from intuition to code — without drowning in mathematics.",
-                tags: ["ML", "SVM", "Python"],
-                cover: "https://images.unsplash.com/photo-1509228627152-72ae9ae6848d?w=800&q=80",
-                content: `<div class="blog-modal__cover"><img src="https://images.unsplash.com/photo-1509228627152-72ae9ae6848d?w=860&q=80" alt="SVM"></div>
-            <p>Support Vector Machines are among the most elegant algorithms in machine learning. Despite their mathematical depth, the core idea is surprisingly intuitive.</p>
-            <h4>The Core Idea</h4>
-            <p>SVM finds the hyperplane that maximises the margin — the gap between the nearest points of each class. Wider margin = better generalisation.</p>
-            <h4>The Kernel Trick</h4>
-            <p>When data isn't linearly separable, kernels project it into higher dimensions where a hyperplane can cleanly separate the classes — without computing the full high-dimensional transformation.</p>
-            <h4>When to Use SVM</h4>
-            <ul><li>High-dimensional data (text classification, image recognition)</li><li>Small to medium datasets</li><li>When you need a clear margin of separation</li></ul>
-            <p>I implemented SVM from scratch in my inter-college competition project — winning first place confirmed that understanding fundamentals beats memorising APIs.</p>`
-            },
-            {
-                id: 5, title: "Data Science Workflow: From Raw Data to Insight",
-                category: "Data Science", date: "January 2025", readTime: "7 min read",
-                excerpt: "The end-to-end workflow I use for every data science project — from messy CSV to actionable dashboard.",
-                tags: ["Data Science", "Python", "Pandas"],
-                cover: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
-                content: `<div class="blog-modal__cover"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=860&q=80" alt="Data Science"></div>
-            <p>Every data science project I've worked on follows a similar lifecycle. Having a repeatable workflow has made me dramatically faster and more reliable.</p>
-            <h4>1. Data Collection & Understanding</h4>
-            <p>Before touching a single line of code, understand the problem. What question are you answering? What data do you have?</p>
-            <h4>2. Exploratory Data Analysis (EDA)</h4>
-            <p>I spend 30–40% of my project time on EDA. Distribution plots, correlation heatmaps, missing value analysis — EDA reveals the story hidden in the data.</p>
-            <h4>3. Feature Engineering</h4>
-            <p>Raw features are rarely optimal. Creating interaction features, encoding categoricals, and handling outliers often delivers more accuracy improvement than trying a fancier model.</p>
-            <h4>4. Modelling & Evaluation</h4>
-            <p>Start simple. A well-tuned linear model often beats a poorly configured neural network. Always validate on held-out data.</p>
-            <h4>5. Deployment</h4>
-            <p>Streamlit for rapid deployment. For production, consider FastAPI + Docker.</p>`
-            },
-            {
-                id: 6, title: "Winning My First Coding Competition",
-                category: "Personal", date: "December 2025", readTime: "4 min read",
-                excerpt: "The story behind winning Bot Battles at Vivekanand College — lessons, mindset, and what I'd do differently.",
-                tags: ["Competition", "Python", "Chatbot"],
-                cover: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&q=80",
-                content: `<div class="blog-modal__cover"><img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=860&q=80" alt="Competition"></div>
-            <p>When I signed up for Bot Battles at Vivekanand College, I had no idea I'd walk out with first place. Here's how it happened.</p>
-            <h4>The Challenge</h4>
-            <p>Build a Python chatbot that handles a set of use-case queries. Judging based on functionality, creativity, and code quality.</p>
-            <h4>My Approach</h4>
-            <p>Instead of relying on a pre-built framework, I built my own response-matching engine using keyword extraction and a priority-ordered response dictionary. Fast, lightweight, customisable.</p>
-            <h4>Key Takeaway</h4>
-            <p>Polish matters. A simple idea executed flawlessly beats a complex idea executed poorly. Focus on doing one thing exceptionally well.</p>`
-            },
-            {
-                id: 7, title: "K-Means Clustering: From Intuition to Practical Tips",
-                category: "Data Science", date: "June 2025", readTime: "9 min read",
-                excerpt: "How I explain K-Means intuitively and how I make clustering actually work on real data.",
-                tags: ["Clustering", "K-Means", "Python"],
-                cover: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
-                content: `<div class="blog-modal__cover"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=860&q=80" alt="K-Means"></div>
-            <p>K-Means is one of the most approachable unsupervised learning algorithms. But it's also easy to misuse.</p>
-            <h4>The Core Idea</h4>
-            <p>K-Means partitions data into k clusters by repeatedly updating cluster assignments and centroids.</p>
-            <h4>Common Mistakes I Avoid</h4>
-            <ul><li><strong>Not scaling features:</strong> Euclidean distance is sensitive to units.</li><li><strong>Choosing k blindly:</strong> always sanity-check multiple values.</li><li><strong>Ignoring initialization:</strong> random start can lead to different results.</li></ul>
-            <h4>My Practical Workflow</h4>
-            <ol><li>Scale features (StandardScaler)</li><li>Try k in range 2–10</li><li>Use inertia / elbow method</li><li>Validate clusters with business meaning</li></ol>`
-            },
-            {
-                id: 8, title: "Python Data Pipelines: A Clean Structure That Scales",
-                category: "Python", date: "May 2025", readTime: "8 min read",
-                excerpt: "A simple folder + function structure I use for reliable data preprocessing, training, and evaluation.",
-                tags: ["Python", "Pipelines", "Pandas"],
-                cover: "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=800&q=80",
-                content: `<div class="blog-modal__cover"><img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=860&q=80" alt="Pipeline"></div>
-            <p>Most ML projects fail before the model — during data preprocessing. This post is about making your pipeline predictable and easy to debug.</p>
-            <h4>My "3-Layer" Approach</h4>
-            <ul><li><strong>Load layer:</strong> reading files, handling paths, schemas</li><li><strong>Transform layer:</strong> cleaning, encoding, feature engineering</li><li><strong>Train/Eval layer:</strong> training models and measuring results</li></ul>
-            <h4>Tips That Save Hours</h4>
-            <ul><li>Keep transformers pure (no hidden global state)</li><li>Log intermediate shapes and missing values</li><li>Version your datasets</li></ul>`
-            },
-            {
-                id: 9, title: "Feature Engineering for ML: What Actually Moves the Needle",
-                category: "Machine Learning", date: "April 2025", readTime: "11 min read",
-                excerpt: "Feature engineering strategies I rely on for better accuracy and more robust models.",
-                tags: ["Feature Engineering", "ML", "Pandas"],
-                cover: "https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=800&q=80",
-                content: `<div class="blog-modal__cover"><img src="https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=860&q=80" alt="Feature Eng"></div>
-            <p>In many projects, improving features beats switching algorithms.</p>
-            <h4>High-Impact Techniques</h4>
-            <ul><li><strong>Handling missing values</strong> (imputation + indicator features)</li><li><strong>Encoding categoricals</strong> (one-hot / target encoding)</li><li><strong>Scaling numerics</strong> for distance-based models</li><li><strong>Creating interactions</strong> when domain knowledge suggests it</li></ul>
-            <h4>Evaluation Rule</h4>
-            <p>Never engineer features using information from the test set. Always fit preprocessing only on training data.</p>`
-            },
-            {
-                id: 10, title: "Streamlit Dashboard Design: UI Patterns That Work",
-                category: "Web Development", date: "March 2025", readTime: "7 min read",
-                excerpt: "UI/UX patterns for Streamlit apps — so your dashboards feel fast, clear, and professional.",
-                tags: ["Streamlit", "UI", "Web Development"],
-                cover: "https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=800&q=80",
-                content: `<div class="blog-modal__cover"><img src="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=860&q=80" alt="Streamlit UI"></div>
-            <p>A great dashboard isn't only accurate — it's usable.</p>
-            <h4>Sidebar for Inputs</h4>
-            <p>Put controls in the sidebar. Keep the main area for charts and results.</p>
-            <h4>Show Progress During Long Runs</h4>
-            <p>Use loading indicators while models train. Users trust your app when it communicates status.</p>
-            <h4>Cache Expensive Steps</h4>
-            <p>For preprocessing or embeddings, caching reduces reruns and improves perceived performance dramatically.</p>`
-            },
-            {
-                id: 11, title: "Neural Networks Demystified: A Visual Walkthrough",
-                category: "Machine Learning", date: "July 2025", readTime: "12 min read",
-                excerpt: "From perceptrons to deep networks — building a mental model of how neural nets actually learn.",
-                tags: ["Deep Learning", "Neural Networks", "Python"],
-                cover: "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=800&q=80",
-                content: `<div class="blog-modal__cover"><img src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=860&q=80" alt="Neural Networks"></div>
-            <p>Neural networks power everything from image recognition to language models.</p>
-            <h4>The Neuron</h4>
-            <p>A single artificial neuron takes inputs, multiplies by weights, sums them, adds a bias, and passes through an activation function.</p>
-            <h4>Why Layers?</h4>
-            <p>Stacking neurons into layers allows the network to learn hierarchical representations.</p>
-            <h4>Backpropagation in Plain English</h4>
-            <p>After a forward pass, compute the error and propagate it backwards, updating weights proportional to their contribution to the error. Repeat thousands of times — the network learns.</p>
-            <h4>Practical Tips</h4>
-            <ul><li>Use ReLU activation for hidden layers as a safe default</li><li>Normalise your inputs</li><li>Start with a small network and scale up only if needed</li></ul>`
-            },
-            {
-                id: 12, title: "Git Workflows Every Developer Should Know",
-                category: "Web Development", date: "June 2025", readTime: "6 min read",
-                excerpt: "The branching strategies, commit habits, and collaboration patterns that keep projects sane.",
-                tags: ["Git", "Workflow", "Productivity"],
-                cover: "https://images.unsplash.com/photo-1556075798-4825dfaaf498?w=800&q=80",
-                content: `<div class="blog-modal__cover"><img src="https://images.unsplash.com/photo-1556075798-4825dfaaf498?w=860&q=80" alt="Git"></div>
-            <p>Git is the foundation of modern software development, but most developers use only a fraction of its power.</p>
-            <h4>Feature Branch Workflow</h4>
-            <p>Every new feature gets its own branch. This keeps main always deployable and makes code review straightforward.</p>
-            <h4>Commit Message Conventions</h4>
-            <p>Follow Conventional Commits: prefix each message with <code>feat:</code>, <code>fix:</code>, <code>docs:</code>, <code>refactor:</code>, etc.</p>
-            <h4>My Aliases That Save Time</h4>
-            <ul><li><code>git lg</code> — pretty one-line log with graph</li><li><code>git fixup</code> — amend the last commit</li><li><code>git wip</code> — quick stash and note</li></ul>`
-            },
-            {
-                id: 13, title: "Stock Price Prediction: Lessons from My ML Project",
-                category: "Data Science", date: "August 2025", readTime: "9 min read",
-                excerpt: "What I learned building a stock price predictor — the parts that worked, the parts that didn't.",
-                tags: ["Finance", "ML", "Time Series"],
-                cover: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&q=80",
-                content: `<div class="blog-modal__cover"><img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=860&q=80" alt="Stock Prediction"></div>
-            <p>I spent two months building a stock price prediction system. Here's what I actually learned.</p>
-            <h4>What Worked</h4>
-            <p>Feature engineering mattered enormously. Combining lagged returns with rolling volatility measures gave the model better signal than raw prices alone.</p>
-            <h4>What Didn't Work</h4>
-            <p>The model learned to predict the previous day's price with a slight lag — a classic overfitting trap. Walk-forward validation exposed this; standard train/test splits hid it.</p>
-            <h4>The Honest Takeaway</h4>
-            <ul><li>Always use walk-forward (time-aware) cross-validation</li><li>Directional accuracy matters more than RMSE in practice</li><li>Markets are non-stationary — no model generalises forever</li></ul>`
-            },
-            {
-                id: 14, title: "The Power of Pandas: 10 Functions I Use Every Day",
-                category: "Python", date: "July 2025", readTime: "7 min read",
-                excerpt: "A practical rundown of the Pandas functions that appear in nearly every data project I work on.",
-                tags: ["Pandas", "Python", "Data Science"],
-                cover: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=800&q=80",
-                content: `<div class="blog-modal__cover"><img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=860&q=80" alt="Pandas"></div>
-            <p>Pandas is the workhorse of Python data science. After hundreds of hours using it, I've settled on a core set of functions that handle 90% of real-world data tasks.</p>
-            <h4>The Essential 10</h4>
-            <ol>
-                <li><code>df.info()</code> — instant overview</li>
-                <li><code>df.value_counts()</code> — frequency distribution</li>
-                <li><code>df.groupby().agg()</code> — flexible aggregation</li>
-                <li><code>df.merge()</code> — SQL-style joins</li>
-                <li><code>df.pivot_table()</code> — cross-tabulation</li>
-                <li><code>df.apply()</code> — custom functions</li>
-                <li><code>df.query()</code> — readable filtering</li>
-                <li><code>pd.cut() / pd.qcut()</code> — binning</li>
-                <li><code>df.melt()</code> — wide to long format</li>
-                <li><code>df.pipe()</code> — chaining operations</li>
-            </ol>`
-            },
-            {
-                id: 15, title: "How I Stay Productive as a Student Developer",
-                category: "Personal", date: "August 2025", readTime: "5 min read",
-                excerpt: "The tools, habits, and mindset shifts that help me balance academics, projects, and competitions.",
-                tags: ["Productivity", "Mindset", "Student"],
-                cover: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&q=80",
-                content: `<div class="blog-modal__cover"><img src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=860&q=80" alt="Productivity"></div>
-            <p>Balancing coursework, personal projects, hackathons, and chess isn't easy. Over the past year I've found a system that keeps me focused without burning out.</p>
-            <h4>Time Blocking over To-Do Lists</h4>
-            <p>To-do lists tell you what to do. Time blocks tell you when. 90-minute deep work sessions — no distractions — has been my biggest productivity unlock.</p>
-            <h4>The "One Project at a Time" Rule</h4>
-            <p>I used to context-switch between three projects simultaneously and finish none. Now I focus on one until a meaningful milestone before starting the next.</p>
-            <h4>Tools I Actually Use</h4>
-            <ul><li><strong>Notion</strong> — project planning</li><li><strong>VS Code</strong> — minimal plugin setup</li><li><strong>Pomodoro timer</strong> — 25/5 minute cycles</li><li><strong>GitHub</strong> — version control and accountability</li></ul>`
-            },
-            {
-                id: 16, title: "AI in Stocks: Sentiment Analysis from News Headlines",
-                category: "Data Science", date: "September 2025", readTime: "8 min read",
-                excerpt: "Extracting sentiment from financial news headlines using NLTK and transformers to predict short-term stock market price movements.",
-                tags: ["Stocks", "AI", "NLP"],
-                cover: "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?w=800&q=80",
-                content: `<div class="blog-modal__cover"><img src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?w=860&q=80" alt="Sentiment Stocks"></div>
-            <p>Markets aren't driven just by numbers; they are driven by news, opinions, and emotions. In this project, we analyze news headlines to predict stock sentiment.</p>
-            <h4>The Pipeline</h4>
-            <p>First, we scrape news headlines or load them from a financial API. Next, we clean the text data, perform tokenization, and apply a pretrained VADER sentiment analyzer or a FinBERT transformer model.</p>
-            <h4>FinBERT vs. VADER</h4>
-            <ul><li><strong>VADER:</strong> Rule-based, very fast, but struggles with complex context.</li><li><strong>FinBERT:</strong> Transformer-based, highly accurate for financial contexts, but computationally heavy.</li></ul>
-            <p>I built a Streamlit dashboard showing real-time sentiment scores overlaying historical price charts, giving a clear signal on market sentiment.</p>`
-            },
-            {
-                id: 17, title: "Building a Chess AI: The Minimax Algorithm with Alpha-Beta Pruning",
-                category: "Machine Learning", date: "October 2025", readTime: "12 min read",
-                excerpt: "A deep dive into building your first chess bot engine from scratch using Minimax search and alpha-beta pruning in Python.",
-                tags: ["Chess", "AI", "Algorithms"],
-                cover: "https://images.unsplash.com/photo-1611195974226-a6a9be9dd763?w=800&q=80",
-                content: `<div class="blog-modal__cover"><img src="https://images.unsplash.com/photo-1611195974226-a6a9be9dd763?w=860&q=80" alt="Chess Bot"></div>
-            <p>How do chess engines calculate the best moves? At the core of classic game playing AI is the Minimax algorithm, enhanced by alpha-beta pruning.</p>
-            <h4>Minimax Intuition</h4>
-            <p>Minimax assumes both players play optimally. The bot tries to maximize its score, while the opponent tries to minimize it. We recursive search the game tree up to a target depth.</p>
-            <h4>Alpha-Beta Pruning</h4>
-            <p>Without optimization, searching 5 moves ahead takes billions of positions. Alpha-beta pruning cuts off branches that don't affect the final decision, reducing the search space exponentially.</p>
-            <p>With pruning, my Python engine searches up to 6 plies (half-moves) ahead in under 2 seconds, which is standard for simple hobby engines.</p>`
-            },
-            {
-                id: 18, title: "Streamlit + Stock Market APIs: Real-time Portfolio Tracker",
-                category: "Web Development", date: "November 2025", readTime: "6 min read",
-                excerpt: "Creating a responsive, secure stock portfolio dashboard using Streamlit, yfinance API, and interactive Plotly visualization.",
-                tags: ["Streamlit", "Stocks", "Python"],
-                cover: "https://images.unsplash.com/photo-1642390091310-20edf2d1dd37?w=800&q=80",
-                content: `<div class="blog-modal__cover"><img src="https://images.unsplash.com/photo-1642390091310-20edf2d1dd37?w=860&q=80" alt="Realtime Stocks"></div>
-            <p>Streamlit is the fastest way to turn code scripts into data tools. Let's build a real-time portfolio tracker connecting directly to stock market data.</p>
-            <h4>Getting Market Data</h4>
-            <p>We use the <code>yfinance</code> library to download historical prices, market cap, and trading volume dynamically based on user ticker inputs.</p>
-            <h4>Interactive Layouts</h4>
-            <p>With Streamlit's new column layout widgets, we display key performance indicators (KPIs) like total gain, daily returns, and stock holdings side-by-side. Plotly charts let users hover and zoom in on historical trends.</p>`
-            },
-            {
-                id: 19, title: "Chess AI Evaluation Functions: Teach Your Code to Value Positions",
-                category: "Machine Learning", date: "December 2025", readTime: "9 min read",
-                excerpt: "How to write smart evaluation functions that calculate board control, king safety, and pawn structure in custom chess bots.",
-                tags: ["Chess", "Python", "AI"],
-                cover: "https://images.unsplash.com/photo-1586165368502-1badb97794bc?w=800&q=80",
-                content: `<div class="blog-modal__cover"><img src="https://images.unsplash.com/photo-1586165368502-1badb97794bc?w=860&q=80" alt="Chess Valuation"></div>
-            <p>A search algorithm like minimax is only as good as its evaluation function. If the bot can't score a state, it can't choose the best move.</p>
-            <h4>Material vs. Positional Value</h4>
-            <p>Assigning scores like pawn=1, knight=3, rook=5, queen=9 is the first step. But piece placement matters too. A knight on the rim is dim, so we use Piece-Square Tables (PST) to reward central control.</p>
-            <h4>Advanced Positional Factors</h4>
-            <ul><li>King safety (pawn shield, open files)</li><li>Pawn structure (isolated or doubled pawns)</li><li>Mobility (number of legal moves)</li></ul>`
-            },
-            {
-                id: 20, title: "Predicting Stock Trends using LSTM Neural Networks",
-                category: "Machine Learning", date: "January 2026", readTime: "11 min read",
-                excerpt: "Using Long Short-Term Memory (LSTM) recurrent neural networks to model sequential stock price patterns in Python.",
-                tags: ["Stocks", "ML", "Deep Learning"],
-                cover: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&q=80",
-                content: `<div class="blog-modal__cover"><img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=860&q=80" alt="LSTM"></div>
-            <p>Traditional neural networks assume inputs are independent of each other. Stock prices, however, are time-series sequences. Enter LSTMs.</p>
-            <h4>Why LSTM?</h4>
-            <p>LSTMs are a type of Recurrent Neural Network (RNN) that can store long-term sequence dependencies. They possess internal gates that regulate the flow of information, making them ideal for trend forecasting.</p>
-            <h4>Implementation Tips</h4>
-            <ul><li>Always scale data using MinMaxScaler.</li><li>Use a slide window approach to create feature sequences (e.g., last 60 days to predict next day).</li><li>Be careful of overfitting! Add Dropout layers.</li></ul>`
-            },
-            {
-                id: 21, title: "Streamlit Secrets: How to Manage API Keys and Databases Securely",
-                category: "Web Development", date: "February 2026", readTime: "6 min read",
-                excerpt: "Best practices for managing confidential credentials, connecting database connections, and deploying secure public apps.",
-                tags: ["Streamlit", "Security", "Python"],
-                cover: "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&q=80",
-                content: `<div class="blog-modal__cover"><img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=860&q=80" alt="Security secrets"></div>
-            <p>When sharing Streamlit apps publicly on the cloud, exposing database credentials or API tokens in your repository is a high risk. Here is how to use Streamlit Secrets.</p>
-            <h4>Local Configuration</h4>
-            <p>Create a <code>.streamlit/secrets.toml</code> file in your local workspace. Write your config variables: <code>db_password = "secure_pw"</code>.</p>
-            <h4>Accessing Secrets in Code</h4>
-            <p>In Python, access these using: <code>st.secrets["db_password"]</code>. Streamlit handles this seamlessly, matching environmental variables upon production deploy.</p>`
-            },
-            {
-                id: 22, title: "Machine Learning for Algorithmic Trading: An Executive Summary",
-                category: "Machine Learning", date: "March 2026", readTime: "9 min read",
-                excerpt: "Overview of how quantitative analysts leverage machine learning to discover statistical arbitrage in financial markets.",
-                tags: ["ML", "Stocks", "Finance"],
-                cover: "https://images.unsplash.com/photo-1535320903710-d993d3d77d29?w=800&q=80",
-                content: `<div class="blog-modal__cover"><img src="https://images.unsplash.com/photo-1535320903710-d993d3d77d29?w=860&q=80" alt="Algo trading"></div>
-            <p>Algorithmic trading is the automated execution of trades based on quantitative models. Recently, machine learning has become critical for strategy formulation.</p>
-            <h4>Predictive Signals</h4>
-            <p>Models are trained to predict return margins, order book imbalance, or trade execution timing. Features include technical indicators, macroeconomic releases, and market structure metrics.</p>
-            <h4>Challenges in Trading ML</h4>
-            <ul><li><strong>Low Signal-to-Noise Ratio:</strong> Markets contain extreme noise, leading models to fit random patterns.</li><li><strong>Regime Shifts:</strong> Historical relationships break down during market crises.</li></ul>`
-            },
-            {
-                id: 23, title: "Reinforcement Learning in Chess: Training Bots from Self-Play",
-                category: "Machine Learning", date: "April 2026", readTime: "10 min read",
-                excerpt: "How neural networks like AlphaZero learn to play chess from scratch by playing millions of games against themselves.",
-                tags: ["Chess", "ML", "Reinforcement Learning"],
-                cover: "https://images.unsplash.com/photo-1604881988758-f76ad2f7accf?w=800&q=80",
-                content: `<div class="blog-modal__cover"><img src="https://images.unsplash.com/photo-1604881988758-f76ad2f7accf?w=860&q=80" alt="Selfplay RL"></div>
-            <p>Before AlphaZero, chess engines relied on human-curated evaluation databases. Reinforcement learning changed the paradigm by teaching agents to learn strictly from self-play.</p>
-            <h4>Deep Q-Networks (DQN) & Policy Iteration</h4>
-            <p>The agent starts with zero knowledge of chess except the rules. It makes random moves, receiving rewards for wins and penalties for losses. Neural networks learn to value boards and predict the best moves.</p>
-            <h4>Monte Carlo Tree Search (MCTS)</h4>
-            <p>Combined with policy networks, MCTS narrows down the search tree by prioritizing moves with high win-probabilities, creating an elite level chess engine.</p>`
-            },
-            {
-                id: 24, title: "Streamlit Layout Hacks: Creating Responsive Columns and Containers",
-                category: "Web Development", date: "May 2026", readTime: "7 min read",
-                excerpt: "A visual guide to mastering columns, sidebar modules, tab controls, and containers for polished dashboard design.",
-                tags: ["Streamlit", "UI", "Web Development"],
-                cover: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=800&q=80",
-                content: `<div class="blog-modal__cover"><img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=860&q=80" alt="Layout Design"></div>
-            <p>Streamlit is simple, but did you know you can customize its grid system to build complex app layouts? Here are the layout hacks I use.</p>
-            <h4>1. Nested Columns</h4>
-            <p>Use <code>st.columns([2, 1])</code> to create columns of unequal width. Excellent for showing main visualizations next to side settings.</p>
-            <h4>2. Tabbed interfaces</h4>
-            <p>Organize content using <code>st.tabs(["Overview", "Predictions", "Logs"])</code> to keep dashboards tidy and avoid user cognitive overload.</p>
-            <h4>3. Dynamic containers</h4>
-            <p>Use <code>st.empty()</code> or <code>st.container()</code> to append or update UI elements dynamically without page refreshes.</p>`
-            },
-            {
-                id: 25, title: "Volatile Stock Markets: Anomaly Detection Using Isolation Forest",
-                category: "Data Science", date: "June 2026", readTime: "8 min read",
-                excerpt: "Leveraging unsupervised machine learning algorithms to detect flash crashes and abnormal stock volume trading patterns.",
-                tags: ["Stocks", "ML", "Pandas"],
-                cover: "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=800&q=80",
-                content: `<div class="blog-modal__cover"><img src="https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=860&q=80" alt="Anomalies Stocks"></div>
-            <p>Detecting anomalies in market trading data is critical for risk management and fraud prevention. In this project, we implement Isolation Forest.</p>
-            <h4>How Isolation Forest Works</h4>
-            <p>Instead of profiling normal data, Isolation Forest isolates anomalies. It partitions data paths randomly; anomalies require fewer splits to isolate than normal clustering points.</p>
-            <h4>Feature Selection</h4>
-            <p>We train the model using intraday metrics like standard deviation of prices, trading volume spikes, and bid-ask spreads to pinpoint market anomalies in real time.</p>`
-            },
-            {
-                id: 26, title: "Chess Piece Detection with YOLOv8: Computer Vision on the Board",
-                category: "Machine Learning", date: "July 2026", readTime: "10 min read",
-                excerpt: "Building a computer vision pipeline that processes real chessboard photos and translates them into digital FEN notation.",
-                tags: ["Chess", "Computer Vision", "Deep Learning"],
-                cover: "https://images.unsplash.com/photo-1610631889004-9441a59665db?w=800&q=80",
-                content: `<div class="blog-modal__cover"><img src="https://images.unsplash.com/photo-1610631889004-9441a59665db?w=860&q=80" alt="Vision YOLO"></div>
-            <p>Want to turn a physical chess game into a digital format in real time? YOLOv8 is a state-of-the-art object detector that makes this simple.</p>
-            <h4>Labeling Chess Pieces</h4>
-            <p>We train the detector on a dataset of chess board photos labeled with 12 classes (white/black pawn, rook, knight, bishop, queen, king).</p>
-            <h4>Translating Detections to FEN</h4>
-            <p>Once YOLO returns the piece locations, we map them onto an 8x8 grid overlay, read the coordinates, and generate a Forsyth-Edwards Notation (FEN) string, ready to load into stockfish.</p>`
-            },
-            {
-                id: 27, title: "Deploying Streamlit Apps to Heroku and Hugging Face Spaces",
-                category: "Web Development", date: "August 2026", readTime: "7 min read",
-                excerpt: "A step-by-step deployment guide to take your local Streamlit app and share it with the world for free.",
-                tags: ["Streamlit", "DevOps", "Python"],
-                cover: "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=800&q=80",
-                content: `<div class="blog-modal__cover"><img src="https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=860&q=80" alt="Deployment"></div>
-            <p>Creating apps locally is satisfying, but sharing them is better. Let's look at how to deploy your Streamlit projects to Hugging Face Spaces.</p>
-            <h4>Why Hugging Face Spaces?</h4>
-            <p>It provides free hosting with hardware acceleration options, git-based workflows, and seamless environment config settings.</p>
-            <h4>Steps to Deploy</h4>
-            <ol>
-                <li>Create a Hugging Face account and initialize a Streamlit Space.</li>
-                <li>Add a <code>requirements.txt</code> containing your library dependencies.</li>
-                <li>Git commit your code files and push them to the HF Space remote repository. The build kicks off automatically.</li>
-            </ol>`
-            },
-            {
-                id: 28, title: "AI Chess Bots: Comparing Minimax against Neural Networks",
-                category: "Machine Learning", date: "September 2026", readTime: "9 min read",
-                excerpt: "Understanding the fundamental tradeoffs between search-based and learning-based approaches to game playing AI.",
-                tags: ["Chess", "AI", "Neural Networks"],
-                cover: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80",
-                content: `<div class="blog-modal__cover"><img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=860&q=80" alt="AI engine comparison"></div>
-            <p>Modern chess engines generally fall into two categories: traditional brute force search (Minimax/Stockfish) or deep learning evaluation (AlphaZero/Lc0).</p>
-            <h4>Minimax Engines</h4>
-            <ul><li><strong>Pros:</strong> Predictable, mathematically proven, extreme calculation depth (30+ plies).</li><li><strong>Cons:</strong> Lacks intuitive positioning; relies on handcrafted evaluation formulas.</li></ul>
-            <h4>Neural Network Engines</h4>
-            <ul><li><strong>Pros:</strong> Exceptionally strong positional understanding, human-like strategy.</li><li><strong>Cons:</strong> Hardware heavy (GPUs), slower search speed.</li></ul>`
-            },
-            {
-                id: 29, title: "Stock Portfolio Optimization using Mean-Variance Analysis in Python",
-                category: "Data Science", date: "October 2026", readTime: "8 min read",
-                excerpt: "Implementing Modern Portfolio Theory (MPT) in Python to build efficient, diversified stock investment portfolios.",
-                tags: ["Stocks", "Python", "Finance"],
-                cover: "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=800&q=80",
-                content: `<div class="blog-modal__cover"><img src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=860&q=80" alt="Portfolio optimization"></div>
-            <p>Modern Portfolio Theory helps investors construct portfolios that maximize returns for a given level of market risk. Let's code this in Python.</p>
-            <h4>Efficient Frontier</h4>
-            <p>Using <code>numpy</code> and <code>scipy.optimize</code>, we simulate thousands of random portfolio weight distributions, calculating expected returns, portfolio variance, and the Sharpe ratio.</p>
-            <p>We then solve the optimization function to identify the weights that lie on the 'Efficient Frontier' — representing the lowest risk for our target yield.</p>`
-            },
-            {
-                id: 30, title: "AI-Powered Coding Assistants for Machine Learning Development",
-                category: "Machine Learning", date: "November 2026", readTime: "7 min read",
-                excerpt: "Evaluating how LLM coding assistants speed up ML model prototyping, dataset generation, and data cleaning tasks.",
-                tags: ["ML", "Productivity", "AI"],
-                cover: "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&q=80",
-                content: `<div class="blog-modal__cover"><img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=860&q=80" alt="Coding assistants"></div>
-            <p>AI assistants are no longer just completion tools; they have become active pairing partners for machine learning engineers.</p>
-            <h4>Prototyping Pipelines</h4>
-            <p>I use AI to write baseline boilerplate for neural networks or write complex matplotlib chart visualizations quickly, cutting development times by up to 50%.</p>
-            <h4>Best Practices for Prompting</h4>
-            <p>Provide specific API versions, expected input/output shapes, and detailed requirements to get clean, runnable machine learning scripts on the first try.</p>`
-            }
+            { id:1, title:"Getting Started with Machine Learning in Python", category:"Machine Learning", date:"May 2025", readTime:"8 min read", excerpt:"A beginner-friendly guide to understanding core ML concepts and implementing your first model using Scikit-learn.", tags:["Python","ML","Scikit-learn"], cover:"https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&q=80", content:`<div class="blog-modal__cover"><img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=860&q=80" alt="ML"></div><p>Machine learning has transformed how we build intelligent applications. In this guide, I walk you through the fundamental concepts and help you implement your first predictive model using Python and Scikit-learn.</p><h4>What is Machine Learning?</h4><p>Machine learning is a subset of artificial intelligence where systems learn from data to make predictions or decisions.</p><h4>Types of Machine Learning</h4><ul><li><strong>Supervised Learning:</strong> Learning from labelled data</li><li><strong>Unsupervised Learning:</strong> Finding patterns in unlabelled data</li><li><strong>Reinforcement Learning:</strong> Learning through rewards and feedback</li></ul><h4>Your First ML Model</h4><p>Start by installing: <code>pip install scikit-learn pandas numpy matplotlib</code>. Load a dataset, preprocess, split into train/test, train your model, then evaluate.</p>` },
+            { id:2, title:"Building AI-Powered Apps with Streamlit", category:"Web Development", date:"April 2025", readTime:"6 min read", excerpt:"How I build and deploy interactive AI dashboards in Python without needing a full web framework.", tags:["Python","Streamlit","AI"], cover:"https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&q=80", content:`<div class="blog-modal__cover"><img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=860&q=80" alt="Streamlit"></div><p>Streamlit has completely changed how I prototype and ship AI applications. It lets you build interactive dashboards purely in Python.</p><h4>Why Streamlit?</h4><p>As an AI/ML developer, I want to focus on the intelligence layer, not the plumbing.</p><h4>Key Features</h4><ul><li>Hot-reloading during development</li><li>Native support for Pandas DataFrames</li><li>Easy file upload and download</li><li>Free deployment via Streamlit Community Cloud</li></ul>` },
+            { id:3, title:"Chess and Coding: How Strategy Improves My Code", category:"Personal", date:"March 2025", readTime:"5 min read", excerpt:"Surprising parallels between chess strategy and software architecture.", tags:["Chess","Productivity","Mindset"], cover:"https://images.unsplash.com/photo-1528819622765-d6bcf132f793?w=800&q=80", content:`<div class="blog-modal__cover"><img src="https://images.unsplash.com/photo-1528819622765-d6bcf132f793?w=860&q=80" alt="Chess"></div><p>I have been playing chess seriously for years, and I have noticed how deeply it has shaped the way I write and design software.</p><h4>Think Ahead, Plan Early</h4><p>Strong players think 5-10 moves ahead. In coding, this means designing your architecture before writing a single line.</p><h4>Learn from Losses</h4><p>My biggest coding growth has come from debugging hard problems and understanding why my initial approach failed.</p>` },
+            { id:4, title:"Understanding SVM: Intuition and Implementation", category:"Machine Learning", date:"February 2025", readTime:"10 min read", excerpt:"Breaking down Support Vector Machines from intuition to code.", tags:["ML","SVM","Python"], cover:"https://images.unsplash.com/photo-1509228627152-72ae9ae6848d?w=800&q=80", content:`<div class="blog-modal__cover"><img src="https://images.unsplash.com/photo-1509228627152-72ae9ae6848d?w=860&q=80" alt="SVM"></div><p>Support Vector Machines are among the most elegant algorithms in machine learning.</p><h4>The Core Idea</h4><p>SVM finds the hyperplane that maximises the margin between classes. Wider margin means better generalisation.</p><h4>When to Use SVM</h4><ul><li>High-dimensional data</li><li>Small to medium datasets</li><li>When you need a clear margin of separation</li></ul>` },
+            { id:5, title:"Data Science Workflow: From Raw Data to Insight", category:"Data Science", date:"January 2025", readTime:"7 min read", excerpt:"The end-to-end workflow I use for every data science project.", tags:["Data Science","Python","Pandas"], cover:"https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80", content:`<div class="blog-modal__cover"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=860&q=80" alt="Data Science"></div><p>Every data science project follows a similar lifecycle.</p><h4>1. EDA</h4><p>I spend 30-40% of project time on Exploratory Data Analysis.</p><h4>2. Feature Engineering</h4><p>Raw features are rarely optimal. Creating interaction features often delivers more accuracy than trying a fancier model.</p><h4>3. Modelling</h4><p>Start simple. A well-tuned linear model often beats a poorly configured neural network.</p>` },
+            { id:6, title:"Winning My First Coding Competition", category:"Personal", date:"December 2025", readTime:"4 min read", excerpt:"The story behind winning Bot Battles at Vivekanand College.", tags:["Competition","Python","Chatbot"], cover:"https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&q=80", content:`<div class="blog-modal__cover"><img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=860&q=80" alt="Competition"></div><p>When I signed up for Bot Battles at Vivekanand College, I had no idea I would walk out with first place.</p><h4>The Challenge</h4><p>Build a Python chatbot that handles a set of use-case queries.</p><h4>Key Takeaway</h4><p>Polish matters. A simple idea executed flawlessly beats a complex idea executed poorly.</p>` },
+            { id:7, title:"K-Means Clustering: From Intuition to Practical Tips", category:"Data Science", date:"June 2025", readTime:"9 min read", excerpt:"How I explain K-Means intuitively and how I make clustering actually work on real data.", tags:["Clustering","K-Means","Python"], cover:"https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80", content:`<div class="blog-modal__cover"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=860&q=80" alt="K-Means"></div><p>K-Means is one of the most approachable unsupervised learning algorithms. But it is also easy to misuse.</p><h4>Common Mistakes</h4><ul><li>Not scaling features</li><li>Choosing k blindly</li><li>Ignoring initialization</li></ul><h4>Practical Workflow</h4><ol><li>Scale features (StandardScaler)</li><li>Try k in range 2-10</li><li>Use inertia / elbow method</li><li>Validate clusters with business meaning</li></ol>` },
+            { id:8, title:"Python Data Pipelines: A Clean Structure That Scales", category:"Python", date:"May 2025", readTime:"8 min read", excerpt:"A simple structure I use for reliable data preprocessing, training, and evaluation.", tags:["Python","Pipelines","Pandas"], cover:"https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=800&q=80", content:`<div class="blog-modal__cover"><img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=860&q=80" alt="Pipeline"></div><p>Most ML projects fail before the model, during data preprocessing.</p><h4>My 3-Layer Approach</h4><ul><li><strong>Load layer:</strong> reading files, handling paths</li><li><strong>Transform layer:</strong> cleaning, encoding, feature engineering</li><li><strong>Train/Eval layer:</strong> training models and measuring results</li></ul>` },
+            { id:9, title:"Feature Engineering for ML: What Actually Moves the Needle", category:"Machine Learning", date:"April 2025", readTime:"11 min read", excerpt:"Feature engineering strategies I rely on for better accuracy and more robust models.", tags:["Feature Engineering","ML","Pandas"], cover:"https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=800&q=80", content:`<div class="blog-modal__cover"><img src="https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=860&q=80" alt="Feature Eng"></div><p>In many projects, improving features beats switching algorithms.</p><h4>High-Impact Techniques</h4><ul><li>Handling missing values</li><li>Encoding categoricals</li><li>Scaling numerics for distance-based models</li><li>Creating interactions when domain knowledge suggests it</li></ul><h4>Evaluation Rule</h4><p>Never engineer features using information from the test set.</p>` },
+            { id:10, title:"Streamlit Dashboard Design: UI Patterns That Work", category:"Web Development", date:"March 2025", readTime:"7 min read", excerpt:"UI/UX patterns for Streamlit apps so your dashboards feel fast and professional.", tags:["Streamlit","UI","Web Development"], cover:"https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=800&q=80", content:`<div class="blog-modal__cover"><img src="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=860&q=80" alt="Streamlit UI"></div><p>A great dashboard is not only accurate, it is usable.</p><h4>Sidebar for Inputs</h4><p>Put controls in the sidebar. Keep the main area for charts and results.</p><h4>Cache Expensive Steps</h4><p>Caching reduces reruns and improves perceived performance dramatically.</p>` },
+            { id:11, title:"Neural Networks Demystified: A Visual Walkthrough", category:"Machine Learning", date:"July 2025", readTime:"12 min read", excerpt:"From perceptrons to deep networks, building a mental model of how neural nets actually learn.", tags:["Deep Learning","Neural Networks","Python"], cover:"https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=800&q=80", content:`<div class="blog-modal__cover"><img src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=860&q=80" alt="Neural Networks"></div><p>Neural networks power everything from image recognition to language models.</p><h4>Backpropagation in Plain English</h4><p>After a forward pass, compute the error and propagate it backwards, updating weights proportional to their contribution to the error. Repeat thousands of times and the network learns.</p><h4>Practical Tips</h4><ul><li>Use ReLU activation for hidden layers</li><li>Normalise your inputs</li><li>Start with a small network and scale up only if needed</li></ul>` },
+            { id:12, title:"Git Workflows Every Developer Should Know", category:"Web Development", date:"June 2025", readTime:"6 min read", excerpt:"The branching strategies and commit habits that keep projects sane.", tags:["Git","Workflow","Productivity"], cover:"https://images.unsplash.com/photo-1556075798-4825dfaaf498?w=800&q=80", content:`<div class="blog-modal__cover"><img src="https://images.unsplash.com/photo-1556075798-4825dfaaf498?w=860&q=80" alt="Git"></div><p>Git is the foundation of modern software development.</p><h4>Feature Branch Workflow</h4><p>Every new feature gets its own branch. This keeps main always deployable.</p><h4>Commit Message Conventions</h4><p>Follow Conventional Commits: prefix with <code>feat:</code>, <code>fix:</code>, <code>docs:</code>, <code>refactor:</code>.</p>` },
+            { id:13, title:"Stock Price Prediction: Lessons from My ML Project", category:"Data Science", date:"August 2025", readTime:"9 min read", excerpt:"What I learned building a stock price predictor — the parts that worked, the parts that didn't.", tags:["Finance","ML","Time Series"], cover:"https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&q=80", content:`<div class="blog-modal__cover"><img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=860&q=80" alt="Stock Prediction"></div><p>I spent two months building a stock price prediction system.</p><h4>What Worked</h4><p>Combining lagged returns with rolling volatility measures gave the model better signal than raw prices alone.</p><h4>Key Takeaways</h4><ul><li>Always use walk-forward cross-validation</li><li>Directional accuracy matters more than RMSE</li><li>Markets are non-stationary</li></ul>` },
+            { id:14, title:"The Power of Pandas: 10 Functions I Use Every Day", category:"Python", date:"July 2025", readTime:"7 min read", excerpt:"The Pandas functions that appear in nearly every data project I work on.", tags:["Pandas","Python","Data Science"], cover:"https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=800&q=80", content:`<div class="blog-modal__cover"><img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=860&q=80" alt="Pandas"></div><p>Pandas is the workhorse of Python data science.</p><h4>The Essential 10</h4><ol><li><code>df.info()</code></li><li><code>df.value_counts()</code></li><li><code>df.groupby().agg()</code></li><li><code>df.merge()</code></li><li><code>df.pivot_table()</code></li><li><code>df.apply()</code></li><li><code>df.query()</code></li><li><code>pd.cut()</code></li><li><code>df.melt()</code></li><li><code>df.pipe()</code></li></ol>` },
+            { id:15, title:"How I Stay Productive as a Student Developer", category:"Personal", date:"August 2025", readTime:"5 min read", excerpt:"Tools, habits, and mindset shifts that help me balance academics, projects, and competitions.", tags:["Productivity","Mindset","Student"], cover:"https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&q=80", content:`<div class="blog-modal__cover"><img src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=860&q=80" alt="Productivity"></div><p>Balancing coursework, projects, hackathons, and chess is not easy.</p><h4>Time Blocking</h4><p>90-minute deep work sessions with no distractions has been my biggest productivity unlock.</p><h4>Tools I Use</h4><ul><li><strong>Notion</strong> — project planning</li><li><strong>VS Code</strong> — minimal plugin setup</li><li><strong>GitHub</strong> — version control and accountability</li></ul>` },
+            { id:16, title:"AI in Stocks: Sentiment Analysis from News Headlines", category:"Data Science", date:"September 2025", readTime:"8 min read", excerpt:"Extracting sentiment from financial news headlines to predict short-term stock market movements.", tags:["Stocks","AI","NLP"], cover:"https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?w=800&q=80", content:`<div class="blog-modal__cover"><img src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?w=860&q=80" alt="Sentiment Stocks"></div><p>Markets are driven by news, opinions, and emotions.</p><h4>FinBERT vs VADER</h4><ul><li><strong>VADER:</strong> Rule-based, very fast</li><li><strong>FinBERT:</strong> Transformer-based, highly accurate for financial contexts</li></ul>` },
+            { id:17, title:"Building a Chess AI: Minimax with Alpha-Beta Pruning", category:"Machine Learning", date:"October 2025", readTime:"12 min read", excerpt:"Building a chess bot engine from scratch using Minimax and alpha-beta pruning in Python.", tags:["Chess","AI","Algorithms"], cover:"https://images.unsplash.com/photo-1611195974226-a6a9be9dd763?w=800&q=80", content:`<div class="blog-modal__cover"><img src="https://images.unsplash.com/photo-1611195974226-a6a9be9dd763?w=860&q=80" alt="Chess Bot"></div><p>At the core of classic game-playing AI is the Minimax algorithm, enhanced by alpha-beta pruning.</p><h4>Alpha-Beta Pruning</h4><p>Without optimization, searching 5 moves ahead takes billions of positions. Pruning cuts off branches that do not affect the final decision.</p>` },
+            { id:18, title:"Streamlit + Stock Market APIs: Real-time Portfolio Tracker", category:"Web Development", date:"November 2025", readTime:"6 min read", excerpt:"Creating a stock portfolio dashboard using Streamlit, yfinance, and interactive Plotly charts.", tags:["Streamlit","Stocks","Python"], cover:"https://images.unsplash.com/photo-1642390091310-20edf2d1dd37?w=800&q=80", content:`<div class="blog-modal__cover"><img src="https://images.unsplash.com/photo-1642390091310-20edf2d1dd37?w=860&q=80" alt="Realtime Stocks"></div><p>Streamlit is the fastest way to turn code scripts into data tools.</p><h4>Getting Market Data</h4><p>We use <code>yfinance</code> to download historical prices dynamically based on user ticker inputs.</p>` },
+            { id:19, title:"Chess AI Evaluation Functions: Teach Your Code to Value Positions", category:"Machine Learning", date:"December 2025", readTime:"9 min read", excerpt:"Writing evaluation functions for board control, king safety, and pawn structure in custom chess bots.", tags:["Chess","Python","AI"], cover:"https://images.unsplash.com/photo-1586165368502-1badb97794bc?w=800&q=80", content:`<div class="blog-modal__cover"><img src="https://images.unsplash.com/photo-1586165368502-1badb97794bc?w=860&q=80" alt="Chess Valuation"></div><p>A search algorithm is only as good as its evaluation function.</p><h4>Piece-Square Tables</h4><p>A knight on the rim is dim, so we reward central control using PSTs.</p><h4>Advanced Factors</h4><ul><li>King safety</li><li>Pawn structure</li><li>Mobility</li></ul>` },
+            { id:20, title:"Predicting Stock Trends using LSTM Neural Networks", category:"Machine Learning", date:"January 2026", readTime:"11 min read", excerpt:"Using LSTM recurrent neural networks to model sequential stock price patterns in Python.", tags:["Stocks","ML","Deep Learning"], cover:"https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&q=80", content:`<div class="blog-modal__cover"><img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=860&q=80" alt="LSTM"></div><p>LSTMs are ideal for trend forecasting because they store long-term sequence dependencies.</p><h4>Implementation Tips</h4><ul><li>Always scale data using MinMaxScaler</li><li>Use a sliding window approach</li><li>Add Dropout layers to prevent overfitting</li></ul>` },
+            { id:21, title:"Streamlit Secrets: Managing API Keys and Databases Securely", category:"Web Development", date:"February 2026", readTime:"6 min read", excerpt:"Best practices for managing credentials and deploying secure public apps.", tags:["Streamlit","Security","Python"], cover:"https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&q=80", content:`<div class="blog-modal__cover"><img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=860&q=80" alt="Security"></div><p>Exposing credentials in your repository is a high risk.</p><h4>Using Streamlit Secrets</h4><p>Create a <code>.streamlit/secrets.toml</code> file locally. Access with <code>st.secrets["db_password"]</code>.</p>` },
+            { id:22, title:"Machine Learning for Algorithmic Trading", category:"Machine Learning", date:"March 2026", readTime:"9 min read", excerpt:"How quantitative analysts leverage ML to discover statistical arbitrage in financial markets.", tags:["ML","Stocks","Finance"], cover:"https://images.unsplash.com/photo-1535320903710-d993d3d77d29?w=800&q=80", content:`<div class="blog-modal__cover"><img src="https://images.unsplash.com/photo-1535320903710-d993d3d77d29?w=860&q=80" alt="Algo trading"></div><p>Algorithmic trading is the automated execution of trades based on quantitative models.</p><h4>Challenges</h4><ul><li>Low Signal-to-Noise Ratio</li><li>Regime Shifts during market crises</li></ul>` },
+            { id:23, title:"Reinforcement Learning in Chess: Training Bots from Self-Play", category:"Machine Learning", date:"April 2026", readTime:"10 min read", excerpt:"How neural networks like AlphaZero learn chess from scratch by playing millions of games against themselves.", tags:["Chess","ML","Reinforcement Learning"], cover:"https://images.unsplash.com/photo-1604881988758-f76ad2f7accf?w=800&q=80", content:`<div class="blog-modal__cover"><img src="https://images.unsplash.com/photo-1604881988758-f76ad2f7accf?w=860&q=80" alt="Selfplay RL"></div><p>Reinforcement learning changed the paradigm by teaching agents to learn strictly from self-play.</p><h4>MCTS</h4><p>Combined with policy networks, Monte Carlo Tree Search narrows the search tree by prioritizing high win-probability moves.</p>` },
+            { id:24, title:"Streamlit Layout Hacks: Responsive Columns and Containers", category:"Web Development", date:"May 2026", readTime:"7 min read", excerpt:"Mastering columns, tabs, and containers for polished dashboard design.", tags:["Streamlit","UI","Web Development"], cover:"https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=800&q=80", content:`<div class="blog-modal__cover"><img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=860&q=80" alt="Layout Design"></div><p>Streamlit is simple, but you can customize its grid system for complex layouts.</p><h4>Key Hacks</h4><ul><li>Nested columns with <code>st.columns([2,1])</code></li><li>Tabs with <code>st.tabs()</code></li><li>Dynamic containers with <code>st.empty()</code></li></ul>` },
+            { id:25, title:"Volatile Stock Markets: Anomaly Detection Using Isolation Forest", category:"Data Science", date:"June 2026", readTime:"8 min read", excerpt:"Detecting flash crashes and abnormal trading patterns using unsupervised ML.", tags:["Stocks","ML","Pandas"], cover:"https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=800&q=80", content:`<div class="blog-modal__cover"><img src="https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=860&q=80" alt="Anomalies"></div><p>Isolation Forest isolates anomalies instead of profiling normal data.</p>` },
+            { id:26, title:"Chess Piece Detection with YOLOv8: Computer Vision on the Board", category:"Machine Learning", date:"July 2026", readTime:"10 min read", excerpt:"Building a CV pipeline that processes chessboard photos into FEN notation.", tags:["Chess","Computer Vision","Deep Learning"], cover:"https://images.unsplash.com/photo-1610631889004-9441a59665db?w=800&q=80", content:`<div class="blog-modal__cover"><img src="https://images.unsplash.com/photo-1610631889004-9441a59665db?w=860&q=80" alt="YOLO Chess"></div><p>YOLOv8 is a state-of-the-art object detector that makes turning a physical chess game into a digital format simple.</p>` },
+            { id:27, title:"Deploying Streamlit Apps to Hugging Face Spaces", category:"Web Development", date:"August 2026", readTime:"7 min read", excerpt:"A step-by-step guide to sharing your Streamlit app with the world for free.", tags:["Streamlit","DevOps","Python"], cover:"https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=800&q=80", content:`<div class="blog-modal__cover"><img src="https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=860&q=80" alt="Deployment"></div><p>Hugging Face Spaces provides free hosting with git-based workflows.</p><h4>Steps</h4><ol><li>Create a HF account and initialize a Streamlit Space</li><li>Add <code>requirements.txt</code></li><li>Push your code to the HF remote — build kicks off automatically</li></ol>` },
+            { id:28, title:"AI Chess Bots: Comparing Minimax Against Neural Networks", category:"Machine Learning", date:"September 2026", readTime:"9 min read", excerpt:"Fundamental tradeoffs between search-based and learning-based approaches to game-playing AI.", tags:["Chess","AI","Neural Networks"], cover:"https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80", content:`<div class="blog-modal__cover"><img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=860&q=80" alt="AI engines"></div><h4>Minimax Engines</h4><ul><li>Pros: extreme calculation depth, predictable</li><li>Cons: relies on handcrafted evaluation</li></ul><h4>Neural Network Engines</h4><ul><li>Pros: strong positional understanding</li><li>Cons: hardware heavy, slower search</li></ul>` },
+            { id:29, title:"Stock Portfolio Optimization using Mean-Variance Analysis", category:"Data Science", date:"October 2026", readTime:"8 min read", excerpt:"Implementing Modern Portfolio Theory in Python to build efficient, diversified portfolios.", tags:["Stocks","Python","Finance"], cover:"https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=800&q=80", content:`<div class="blog-modal__cover"><img src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=860&q=80" alt="Portfolio"></div><p>Modern Portfolio Theory helps investors maximize returns for a given level of risk.</p>` },
+            { id:30, title:"AI-Powered Coding Assistants for Machine Learning Development", category:"Machine Learning", date:"November 2026", readTime:"7 min read", excerpt:"Evaluating how LLM coding assistants speed up ML prototyping and data cleaning.", tags:["ML","Productivity","AI"], cover:"https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&q=80", content:`<div class="blog-modal__cover"><img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=860&q=80" alt="Coding assistants"></div><p>AI assistants have become active pairing partners for ML engineers.</p><h4>Best Practices for Prompting</h4><p>Provide specific API versions, expected input/output shapes, and detailed requirements to get clean, runnable ML scripts on the first try.</p>` }
         ];
 
-        // ===== RENDER =====
+        // RENDER
         const blogGrid = document.getElementById('blogGrid');
         const blogSearch = document.getElementById('blogSearch');
         const blogTag = document.getElementById('blogTag');
@@ -1904,35 +768,31 @@
 
         function renderGrid(list) {
             filteredPosts = list;
-            if (!list.length) {
-                blogGrid.innerHTML = '<div class="blog-empty">No posts found. Try a different search query.</div>';
-                return;
-            }
+            if (!list.length) { blogGrid.innerHTML = '<div class="blog-empty">No posts found. Try a different search query.</div>'; return; }
             blogGrid.innerHTML = list.map((p, i) => `
-        <div class="blog-card">
-            <div class="blog-card__cover-wrap">
-                <img class="blog-card__cover" src="${p.cover}" alt="${p.title}" loading="lazy">
-                <div class="blog-card__cover-overlay"></div>
-            </div>
-            <div class="blog-card__body">
-                <div class="blog-card__category">${p.category}</div>
-                <div class="blog-card__title">${p.title}</div>
-                <div class="blog-card__meta">${p.date} · ${p.readTime}</div>
-                <p class="blog-card__excerpt">${p.excerpt}</p>
-                <div class="blog-card__tags">${p.tags.map(t => `<span class="blog-tag">${t}</span>`).join('')}</div>
-                <button class="blog-card__btn" onclick="openModalByIndex(${i})">read_article.sh</button>
-            </div>
-        </div>
-    `).join('');
+                <div class="blog-card">
+                    <div class="blog-card__cover-wrap">
+                        <img class="blog-card__cover" src="${p.cover}" alt="${p.title}" loading="lazy">
+                        <div class="blog-card__cover-overlay"></div>
+                    </div>
+                    <div class="blog-card__body">
+                        <div class="blog-card__category">${p.category}</div>
+                        <div class="blog-card__title">${p.title}</div>
+                        <div class="blog-card__meta">${p.date} · ${p.readTime}</div>
+                        <p class="blog-card__excerpt">${p.excerpt}</p>
+                        <div class="blog-card__tags">${p.tags.map(t => `<span class="blog-tag">${t}</span>`).join('')}</div>
+                        <button class="blog-card__btn" onclick="openModalByIndex(${i})">read_article.sh</button>
+                    </div>
+                </div>
+            `).join('');
         }
 
         function openModalByIndex(i) {
             if (i < 0 || i >= filteredPosts.length) return;
-            activeIndex = i;
-            const p = filteredPosts[i];
+            activeIndex = i; const p = filteredPosts[i];
             blogModalCategory.textContent = p.category;
             blogModalTitle.textContent = p.title;
-            blogModalMeta.textContent = `${p.date} · ${p.readTime}`;
+            blogModalMeta.textContent = p.date + ' · ' + p.readTime;
             blogModalBody.innerHTML = p.content;
             blogModalPrev.disabled = i === 0;
             blogModalNext.disabled = i === filteredPosts.length - 1;
@@ -1963,7 +823,7 @@
             const tag = blogTag.value;
             renderGrid(posts.filter(p => {
                 const matchTag = tag === 'all' ? true : p.tags.includes(tag) || p.category === tag;
-                const text = `${p.title} ${p.category} ${p.tags.join(' ')} ${p.excerpt}`.toLowerCase();
+                const text = (p.title + ' ' + p.category + ' ' + p.tags.join(' ') + ' ' + p.excerpt).toLowerCase();
                 return matchTag && (!q || text.includes(q));
             }));
         }
@@ -1972,7 +832,7 @@
         buildTagOptions();
         renderGrid(posts);
 
-        // ===== CHATBOT =====
+        // CHATBOT
         const cToggle = document.getElementById('chatbot-toggle');
         const cWindow = document.getElementById('chatbot-window');
         const cClose = document.getElementById('chatbot-close');
@@ -1982,11 +842,18 @@
         cToggle.addEventListener('click', () => cWindow.classList.toggle('active'));
         cClose.addEventListener('click', () => cWindow.classList.remove('active'));
         const cResponses = {
-            'skills': 'SKILLS:: Python(88%) · AI/ML(85%) · Web Dev(90%) · Data Science(75%) · Streamlit(80%) · Chess(95%)',
-            'contact': 'EMAIL:: bhavya.s.solanki777@gmail.com | PHONE:: +91 9998106880',
-            'projects': 'Cricket Analyst · Stock Predictor · Health Chatbot · Churn Analysis · SVM · K-Means',
-            'resume': '<a href="assets/cv/Bhavya_Solanki_Resume.pdf" download style="color:var(--cyan)">→ download_resume.pdf</a>',
-            'default': 'COMMAND_NOT_FOUND. Try: skills | projects | contact | resume'
+            'hello':'HELLO. How can I assist you today?','hi':'ONLINE. Ask me about Bhavya.',
+            'skills':'SKILLS:: Python(88%) · AI/ML(85%) · Web Dev(90%) · Data Science(75%) · Streamlit(80%) · Chess(95%)',
+            'contact':'EMAIL:: bhavya.s.solanki777@gmail.com | PHONE:: +91 9998106880',
+            'email':'bhavya.s.solanki777@gmail.com',
+            'projects':'6+ PROJECTS :: Cricket Analyst · Stock Predictor · Health Chatbot · Churn Analysis · SVM · K-Means',
+            'resume':'<a href="assets/cv/Bhavya_Solanki_Resume.pdf" download style="color:var(--cyan)">→ download_resume.pdf</a>',
+            'default':'COMMAND_NOT_FOUND. Try: skills | projects | contact | resume | hire',
+            'bye':'Good Bye Take Care','by':'Good Bye Take Care',
+            'thank you':'Don`t Worry it`s  My Work ',
+            'about':'A passionate AI/ML student and developer crafting intelligent applications, data-driven dashboards, and modern web experiences.',
+            'thanks':'Don`t Worry it`s  My Work ',
+            'hire':'AVAILABLE for freelance AI/ML, data science & web projects. Contact: bhavya.s.solanki777@gmail.com/9998106880'
         };
         function getChatResponse(msg) {
             const m = msg.toLowerCase();
@@ -1998,7 +865,7 @@
         function addChatMsg(text, isUser) {
             const d = document.createElement('div');
             d.className = 'message ' + (isUser ? 'user-message' : 'bot-message');
-            d.innerHTML = `<div class="message-content">${text}</div>`;
+            d.innerHTML = '<div class="message-content">' + text + '</div>';
             cMessages.appendChild(d); cMessages.scrollTop = cMessages.scrollHeight;
         }
         function sendChatMsg() {
@@ -2010,5 +877,5 @@
         cInput.addEventListener('keypress', e => { if (e.key === 'Enter') sendChatMsg(); });
     </script>
 </body>
-
 </html>
+<!-- HTMLEOF -->
