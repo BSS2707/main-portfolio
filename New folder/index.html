@@ -1,0 +1,1960 @@
+<!-- cat > /mnt/user-data/outputs/index.html << 'HTMLEOF' -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BSS_2707 — AI/ML Developer | Bhavya Solanki</title>
+    <meta name="description" content="Bhavya Solanki (BSS_2707) — AI/ML Developer, Data Scientist & Python Engineer from Surat, India. BCA (AI) student building intelligent applications, Streamlit dashboards, and modern web experiences.">
+    <meta name="keywords" content="Bhavya Solanki, BSS_2707, AI developer, ML developer, machine learning, Python, Streamlit, data science, web developer, BCA AI, Surat, India, portfolio">
+    <meta name="author" content="Bhavya Solanki">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://bhavyasolanki.online/">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bhavyasolanki.online/">
+    <meta property="og:title" content="BSS_2707 — AI/ML Developer | Bhavya Solanki">
+    <meta property="og:description" content="AI/ML Developer, Data Scientist & Python Engineer. Building intelligent applications, Streamlit dashboards, and modern web experiences.">
+    <meta property="og:image" content="https://bhavyasolanki.online/assets/img/bhavya.png">
+    <link rel="image_src" href="https://bhavyasolanki.online/assets/img/bhavya.png">
+    <meta name="image" content="https://bhavyasolanki.online/assets/img/bhavya.png">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="BSS_2707 — AI/ML Developer | Bhavya Solanki">
+    <meta name="twitter:description" content="AI/ML Developer, Data Scientist & Python Engineer from Surat, India.">
+    <meta name="twitter:image" content="https://bhavyasolanki.online/assets/img/bhavya.png">
+
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Bhavya S Solanki",
+      "alternateName": "BSS_2707",
+      "url": "https://bhavyasolanki.online/",
+    "image": "https://bhavyasolanki.online/assets/img/bhavya.png",
+      "email": "bhavya.s.solanki777@gmail.com",
+      "telephone": "+91-9998106880",
+      "jobTitle": "AI/ML Developer",
+      "description": "BCA (AI) student and developer specialising in Python, Machine Learning, Data Science, and Streamlit.",
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "Vivekanand College Surat"
+      },
+      "knowsAbout": ["Python", "Machine Learning", "AI Development", "Data Science", "Streamlit", "HTML", "CSS"]
+    }
+    </script>
+
+    <meta name="google-site-verification" content="2lSPpcWQoSJiXO74hxTrbldX7EWTUEUccsVbm_dp8PM" />
+    <link rel="icon" href="https://cdn.phototourl.com/free/2026-08-23-b1f37d5e-59a4-4f9b-a9cd-d474da5e265d.png">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=VT323&family=Fira+Code:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --green: #00ff41;
+            --green-dim: #00c32f;
+            --green-dark: #003d0f;
+            --green-glow: rgba(0, 255, 65, 0.15);
+            --green-glow-strong: rgba(0, 255, 65, 0.35);
+            --amber: #ffb700;
+            --red: #ff2a2a;
+            --cyan: #00f5ff;
+            --bg: #010b03;
+            --bg2: #020e04;
+            --bg3: #031407;
+            --surface: #061209;
+            --border: rgba(0, 255, 65, 0.18);
+            --border-bright: rgba(0, 255, 65, 0.5);
+            --text: #c8ffd4;
+            --muted: #4a9957;
+            --header-h: 58px;
+        }
+
+        *,::before,::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Fira Code', monospace;
+            background: var(--bg);
+            color: var(--text);
+            margin-top: var(--header-h);
+            cursor: none;
+            overflow-x: hidden;
+        }
+
+        /* ===== CUSTOM CURSOR ===== */
+        #cursor {
+            position: fixed; z-index: 9999; pointer-events: none;
+            width: 20px; height: 20px; border: 1.5px solid var(--green);
+            transform: translate(-50%, -50%);
+            transition: width 0.15s, height 0.15s, opacity 0.15s;
+            box-shadow: 0 0 10px var(--green), 0 0 20px rgba(0,255,65,0.3);
+        }
+        #cursor-dot {
+            position: fixed; z-index: 9999; pointer-events: none;
+            width: 4px; height: 4px; border-radius: 50%; background: var(--green);
+            transform: translate(-50%, -50%); box-shadow: 0 0 6px var(--green);
+        }
+
+        /* ===== CRT ===== */
+        body::before {
+            content: ''; position: fixed; inset: 0; z-index: 9990;
+            background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.05) 2px, rgba(0,0,0,0.05) 4px);
+            pointer-events: none;
+        }
+        body::after {
+            content: ''; position: fixed; inset: 0; z-index: 9989;
+            background: radial-gradient(ellipse at center, transparent 60%, rgba(0,0,0,0.6) 100%);
+            pointer-events: none;
+        }
+
+        /* ===== MATRIX ===== */
+        #matrix-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; opacity: 0.07; pointer-events: none; }
+
+        /* ===== LOADING ===== */
+        #loading-screen {
+            position: fixed; inset: 0; z-index: 9998;
+            background: #000;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            gap: 1.2rem; font-family: 'Share Tech Mono', monospace;
+            overflow: hidden;
+        }
+        /* Scanline overlay on loading */
+        #loading-screen::before {
+            content: ''; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+            background: repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0,255,65,0.018) 3px, rgba(0,255,65,0.018) 4px);
+            animation: scanMove 8s linear infinite;
+        }
+        @keyframes scanMove { 0%{background-position:0 0} 100%{background-position:0 100px} }
+        /* Vignette on loading */
+        #loading-screen::after {
+            content: ''; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+            background: radial-gradient(ellipse at center, transparent 55%, rgba(0,0,0,0.75) 100%);
+        }
+        /* ASCII logo above terminal */
+        .ls-logo {
+            position: relative; z-index: 2;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: clamp(0.38rem, 1.1vw, 0.58rem);
+            line-height: 1.25;
+            color: var(--green);
+            text-shadow: 0 0 18px rgba(0,255,65,0.7), 0 0 40px rgba(0,255,65,0.3);
+            white-space: pre;
+            letter-spacing: 0.05em;
+            text-align: center;
+            animation: logoFlicker 3s ease-in-out infinite;
+            user-select: none;
+        }
+        @keyframes logoFlicker {
+            0%,97%,100%{ opacity:1; text-shadow: 0 0 18px rgba(0,255,65,0.7), 0 0 40px rgba(0,255,65,0.3); }
+            98%{ opacity:0.7; text-shadow: 0 0 8px rgba(0,255,65,0.4); }
+            99%{ opacity:1; text-shadow: 0 0 35px rgba(0,255,65,0.9), 0 0 70px rgba(0,255,65,0.5); }
+        }
+        .ls-terminal {
+            position: relative; z-index: 2;
+            width: min(620px, 92vw);
+            border: 1px solid rgba(0,255,65,0.6);
+            border-radius: 6px;
+            box-shadow:
+                0 0 0 1px rgba(0,255,65,0.08),
+                0 0 20px rgba(0,255,65,0.18),
+                0 0 50px rgba(0,255,65,0.08),
+                inset 0 0 40px rgba(0,255,65,0.025);
+            animation: termPulse 4s ease-in-out infinite;
+        }
+        @keyframes termPulse {
+            0%,100%{ box-shadow: 0 0 0 1px rgba(0,255,65,0.08), 0 0 20px rgba(0,255,65,0.18), 0 0 50px rgba(0,255,65,0.08), inset 0 0 40px rgba(0,255,65,0.025); }
+            50%{ box-shadow: 0 0 0 1px rgba(0,255,65,0.12), 0 0 30px rgba(0,255,65,0.28), 0 0 70px rgba(0,255,65,0.12), inset 0 0 40px rgba(0,255,65,0.04); }
+        }
+        .ls-titlebar {
+            background: linear-gradient(90deg, #001a05, #003d0f, #001a05);
+            border-bottom: 1px solid rgba(0,255,65,0.25);
+            border-radius: 6px 6px 0 0;
+            padding: 0.45rem 0.85rem;
+            display: flex; align-items: center; gap: 0.5rem;
+            font-size: 0.72rem; color: rgba(0,255,65,0.7);
+            letter-spacing: 0.08em;
+        }
+        .ls-titlebar-dots { display: flex; gap: 6px; margin-right: 0.4rem; }
+        .ls-titlebar-dot { width: 11px; height: 11px; border-radius: 50%; box-shadow: 0 0 6px currentColor; }
+        .ls-titlebar-dot:nth-child(1) { background: #ff5f56; color: #ff5f56; }
+        .ls-titlebar-dot:nth-child(2) { background: #ffbd2e; color: #ffbd2e; }
+        .ls-titlebar-dot:nth-child(3) { background: #27c93f; color: #27c93f; }
+        .ls-titlebar-text { flex: 1; text-align: center; color: rgba(0,255,65,0.6); font-size: 0.72rem; }
+        .ls-titlebar-sig { color: rgba(0,255,65,0.35); font-size: 0.68rem; }
+        .ls-body {
+            padding: 1.1rem 1.4rem 0.8rem;
+            min-height: 200px; max-height: 320px;
+            overflow-y: auto;
+            background: rgba(0,5,1,0.92);
+            border-radius: 0 0 6px 6px;
+        }
+        .ls-body::-webkit-scrollbar { width: 3px; }
+        .ls-body::-webkit-scrollbar-track { background: transparent; }
+        .ls-body::-webkit-scrollbar-thumb { background: rgba(0,255,65,0.3); border-radius: 99px; }
+        .ls-line {
+            font-size: 0.8rem; color: var(--green); line-height: 1.85;
+            font-family: 'Share Tech Mono', monospace;
+            opacity: 0;
+            transform: translateX(-6px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        .ls-line.ls-visible { opacity: 1; transform: none; }
+        /* static first line always visible */
+        .ls-line.ls-static { opacity: 1; transform: none; }
+        .ls-line .prompt { color: var(--muted); }
+        .ls-line .out { color: #5dde74; }
+        .ls-line .warn { color: var(--amber); }
+        .ls-line .info { color: var(--cyan); }
+        .ls-line .dim { color: rgba(0,255,65,0.35); }
+        /* blinking cursor */
+        .ls-cursor-blink {
+            display: inline-block; width: 7px; height: 13px; background: var(--green);
+            animation: blink 0.7s step-start infinite; vertical-align: middle;
+            box-shadow: 0 0 8px var(--green);
+        }
+        @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+        /* progress bar */
+        .ls-bar-section { padding: 0 1.4rem 1rem; background: rgba(0,5,1,0.92); border-radius: 0 0 6px 6px; margin-top: -0.1rem; }
+        .ls-bar-label { font-size: 0.68rem; color: var(--muted); font-family: 'Share Tech Mono', monospace; margin-bottom: 0.3rem; display: flex; justify-content: space-between; }
+        .ls-bar-wrap { height: 4px; background: rgba(0,255,65,0.1); border-radius: 99px; overflow: hidden; border: 1px solid rgba(0,255,65,0.15); }
+        .ls-bar {
+            height: 100%; width: 0;
+            background: linear-gradient(90deg, #00c32f, #00ff41, #5dde74);
+            border-radius: 99px;
+            box-shadow: 0 0 8px rgba(0,255,65,0.6);
+            transition: width 0.15s ease;
+        }
+        /* input row */
+        .ls-input-row {
+            display: flex; align-items: center; gap: 0; margin-top: 0.2rem;
+            background: rgba(0,255,65,0.04);
+            border: 1px solid rgba(0,255,65,0.2);
+            border-radius: 3px;
+            padding: 0.3rem 0.5rem;
+        }
+        .ls-input-prompt {
+            color: var(--green); font-size: 0.8rem; font-family: 'Share Tech Mono', monospace;
+            white-space: nowrap; line-height: 1; text-shadow: 0 0 8px var(--green);
+        }
+        .ls-real-input {
+            flex: 1; background: transparent; border: none; outline: none;
+            color: var(--cyan); font-size: 0.8rem;
+            font-family: 'Share Tech Mono', monospace;
+            caret-color: var(--green); padding: 0; margin: 0;
+            text-shadow: 0 0 10px var(--cyan);
+            -webkit-appearance: none; appearance: none; border-radius: 0;
+        }
+        .ls-real-input::selection { background: rgba(0,255,65,0.3); }
+        /* hint chips */
+        .ls-hints {
+            display: flex; gap: 0.5rem; margin-top: 0.55rem; flex-wrap: wrap;
+            position: relative; z-index: 2;
+        }
+        .ls-hint-chip {
+            font-size: 0.68rem; font-family: 'Share Tech Mono', monospace;
+            padding: 0.2rem 0.6rem; border-radius: 2px;
+            border: 1px solid rgba(0,255,65,0.25);
+            color: rgba(0,255,65,0.6);
+            background: rgba(0,255,65,0.05);
+            cursor: pointer;
+            transition: all 0.15s;
+            letter-spacing: 0.05em;
+        }
+        .ls-hint-chip:hover { border-color: var(--cyan); color: var(--cyan); background: rgba(0,245,255,0.08); box-shadow: 0 0 8px rgba(0,245,255,0.2); }
+        .ls-hint-chip span { color: var(--cyan); }
+
+        /* ===== HEADER ===== */
+        .l-header {
+            position: fixed; top: 0; left: 0; right: 0; height: var(--header-h); z-index: 100;
+            background: rgba(1,11,3,0.9); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border);
+        }
+        .l-header::after {
+            content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
+            background: linear-gradient(90deg, transparent, var(--green), transparent); opacity: 0.5;
+        }
+        .nav { max-width: 1200px; margin: 0 auto; height: 100%; display: flex; align-items: center; justify-content: space-between; padding: 0 1.5rem; }
+        .nav__logo { font-family: 'VT323', monospace; font-size: 1.5rem; color: var(--green); text-decoration: none; letter-spacing: 2px; text-shadow: 0 0 10px var(--green), 0 0 20px rgba(0,255,65,0.4); }
+        .nav__logo span { color: var(--amber); }
+        .nav__list { display: flex; align-items: center; gap: 0.25rem; list-style: none; }
+        .nav__link { text-decoration: none; font-size: 0.78rem; color: var(--muted); padding: 0.4rem 0.7rem; border-radius: 3px; transition: color 0.2s, background 0.2s, text-shadow 0.2s; font-family: 'Share Tech Mono', monospace; letter-spacing: 1px; }
+        .nav__link::before { content: './'; color: var(--green-dim); opacity: 0.6; }
+        .nav__link:hover,.nav__link.active-link { color: var(--green); background: var(--green-glow); text-shadow: 0 0 8px var(--green); }
+        .nav__cv-btn { background: transparent; color: var(--green); text-decoration: none; font-size: 0.75rem; font-family: 'Share Tech Mono', monospace; padding: 0.4rem 0.9rem; border-radius: 3px; border: 1px solid var(--border-bright); transition: all 0.2s; letter-spacing: 1px; }
+        .nav__cv-btn:hover { background: var(--green-glow); box-shadow: 0 0 12px rgba(0,255,65,0.3); text-shadow: 0 0 8px var(--green); }
+        .nav__toggle { display: none; background: none; border: none; color: var(--green); font-size: 1.4rem; cursor: none; }
+        @media(max-width:768px) {
+            .nav__menu { position: fixed; top: var(--header-h); left: 0; right: 0; background: var(--bg); padding: 1.5rem; transform: translateY(-120%); transition: transform 0.3s ease; border-bottom: 1px solid var(--border); }
+            .nav__menu.show { transform: translateY(0); }
+            .nav__list { flex-direction: column; align-items: flex-start; }
+            .nav__toggle { display: block; }
+        }
+
+        /* ===== SECTIONS ===== */
+        section { position: relative; z-index: 1; padding: 5rem 1.5rem; }
+        .bd-grid { max-width: 1100px; margin: 0 auto; }
+        .section-label { font-size: 0.72rem; letter-spacing: 0.2em; color: var(--muted); margin-bottom: 0.5rem; font-family: 'Share Tech Mono', monospace; }
+        .section-label::before { content: '// '; color: var(--green-dim); }
+        .section-title { font-family: 'VT323', monospace; font-size: clamp(2rem,4vw,3rem); color: var(--green); text-shadow: 0 0 20px rgba(0,255,65,0.4); margin-bottom: 3rem; letter-spacing: 2px; }
+        .section-title .line { display: block; height: 2px; width: 60px; background: linear-gradient(90deg, var(--green), transparent); margin-top: 0.75rem; }
+
+        /* ===== TERMINAL BOX ===== */
+        .terminal-box { border: 1px solid var(--border); border-radius: 4px; background: var(--surface); box-shadow: 0 0 20px rgba(0,255,65,0.05), inset 0 0 20px rgba(0,0,0,0.3); }
+        .terminal-box:hover { border-color: var(--border-bright); box-shadow: 0 0 25px rgba(0,255,65,0.15); }
+        .terminal-titlebar { background: var(--bg3); border-bottom: 1px solid var(--border); padding: 0.4rem 0.75rem; display: flex; align-items: center; gap: 0.5rem; font-size: 0.72rem; color: var(--muted); border-radius: 4px 4px 0 0; font-family: 'Share Tech Mono', monospace; }
+        .t-dot { width: 9px; height: 9px; border-radius: 50%; }
+        .t-dot.r { background: #ff5f56; } .t-dot.y { background: #ffbd2e; } .t-dot.g { background: #27c93f; }
+        .terminal-body { padding: 1.25rem 1.5rem; }
+
+        /* ===== HOME ===== */
+        #home { min-height: calc(100vh - var(--header-h)); display: flex; align-items: center; padding: 4rem 1.5rem; }
+        .home__inner { max-width: 1100px; margin: 0 auto; width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+        .home__badge { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.72rem; color: var(--green); font-family: 'Share Tech Mono', monospace; margin-bottom: 1.5rem; letter-spacing: 1px; }
+        .badge-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green); box-shadow: 0 0 8px var(--green); animation: pulse-dot 1.5s ease-in-out infinite; }
+        @keyframes pulse-dot { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(0.8)} }
+        .home__prompt { font-size: 0.85rem; color: var(--muted); margin-bottom: 0.25rem; font-family: 'Share Tech Mono', monospace; }
+        .home__prompt::before { content: '$ '; color: var(--green); }
+        .home__name { font-family: 'VT323', monospace; font-size: clamp(3.5rem,7vw,6rem); color: var(--green); text-shadow: 0 0 30px rgba(0,255,65,0.5), 0 0 60px rgba(0,255,65,0.2); line-height: 1; letter-spacing: 3px; margin-bottom: 0.25rem; }
+        .home__name em { color: var(--amber); font-style: normal; text-shadow: 0 0 20px rgba(255,183,0,0.5); }
+        .home__typed-wrap { font-family: 'Share Tech Mono', monospace; font-size: clamp(0.9rem,1.8vw,1.2rem); color: var(--muted); margin-bottom: 2rem; min-height: 2rem; }
+        .home__typed-wrap #typed { color: var(--cyan); text-shadow: 0 0 8px var(--cyan); }
+        .home__typed-wrap::before { content: '> '; color: var(--green); }
+        .home__desc { font-size: 0.88rem; line-height: 1.8; color: var(--muted); max-width: 480px; margin-bottom: 2.5rem; border-left: 2px solid var(--border-bright); padding-left: 1rem; }
+        .home__actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+        .btn-primary { background: transparent; color: var(--green); text-decoration: none; font-size: 0.8rem; font-family: 'Share Tech Mono', monospace; padding: 0.7rem 1.5rem; border-radius: 3px; border: 1px solid var(--green); transition: all 0.2s; letter-spacing: 1px; display: inline-flex; align-items: center; gap: 0.5rem; box-shadow: 0 0 10px rgba(0,255,65,0.1); }
+        .btn-primary:hover { background: var(--green-glow-strong); box-shadow: 0 0 20px rgba(0,255,65,0.4); text-shadow: 0 0 8px var(--green); transform: translateY(-2px); }
+        .btn-outline { background: transparent; color: var(--muted); text-decoration: none; font-size: 0.8rem; font-family: 'Share Tech Mono', monospace; padding: 0.7rem 1.5rem; border-radius: 3px; border: 1px solid var(--border); transition: all 0.2s; letter-spacing: 1px; display: inline-flex; align-items: center; gap: 0.5rem; }
+        .btn-outline:hover { border-color: var(--border-bright); color: var(--green); transform: translateY(-2px); }
+        .home__social { display: flex; gap: 0.75rem; margin-top: 2rem; }
+        .home__social a { width: 38px; height: 38px; border-radius: 3px; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; color: var(--muted); text-decoration: none; transition: all 0.2s; font-family: 'Share Tech Mono', monospace; }
+        .home__social a:hover { color: var(--green); border-color: var(--green); box-shadow: 0 0 12px rgba(0,255,65,0.3); background: var(--green-glow); }
+        .ascii-glow { text-shadow: 0 0 8px var(--green); }
+        .stat-row { display: flex; gap: 0.5rem; align-items: center; margin: 0.4rem 0; font-size: 0.8rem; font-family: 'Share Tech Mono', monospace; }
+        .stat-key { color: var(--cyan); min-width: 90px; }
+        .stat-sep { color: var(--muted); }
+        .stat-val { color: var(--green); }
+        .stat-bar { flex: 1; height: 6px; background: var(--bg3); border-radius: 1px; overflow: hidden; border: 1px solid var(--border); }
+        .stat-fill { height: 100%; background: linear-gradient(90deg, var(--green-dark), var(--green)); border-radius: 1px; transition: width 1.2s cubic-bezier(0.4,0,0.2,1); }
+        @media(max-width:900px) { .home__inner { grid-template-columns: 1fr; } .home__img-terminal { display: none; } }
+
+        /* ===== ABOUT ===== */
+        .about__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+        .about__text { font-size: 0.88rem; line-height: 1.85; color: var(--muted); margin-bottom: 1rem; }
+        .about__text .hl { color: var(--green); }
+        .about__stats { display: flex; gap: 2rem; flex-wrap: wrap; margin-top: 2rem; }
+        .stat-block { display: flex; flex-direction: column; }
+        .stat-num { font-family: 'VT323', monospace; font-size: 2.5rem; color: var(--green); text-shadow: 0 0 15px rgba(0,255,65,0.4); line-height: 1; }
+        .stat-label { font-size: 0.72rem; color: var(--muted); font-family: 'Share Tech Mono', monospace; letter-spacing: 1px; }
+        .info-table { width: 100%; border-collapse: collapse; }
+        .info-table td { padding: 0.5rem 0; border-bottom: 1px solid var(--border); font-size: 0.82rem; font-family: 'Share Tech Mono', monospace; vertical-align: top; }
+        .info-table td:first-child { color: var(--cyan); width: 130px; padding-right: 1rem; }
+        .info-table td:last-child { color: var(--text); }
+        @media(max-width:768px) { .about__grid { grid-template-columns: 1fr; } }
+
+        /* ===== SKILLS ===== */
+        .skills__grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1rem; }
+        .skill-card { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 1.25rem; transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s; }
+        .skill-card:hover { border-color: var(--border-bright); box-shadow: 0 0 20px rgba(0,255,65,0.12); transform: translateY(-2px); }
+        .skill-card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem; }
+        .skill-name { font-family: 'Share Tech Mono', monospace; font-size: 0.85rem; color: var(--green); }
+        .skill-name::before { content: '» '; color: var(--green-dim); }
+        .skill-pct { font-family: 'VT323', monospace; font-size: 1.4rem; color: var(--amber); text-shadow: 0 0 10px rgba(255,183,0,0.4); }
+        .skill-track { height: 4px; background: var(--bg3); border-radius: 1px; border: 1px solid var(--border); overflow: hidden; }
+        .skill-fill { height: 100%; background: linear-gradient(90deg, var(--green-dark), var(--green)); border-radius: 1px; transition: width 1.4s cubic-bezier(0.4,0,0.2,1); }
+
+        /* ===== WORK ===== */
+        .work__grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.25rem; }
+        .work__card { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; text-decoration: none; color: inherit; display: block; transition: all 0.2s; }
+        .work__card:hover { border-color: var(--border-bright); transform: translateY(-4px); box-shadow: 0 15px 40px rgba(0,0,0,0.4), 0 0 20px rgba(0,255,65,0.1); }
+        .work__card-img-wrap { position: relative; height: 160px; overflow: hidden; }
+        .work__card-img { width: 100%; height: 100%; object-fit: cover; display: block; filter: grayscale(60%) brightness(0.6) sepia(30%) hue-rotate(90deg); transition: filter 0.3s; }
+        .work__card:hover .work__card-img { filter: grayscale(20%) brightness(0.8) sepia(20%) hue-rotate(90deg); }
+        .work__card-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, transparent 50%, rgba(1,11,3,0.9) 100%); }
+        .work__card-body { padding: 1rem 1.25rem; }
+        .work__card-tag { font-size: 0.68rem; font-family: 'Share Tech Mono', monospace; color: var(--cyan); letter-spacing: 1px; margin-bottom: 0.4rem; }
+        .work__card-tag::before { content: '['; color: var(--muted); }
+        .work__card-tag::after { content: ']'; color: var(--muted); }
+        .work__card-title { font-family: 'VT323', monospace; font-size: 1.3rem; color: var(--green); margin-bottom: 0.4rem; letter-spacing: 1px; }
+        .work__card-desc { font-size: 0.8rem; color: var(--muted); line-height: 1.6; }
+        .work__card-arrow { display: inline-flex; align-items: center; gap: 0.3rem; font-size: 0.75rem; font-family: 'Share Tech Mono', monospace; color: var(--green); margin-top: 0.75rem; }
+        .work__card-arrow::before { content: '→ '; }
+
+        /* ===== ACHIEVEMENTS ===== */
+        .achievement__grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.25rem; }
+        .achievement__card { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 1.75rem; position: relative; overflow: hidden; }
+        .achievement__card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--green), var(--cyan)); }
+        .achievement__card:nth-child(2)::before { background: linear-gradient(90deg, var(--amber), var(--green)); }
+        .achievement__rank { font-size: 2.5rem; margin-bottom: 0.75rem; }
+        .achievement__title { font-family: 'VT323', monospace; font-size: 1.4rem; color: var(--green); margin-bottom: 0.6rem; letter-spacing: 1px; }
+        .achievement__desc { font-size: 0.82rem; color: var(--muted); line-height: 1.65; margin-bottom: 0.75rem; }
+        .achievement__link { font-size: 0.75rem; font-family: 'Share Tech Mono', monospace; color: var(--cyan); text-decoration: none; }
+        .achievement__link:hover { text-decoration: underline; text-shadow: 0 0 8px var(--cyan); }
+        .achievement__link::before { content: '→ '; }
+
+        /* ===== CONTACT ===== */
+        .contact__grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 4rem; align-items: start; }
+        .contact__desc { font-size: 0.88rem; color: var(--muted); line-height: 1.75; margin-bottom: 2rem; }
+        .contact__detail { display: flex; align-items: center; gap: 0.75rem; font-size: 0.82rem; color: var(--muted); margin-bottom: 0.75rem; font-family: 'Share Tech Mono', monospace; }
+        .contact__detail::before { content: '$ '; color: var(--green); }
+        .contact__form { display: flex; flex-direction: column; gap: 0.85rem; }
+        .contact__input { background: var(--surface); border: 1px solid var(--border); border-radius: 3px; padding: 0.75rem 1rem; font-size: 0.85rem; color: var(--text); font-family: 'Share Tech Mono', monospace; outline: none; transition: border-color 0.2s, box-shadow 0.2s; width: 100%; resize: vertical; }
+        .contact__input::placeholder { color: var(--muted); }
+        .contact__input:focus { border-color: var(--green); box-shadow: 0 0 12px rgba(0,255,65,0.15); }
+        .contact__btn { background: transparent; color: var(--green); border: 1px solid var(--green); border-radius: 3px; padding: 0.75rem 2rem; font-size: 0.82rem; font-weight: 600; cursor: none; font-family: 'Share Tech Mono', monospace; transition: all 0.2s; letter-spacing: 1px; }
+        .contact__btn:hover { background: var(--green-glow-strong); box-shadow: 0 0 20px rgba(0,255,65,0.3); transform: translateY(-1px); }
+        @media(max-width:768px) { .contact__grid { grid-template-columns: 1fr; } }
+
+        /* ===== FOOTER ===== */
+        footer { background: var(--bg2); border-top: 1px solid var(--border); padding: 3rem 1.5rem; text-align: center; position: relative; z-index: 1; }
+        .footer__name { font-family: 'VT323', monospace; font-size: 2rem; color: var(--green); text-shadow: 0 0 15px rgba(0,255,65,0.4); margin-bottom: 0.25rem; letter-spacing: 2px; }
+        .footer__tagline { font-size: 0.75rem; color: var(--muted); font-family: 'Share Tech Mono', monospace; margin-bottom: 1.5rem; }
+        .footer__social { display: flex; gap: 0.75rem; justify-content: center; margin-bottom: 2rem; }
+        .footer__social a { width: 40px; height: 40px; border-radius: 3px; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; color: var(--muted); text-decoration: none; transition: all 0.2s; }
+        .footer__social a:hover { color: var(--green); border-color: var(--green); box-shadow: 0 0 12px rgba(0,255,65,0.3); }
+        .footer__copy { font-size: 0.72rem; color: var(--muted); font-family: 'Share Tech Mono', monospace; }
+
+
+        /* ===== EXPERIENCE + CLIENT WORK ===== */
+        .exp__list { position: relative; max-width: 860px; padding-left: 2rem; }
+        .exp__list::before { content: ''; position: absolute; left: 5px; top: 8px; bottom: 8px; width: 1px; background: linear-gradient(180deg, var(--green), var(--border) 70%, transparent); }
+        .exp__item { position: relative; margin-bottom: 1.5rem; }
+        .exp__item::before { content: ''; position: absolute; left: -2rem; top: 1.35rem; width: 11px; height: 11px; border-radius: 50%; background: var(--bg); border: 1px solid var(--muted); transition: all 0.25s; }
+        .exp__item[data-state="current"]::before, .exp__item[data-state="active"]::before { background: var(--green); border-color: var(--green); box-shadow: 0 0 10px var(--green); animation: expPulse 2s ease-in-out infinite; }
+        .exp__item[data-state="done"]::before { background: var(--muted); }
+        @keyframes expPulse { 50% { box-shadow: 0 0 2px var(--green); } }
+        .exp__card { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 1.25rem 1.5rem; transition: border-color 0.2s, box-shadow 0.2s; }
+        .exp__card:hover { border-color: var(--border-bright); box-shadow: 0 10px 30px rgba(0,0,0,0.35), 0 0 16px rgba(0,255,65,0.08); }
+        .exp__top { display: flex; justify-content: space-between; align-items: flex-start; gap: 0.75rem; flex-wrap: wrap; }
+        .exp__cmd { font-family: 'Share Tech Mono', monospace; font-size: 0.68rem; color: var(--muted); margin-bottom: 0.35rem; }
+        .exp__cmd::before { content: '$ '; color: var(--green-dim); }
+        .exp__role { font-family: 'VT323', monospace; font-size: 1.5rem; color: var(--green); letter-spacing: 1px; line-height: 1.15; }
+        .exp__company { font-size: 0.85rem; color: var(--cyan); font-family: 'Share Tech Mono', monospace; margin-top: 0.15rem; }
+        .exp__status { font-family: 'Share Tech Mono', monospace; font-size: 0.66rem; letter-spacing: 1px; padding: 3px 9px; border-radius: 2px; border: 1px solid var(--green); color: var(--green); background: var(--green-glow); white-space: nowrap; }
+        .exp__status[data-k="done"] { color: var(--muted); border-color: var(--border); background: none; }
+        .exp__status[data-k="upcoming"] { color: var(--amber); border-color: var(--amber); background: none; }
+        .exp__meta { display: flex; flex-wrap: wrap; gap: 0.4rem 1.5rem; margin-top: 0.9rem; font-family: 'Share Tech Mono', monospace; font-size: 0.74rem; color: var(--muted); }
+        .exp__meta b { color: var(--text); font-weight: normal; }
+        .exp__more { margin-top: 1rem; border-top: 1px dashed var(--border); padding-top: 0.7rem; }
+        .exp__more summary { cursor: none; list-style: none; font-family: 'Share Tech Mono', monospace; font-size: 0.74rem; color: var(--green); display: inline-flex; gap: 0.4rem; align-items: center; }
+        .exp__more summary::-webkit-details-marker { display: none; }
+        .exp__more summary::before { content: '[+]'; color: var(--green-dim); }
+        .exp__more[open] summary::before { content: '[-]'; }
+        .exp__more summary { border: 1px solid var(--green-dim); border-radius: 2px; padding: 0.4rem 0.8rem; transition: all 0.2s; }
+        .exp__more summary:hover { background: var(--green-glow); box-shadow: 0 0 12px rgba(0,255,65,0.3); }
+        .exp__more .lbl-hide, .exp__more[open] .lbl-show { display: none; }
+        .exp__more[open] .lbl-hide { display: inline; }
+        .exp__more summary:focus-visible { outline: 1px solid var(--green); outline-offset: 3px; }
+        .exp__more ul { list-style: none; margin-top: 0.7rem; display: grid; gap: 0.4rem; }
+        .exp__more li { font-size: 0.8rem; color: var(--muted); line-height: 1.6; padding-left: 1.1rem; position: relative; }
+        .exp__more li::before { content: '>'; position: absolute; left: 0; color: var(--green-dim); }
+        .exp__more[open] ul { animation: expOpen 0.3s ease; }
+        @keyframes expOpen { from { opacity: 0; transform: translateY(-4px); } }
+        .cw__grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 1.25rem; }
+        .cw__card { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; display: flex; flex-direction: column; transition: all 0.2s; }
+        .cw__card:hover { border-color: var(--border-bright); transform: translateY(-4px); box-shadow: 0 15px 40px rgba(0,0,0,0.4), 0 0 20px rgba(0,255,65,0.1); }
+        .cw__frame { position: relative; aspect-ratio: 16/10; overflow: hidden; background: var(--bg3); border-bottom: 1px solid var(--border); display: block; text-decoration: none; }
+        .cw__fallback { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-family: 'Share Tech Mono', monospace; font-size: 0.72rem; color: var(--muted); }
+        .cw__frame iframe { position: absolute; top: 0; left: 0; width: 1280px; height: 800px; border: 0; transform-origin: 0 0; pointer-events: none; background: #fff; opacity: 0.9; transition: opacity 0.3s; }
+        .cw__card:hover .cw__frame iframe { opacity: 1; }
+        .cw__label { position: absolute; top: 8px; left: 8px; z-index: 2; font-family: 'Share Tech Mono', monospace; font-size: 0.62rem; letter-spacing: 1px; color: var(--amber); background: rgba(1,11,3,0.85); border: 1px solid var(--amber); border-radius: 2px; padding: 2px 7px; }
+        .cw__body { padding: 1rem 1.25rem 1.25rem; display: flex; flex-direction: column; flex: 1; }
+        .cw__btn { margin-top: auto; align-self: flex-start; display: inline-flex; align-items: center; gap: 0.4rem; font-family: 'Share Tech Mono', monospace; font-size: 0.74rem; color: var(--green); text-decoration: none; border: 1px solid var(--green-dim); border-radius: 2px; padding: 0.4rem 0.8rem; margin-top: 1rem; transition: all 0.2s; }
+        .cw__btn:hover, .cw__btn:focus-visible { background: var(--green-glow); box-shadow: 0 0 12px rgba(0,255,65,0.3); }
+        .footer__nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.25rem 1rem; margin-bottom: 1.5rem; }
+        .footer__nav a { font-family: 'Share Tech Mono', monospace; font-size: 0.74rem; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+        .footer__nav a::before { content: './'; color: var(--green-dim); }
+        .footer__nav a:hover { color: var(--green); }
+        @media(min-width:769px) and (max-width:1100px) { .nav__link { padding: 0.4rem 0.4rem; font-size: 0.7rem; letter-spacing: 0.3px; } }
+        @media(max-width:520px) { .exp__list { padding-left: 1.5rem; } .exp__item::before { left: -1.5rem; } .exp__card { padding: 1rem; } }
+        @media(prefers-reduced-motion: reduce) { .exp__item::before, .exp__more[open] ul { animation: none; } }
+
+        /* ===== CHATBOT ===== */
+        #chatbot-widget { position: fixed; bottom: 1.75rem; right: 1.75rem; z-index: 500; }
+        .chatbot-toggle-btn { width: 50px; height: 50px; border-radius: 3px; background: var(--bg); color: var(--green); border: 1px solid var(--green); cursor: none; font-size: 1.3rem; box-shadow: 0 0 20px rgba(0,255,65,0.3); display: flex; align-items: center; justify-content: center; transition: all 0.2s; font-family: 'Share Tech Mono', monospace; }
+        .chatbot-toggle-btn:hover { background: var(--green-glow); box-shadow: 0 0 30px rgba(0,255,65,0.5); transform: scale(1.05); }
+        .chatbot-window { position: absolute; bottom: 65px; right: 0; width: 340px; max-height: 500px; background: var(--bg2); border: 1px solid var(--border-bright); border-radius: 4px; display: none; flex-direction: column; box-shadow: 0 20px 60px rgba(0,0,0,0.6), 0 0 30px rgba(0,255,65,0.1); }
+        .chatbot-window.active { display: flex; }
+        .chatbot-header { background: var(--bg3); border-bottom: 1px solid var(--border); padding: 0.75rem 1rem; display: flex; align-items: center; justify-content: space-between; }
+        .chatbot-header h3 { color: var(--green); font-size: 0.82rem; font-family: 'Share Tech Mono', monospace; letter-spacing: 1px; }
+        .chatbot-header h3::before { content: '$ '; opacity: 0.6; }
+        .chatbot-close-btn { background: none; border: none; color: var(--muted); font-size: 1.2rem; cursor: none; transition: color 0.2s; }
+        .chatbot-close-btn:hover { color: var(--red); }
+        .chatbot-menu { padding: 0.6rem; background: var(--bg3); border-bottom: 1px solid var(--border); }
+        .chatbot-menu-inner { display: flex; flex-wrap: wrap; gap: 5px; }
+        .chatbot-menu-btn { font-size: 0.7rem; padding: 3px 8px; border-radius: 2px; background: var(--surface); border: 1px solid var(--border); color: var(--muted); cursor: none; font-family: 'Share Tech Mono', monospace; transition: all 0.15s; }
+        .chatbot-menu-btn::before { content: './'; color: var(--green-dim); font-size: 0.65rem; }
+        .chatbot-menu-btn:hover { background: var(--green-glow); color: var(--green); border-color: var(--green); }
+        .chatbot-messages { flex: 1; overflow-y: auto; padding: 0.75rem; display: flex; flex-direction: column; gap: 0.5rem; }
+        .message { display: flex; flex-direction: column; }
+        .bot-message { align-items: flex-start; } .user-message { align-items: flex-end; }
+        .message-content { max-width: 90%; border-radius: 3px; padding: 0.55rem 0.75rem; font-size: 0.8rem; line-height: 1.5; font-family: 'Share Tech Mono', monospace; }
+        .bot-message .message-content { background: var(--surface); color: var(--green); border-left: 2px solid var(--green); }
+        .bot-message .message-content::before { content: '> '; color: var(--green-dim); }
+        .user-message .message-content { background: var(--green-glow); color: var(--text); border-right: 2px solid var(--green); }
+        .chatbot-input-container { display: flex; gap: 0.4rem; padding: 0.6rem; border-top: 1px solid var(--border); }
+        #chatbot-input { flex: 1; background: var(--surface); border: 1px solid var(--border); border-radius: 2px; padding: 0.5rem 0.65rem; font-size: 0.78rem; color: var(--text); font-family: 'Share Tech Mono', monospace; outline: none; }
+        #chatbot-input:focus { border-color: var(--green); }
+        #chatbot-input::placeholder { color: var(--muted); }
+        #chatbot-send { width: 32px; height: 32px; border-radius: 2px; background: var(--green-dark); border: 1px solid var(--green); color: var(--green); cursor: none; font-size: 0.9rem; display: flex; align-items: center; justify-content: center; transition: all 0.15s; }
+        #chatbot-send:hover { background: var(--green-glow); box-shadow: 0 0 10px rgba(0,255,65,0.3); }
+
+        /* ===== GLITCH ===== */
+        .glitch { position: relative; display: inline-block; }
+        .glitch::before,.glitch::after { content: attr(data-text); position: absolute; top: 0; left: 0; width: 100%; font-family: inherit; font-size: inherit; color: inherit; }
+        .glitch::before { left: 2px; text-shadow: -1px 0 var(--red); animation: glitch1 4s infinite linear alternate-reverse; clip-path: polygon(0 0,100% 0,100% 35%,0 35%); }
+        .glitch::after { left: -2px; text-shadow: 2px 0 var(--cyan); animation: glitch2 4s infinite linear alternate-reverse; clip-path: polygon(0 65%,100% 65%,100% 100%,0 100%); }
+        @keyframes glitch1 { 0%,90%,100%{transform:translate(0)} 91%{transform:translate(-2px,1px)} 94%{transform:translate(2px,-1px)} 97%{transform:translate(-1px,2px)} }
+        @keyframes glitch2 { 0%,88%,100%{transform:translate(0)} 89%{transform:translate(2px,-1px)} 93%{transform:translate(-2px,1px)} 96%{transform:translate(1px,-2px)} }
+
+        /* ===== REVEAL ===== */
+        .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+        .reveal.visible { opacity: 1; transform: none; }
+
+        /* ===== SCROLLBAR ===== */
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-track { background: var(--bg); }
+        ::-webkit-scrollbar-thumb { background: var(--green-dark); border-radius: 99px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--green-dim); }
+
+        /* ===== GAMES WIDGET (mirrors chatbot widget) ===== */
+        #games-widget { position: fixed; bottom: 1.75rem; left: 1.75rem; z-index: 500; }
+        .games-toggle-btn { width: 50px; height: 50px; border-radius: 3px; background: var(--bg); color: var(--amber); border: 1px solid var(--amber); cursor: none; font-size: 1.3rem; box-shadow: 0 0 20px rgba(255,183,0,0.3); display: flex; align-items: center; justify-content: center; transition: all 0.2s; font-family: 'Share Tech Mono', monospace; }
+        .games-toggle-btn:hover { background: rgba(255,183,0,0.12); box-shadow: 0 0 30px rgba(255,183,0,0.5); transform: scale(1.05); }
+        .games-window { position: absolute; bottom: 65px; left: 0; width: min(92vw, 380px); max-height: 82vh; overflow-y: auto; background: var(--bg2); border: 1px solid var(--border-bright); border-radius: 4px; display: none; flex-direction: column; box-shadow: 0 20px 60px rgba(0,0,0,0.6), 0 0 30px rgba(255,183,0,0.1); }
+        .games-window.active { display: flex; }
+        .games-window .chatbot-header h3 { color: var(--amber); }
+        .games-window .chatbot-header h3::before { content: '▶ '; opacity: 0.7; }
+        .games-window-body { padding: 1.25rem; display: flex; flex-direction: column; align-items: center; }
+
+        .game-tabs { display: flex; flex-wrap: wrap; gap: 0.4rem; padding: 0.6rem; background: var(--bg3); border-bottom: 1px solid var(--border); }
+        .game-tab { background: var(--surface); border: 1px solid var(--border); color: var(--muted); font-family: 'Share Tech Mono', monospace; font-size: 0.68rem; letter-spacing: 0.5px; padding: 0.4rem 0.6rem; border-radius: 3px; cursor: none; display: inline-flex; align-items: center; gap: 0.35rem; transition: all 0.2s; }
+        .game-tab i { font-size: 0.75rem; }
+        .game-tab:hover { border-color: var(--border-bright); color: var(--green); }
+        .game-tab.active { color: var(--green); border-color: var(--green); background: var(--green-glow); box-shadow: 0 0 15px rgba(0,255,65,0.15); text-shadow: 0 0 8px rgba(0,255,65,0.4); }
+        .game-panel { display: none; width: 100%; flex-direction: column; align-items: center; }
+        .game-panel.active { display: flex; }
+        .game-hud { display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center; margin-bottom: 1rem; font-family: 'Share Tech Mono', monospace; font-size: 0.8rem; color: var(--muted); }
+        .game-hud b { color: var(--green); text-shadow: 0 0 8px rgba(0,255,65,0.4); }
+        .game-msg { min-height: 1.4rem; font-family: 'Share Tech Mono', monospace; font-size: 0.82rem; color: var(--amber); margin-bottom: 0.75rem; text-align: center; }
+        .game-actions { display: flex; gap: 0.75rem; margin-top: 1.25rem; flex-wrap: wrap; justify-content: center; }
+        .game-btn { background: transparent; color: var(--green); border: 1px solid var(--green); font-family: 'Share Tech Mono', monospace; font-size: 0.75rem; padding: 0.5rem 1.1rem; border-radius: 3px; cursor: none; letter-spacing: 1px; transition: all 0.2s; }
+        .game-btn:hover { background: var(--green-glow-strong); box-shadow: 0 0 15px rgba(0,255,65,0.3); }
+        .game-btn.alt { color: var(--muted); border-color: var(--border); }
+        .game-btn.alt:hover { color: var(--cyan); border-color: var(--cyan); }
+
+        /* chess */
+        #chess-board { display: grid; grid-template-columns: repeat(8, min(9.5vw, 38px)); grid-template-rows: repeat(8, min(9.5vw, 38px)); border: 2px solid var(--border-bright); box-shadow: 0 0 25px rgba(0,255,65,0.1); }
+        .chess-sq { display: flex; align-items: center; justify-content: center; font-size: min(6vw, 24px); position: relative; user-select: none; }
+        .chess-sq.light { background: var(--bg3); }
+        .chess-sq.dark { background: var(--bg); }
+        .chess-sq.selected { box-shadow: inset 0 0 0 2px var(--green); background: var(--green-glow); }
+        .chess-sq.lastmove { box-shadow: inset 0 0 0 2px rgba(0,245,255,0.5); }
+        .chess-sq .dot { position: absolute; width: 22%; height: 22%; border-radius: 50%; background: rgba(0,255,65,0.55); }
+        .chess-sq .capture-ring { position: absolute; inset: 3px; border: 3px solid rgba(255,42,42,0.6); border-radius: 4px; }
+        .chess-sq.white-piece { color: var(--cyan); text-shadow: 0 0 6px rgba(0,245,255,0.5); }
+        .chess-sq.black-piece { color: var(--green); text-shadow: 0 0 6px rgba(0,255,65,0.5); }
+
+        /* tic tac toe */
+        #ttt-board { display: grid; grid-template-columns: repeat(3, min(22vw, 90px)); grid-template-rows: repeat(3, min(22vw, 90px)); gap: 6px; }
+        .ttt-cell { background: var(--bg3); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-family: 'VT323', monospace; font-size: min(12vw, 3rem); cursor: none; color: var(--green); transition: all 0.15s; }
+        .ttt-cell:hover:empty { border-color: var(--border-bright); background: var(--green-glow); }
+        .ttt-cell.o { color: var(--cyan); text-shadow: 0 0 10px rgba(0,245,255,0.5); }
+        .ttt-cell.x { color: var(--green); text-shadow: 0 0 10px rgba(0,255,65,0.5); }
+        .ttt-cell.win { background: var(--green-glow-strong); }
+
+        /* snake */
+        /* mode select (pvp/bot toggle) */
+        .mode-select { display: flex; gap: 0.5rem; margin-bottom: 0.9rem; }
+        .mode-btn { background: var(--surface); border: 1px solid var(--border); color: var(--muted); font-family: 'Share Tech Mono', monospace; font-size: 0.7rem; padding: 0.4rem 0.8rem; border-radius: 3px; cursor: none; display: inline-flex; align-items: center; gap: 0.35rem; transition: all 0.2s; }
+        .mode-btn i { font-size: 0.9rem; }
+        .mode-btn:hover { border-color: var(--border-bright); color: var(--cyan); }
+        .mode-btn.active { color: var(--cyan); border-color: var(--cyan); background: rgba(0,245,255,0.08); box-shadow: 0 0 12px rgba(0,245,255,0.2); }
+
+        /* chess promotion modal */
+        .chess-board-wrap { position: relative; }
+        .promo-modal { display: none; position: absolute; inset: 0; background: rgba(1,11,3,0.9); align-items: center; justify-content: center; z-index: 5; }
+        .promo-modal.active { display: flex; }
+        .promo-box { background: var(--bg2); border: 1px solid var(--green); border-radius: 4px; padding: 1rem; text-align: center; box-shadow: 0 0 20px rgba(0,255,65,0.25); }
+        .promo-box p { font-family: 'Share Tech Mono', monospace; font-size: 0.75rem; color: var(--muted); margin-bottom: 0.6rem; }
+        .promo-options { display: flex; gap: 0.5rem; }
+        .promo-options button { width: 42px; height: 42px; font-size: 1.6rem; background: var(--surface); border: 1px solid var(--border-bright); border-radius: 3px; color: var(--green); cursor: none; }
+        .promo-options button:hover { background: var(--green-glow); box-shadow: 0 0 12px rgba(0,255,65,0.3); }
+
+        /* snake & ladder */
+        #snl-board { display: grid; grid-template-columns: repeat(10, min(8vw, 32px)); grid-template-rows: repeat(10, min(8vw, 32px)); border: 2px solid var(--border-bright); box-shadow: 0 0 25px rgba(0,255,65,0.1); }
+        .snl-cell { position: relative; display: flex; align-items: center; justify-content: center; font-family: 'Share Tech Mono', monospace; font-size: min(2.2vw, 0.6rem); color: var(--muted); border: 1px solid rgba(255,255,255,0.03); }
+        .snl-cell:nth-child(odd) { background: rgba(255,255,255,0.015); }
+        .snl-cell .snl-icon { position: absolute; top: 1px; font-size: 0.8rem; opacity: 0.85; }
+        .snl-cell.ladder-start .snl-icon { color: var(--cyan); }
+        .snl-cell.snake-start .snl-icon { color: var(--red); }
+        .snl-token { position: absolute; width: 40%; height: 40%; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.55rem; font-weight: 700; bottom: 1px; }
+        .snl-token.p1 { background: var(--green); color: #010b03; left: 2px; box-shadow: 0 0 6px rgba(0,255,65,0.6); }
+        .snl-token.p2 { background: var(--amber); color: #010b03; right: 2px; box-shadow: 0 0 6px rgba(255,183,0,0.6); }
+
+        /* 2048 */
+        #g2048-board { position: relative; display: grid; grid-template-columns: repeat(4, min(15vw, 65px)); grid-template-rows: repeat(4, min(15vw, 65px)); gap: 7px; background: var(--bg3); padding: 7px; border: 2px solid var(--border-bright); border-radius: 4px; touch-action: none; }
+        .g2048-cell { background: rgba(0,255,65,0.04); border-radius: 3px; }
+        .g2048-tile { position: absolute; display: flex; align-items: center; justify-content: center; font-family: 'VT323', monospace; font-size: min(7vw, 1.5rem); font-weight: 600; border-radius: 3px; background: var(--surface); border: 1px solid var(--border-bright); color: var(--green); text-shadow: 0 0 8px rgba(0,255,65,0.4); transition: top 0.1s ease, left 0.1s ease; }
+    </style>
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <div id="cursor"></div>
+    <div id="cursor-dot"></div>
+    <canvas id="matrix-bg"></canvas>
+
+    <!-- LOADING -->
+    <div id="loading-screen">
+        <!-- ASCII art logo -->
+        <pre class="ls-logo" id="ls-logo" style="opacity:0;transition:opacity 0.6s ease">
+ ██████╗ ███████╗███████╗    ██████╗ ███████╗██╗   ██╗
+ ██╔══██╗██╔════╝██╔════╝    ██╔══██╗██╔════╝██║   ██║
+ ██████╔╝███████╗███████╗    ██║  ██║█████╗  ██║   ██║
+ ██╔══██╗╚════██║╚════██║    ██║  ██║██╔══╝  ╚██╗ ██╔╝
+ ██████╔╝███████║███████║    ██████╔╝███████╗ ╚████╔╝ 
+ ╚═════╝ ╚══════╝╚══════╝    ╚═════╝ ╚══════╝  ╚═══╝  
+        </pre>
+
+        <div class="ls-terminal">
+            <div class="ls-titlebar">
+                <div class="ls-titlebar-dots">
+                    <div class="ls-titlebar-dot"></div>
+                    <div class="ls-titlebar-dot"></div>
+                    <div class="ls-titlebar-dot"></div>
+                </div>
+                <span class="ls-titlebar-text">bss@terminal: ~/portfolio — bash</span>
+                <span class="ls-titlebar-sig">BSS_2707</span>
+            </div>
+            <div class="ls-body" id="ls-body">
+                <div class="ls-line ls-static"><span class="prompt">bss@dev:~$ </span><span class="out">./boot_portfolio.sh</span></div>
+                <div class="ls-line" id="ls-1"><span class="dim">[&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]</span> <span class="out">[ OK ]</span> System kernel loaded &nbsp;<span class="dim">v3.1.4-bss</span></div>
+                <div class="ls-line" id="ls-2"><span class="dim">[&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]</span> <span class="out">[ OK ]</span> Python 3.11 environment ready</div>
+                <div class="ls-line" id="ls-3"><span class="dim">[&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]</span> <span class="out">[ OK ]</span> AI/ML modules &nbsp;<span class="info">sklearn · torch · pandas</span></div>
+                <div class="ls-line" id="ls-4"><span class="dim">[&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]</span> <span class="warn">[ .. ]</span> Connecting to neural matrix...</div>
+                <div class="ls-line" id="ls-5"><span class="dim">[&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]</span> <span class="out">[ OK ]</span> Portfolio assets bundled</div>
+                <div class="ls-line" id="ls-6"><span class="dim">[&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]</span> <span class="out">[ OK ]</span> All systems <span class="info">online</span>. Welcome, User.</div>
+                <div class="ls-line" id="ls-q" style="display:none;color:var(--amber)">
+                    <span class="warn">[ ? ]</span> Where to? Type <span style="color:var(--cyan);text-shadow:0 0 8px var(--cyan)">site</span> → Portfolio &nbsp;|&nbsp; <span style="color:var(--cyan);text-shadow:0 0 8px var(--cyan)">blog</span> → Blog
+                </div>
+                <div class="ls-input-row" id="ls-input-row" style="display:none;margin-top:0.4rem;">
+                    <span class="ls-input-prompt">bss@dev:~$&nbsp;</span>
+                    <input type="text" id="ls-real-input" class="ls-real-input"
+                        autocomplete="off" autocorrect="off" autocapitalize="none"
+                        spellcheck="false" placeholder="" enterkeyhint="go">
+                </div>
+            </div>
+            <div class="ls-bar-section" id="ls-bar-section" style="display:none">
+                <div class="ls-bar-label">
+                    <span id="ls-bar-status">booting...</span>
+                    <span id="ls-bar-pct">0%</span>
+                </div>
+                <div class="ls-bar-wrap">
+                    <div class="ls-bar" id="ls-bar"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick-tap hints -->
+        <div class="ls-hints" id="ls-hints" style="display:none">
+            <span class="ls-hint-chip" onclick="triggerDest('site')">→ <span>site</span> (Portfolio)</span>
+            <span class="ls-hint-chip" onclick="triggerDest('blog')">→ <span>blog</span> (Blog)</span>
+        </div>
+    </div>
+
+    <!-- HEADER -->
+    <header class="l-header">
+        <nav class="nav">
+            <a href="#home" class="nav__logo">BSS<span>_</span>2707</a>
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li><a href="#home" class="nav__link active-link">home</a></li>
+                    <li><a href="#about" class="nav__link">about</a></li>
+                    <li><a href="#skills" class="nav__link">skills</a></li>
+                    <li><a href="#experience" class="nav__link">experience</a></li>
+                    <li><a href="#client-work" class="nav__link">client work</a></li>
+                    <li><a href="#work" class="nav__link">projects</a></li>
+                    <li><a href="#achievement" class="nav__link">awards</a></li>
+                    <li><a class='nav__link' href='/blog'>blog</a></li>
+                    <li><a href="#contact" class="nav__link">contact</a></li>
+                </ul>
+            </div>
+            <div style="display:flex;align-items:center;gap:0.5rem;">
+                <a href="assets/cv/Bhavya_Solanki_Resume.pdf" class="nav__cv-btn" download>
+                    <i class='bx bx-download'></i> resume.pdf
+                </a>
+                <button class="nav__toggle" id="nav-toggle"><i class='bx bx-menu'></i></button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- HOME -->
+        <section id="home">
+            <div class="home__inner">
+                <div class="home__data">
+                    <div class="home__badge"><div class="badge-dot"></div>&nbsp;AVAILABLE_FOR_OPPORTUNITIES</div>
+                    <p class="home__prompt">whoami</p>
+                    <h1 class="home__name">
+                        <span class="glitch" data-text="Bhavya S.">Bhavya <em>S.</em></span><br>
+                        <span class="glitch" data-text="Solanki">Solanki</span>
+                    </h1>
+                    <div class="home__typed-wrap"><span id="typed"></span></div>
+                    <p class="home__desc">A passionate AI/ML student and developer crafting intelligent applications, data-driven dashboards, and modern web experiences. Based in Surat, India.</p>
+                    <div class="home__actions">
+                        <a href="#work" class="btn-primary"><i class='bx bx-rocket'></i>./view_projects</a>
+                        <a href="assets/cv/Bhavya_Solanki_Resume.pdf" download class="btn-outline"><i class='bx bx-download'></i>download_resume.pdf</a>
+                    </div>
+                    <div class="home__social">
+                        <a href="https://www.linkedin.com/in/bhavya-s-solanki-4a3530317/" target="_blank" title="LinkedIn"><i class='bx bxl-linkedin'></i></a>
+                        <a href="https://github.com/BSS2707/" target="_blank" title="GitHub"><i class='bx bxl-github'></i></a>
+                        <a href="https://www.instagram.com/bhavyasolanki_07/" target="_blank" title="Instagram"><i class='bx bxl-instagram'></i></a>
+                    </div>
+                </div>
+                <div class="home__img-terminal terminal-box" style="font-size:0.78rem;">
+                    <div class="terminal-titlebar">
+                        <div class="t-dot r"></div><div class="t-dot y"></div><div class="t-dot g"></div>
+                        <span style="margin-left:0.5rem">sys_info.sh</span>
+                    </div>
+                    <div class="terminal-body">
+                        <pre class="ascii-glow" style="font-family:'Share Tech Mono',monospace;font-size:0.62rem;color:var(--green);line-height:1.3;margin-bottom:1rem;">
+ ██████╗ ███████╗███████╗
+ ██╔══██╗██╔════╝██╔════╝
+ ██████╔╝███████╗███████╗
+ ██╔══██╗╚════██║╚════██║
+ ██████╔╝███████║███████║
+ ╚═════╝ ╚══════╝╚══════╝</pre>
+                        <div class="stat-row"><span class="stat-key">NAME</span><span class="stat-sep">::</span><span class="stat-val">Bhavya S. Solanki</span></div>
+                        <div class="stat-row"><span class="stat-key">ROLE</span><span class="stat-sep">::</span><span class="stat-val">AI/ML Developer</span></div>
+                        <div class="stat-row"><span class="stat-key">OS</span><span class="stat-sep">::</span><span class="stat-val">BCA with specialisation in AI</span></div>
+                        <div class="stat-row"><span class="stat-key">STATUS</span><span class="stat-sep">::</span><span class="stat-val" style="color:var(--green);text-shadow:0 0 8px var(--green);">● ONLINE</span></div>
+                        <div style="margin-top:1rem;margin-bottom:0.4rem;font-size:0.72rem;color:var(--muted);font-family:'Share Tech Mono',monospace;">// skill_levels</div>
+                        <div class="stat-row"><span class="stat-key">Python</span><span class="stat-sep">::</span><span class="stat-bar"><span class="skill-fill" data-w="88" style="width:0%"></span></span><span class="stat-val" style="margin-left:6px;font-size:0.72rem;">88%</span></div>
+                        <div class="stat-row"><span class="stat-key">AI/ML</span><span class="stat-sep">::</span><span class="stat-bar"><span class="skill-fill" data-w="85" style="width:0%"></span></span><span class="stat-val" style="margin-left:6px;font-size:0.72rem;">85%</span></div>
+                        <div class="stat-row"><span class="stat-key">Web Dev</span><span class="stat-sep">::</span><span class="stat-bar"><span class="skill-fill" data-w="90" style="width:0%"></span></span><span class="stat-val" style="margin-left:6px;font-size:0.72rem;">90%</span></div>
+                        <div class="stat-row"><span class="stat-key">Chess</span><span class="stat-sep">::</span><span class="stat-bar"><span class="skill-fill" data-w="95" style="width:0%"></span></span><span class="stat-val" style="margin-left:6px;font-size:0.72rem;">95%</span></div>
+                        <div style="margin-top:1rem;font-size:0.72rem;color:var(--muted);font-family:'Share Tech Mono',monospace;">uptime: <span style="color:var(--green)" id="uptime-counter">0</span>s &amp;&amp; learning...</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT -->
+        <section class="section" id="about">
+            <div class="bd-grid">
+                <div class="reveal">
+                    <p class="section-label">who_am_i.txt</p>
+                    <h2 class="section-title">About Me <span class="line"></span></h2>
+                </div>
+                <div class="about__grid reveal">
+                    <div class="terminal-box">
+                        <div class="terminal-titlebar"><div class="t-dot r"></div><div class="t-dot y"></div><div class="t-dot g"></div><span style="margin-left:0.5rem">profile.json</span></div>
+                        <div class="terminal-body">
+                            <div style="display:flex;justify-content:center;margin-bottom:1.25rem;">
+                                <img src="assets/img/bhavya.png" alt="Bhavya S. Solanki - AI/ML Developer and BCA (AI) student based in Surat, Gujarat" width="160" height="160" style="width:160px;height:160px;border-radius:50%;object-fit:cover;border:2px solid var(--green);box-shadow:0 0 20px rgba(0,255,140,0.25);">
+                            </div>
+                            <table class="info-table">
+                                <tr><td>name</td><td>Bhavya S. Solanki</td></tr>
+                                <tr><td>degree</td><td>BCA with specialisation in AI</td></tr>
+                                <tr><td>college</td><td>Vivekanand College, Surat</td></tr>
+                                <tr><td>location</td><td>Surat, Gujarat, India</td></tr>
+                                <tr><td>interests</td><td>AI/ML, Data Science, Web ,Python</td></tr>
+                                <tr><td>hobbies</td><td>Chess ♟, Cricket 🏏 , Gaming 🎮</td></tr>
+                                <tr><td>email</td><td>bhavya.s.solanki777<br>@gmail.com</td></tr>
+                                <tr><td>status</td><td style="color:var(--green)">AVAILABLE</td></tr>
+                            </table>
+                            <div class="about__stats" style="margin-top:1.5rem;">
+                                <div class="stat-block"><span class="stat-num">6+</span><span class="stat-label">PROJECTS</span></div>
+                                <div class="stat-block"><span class="stat-num">2</span><span class="stat-label">AWARDS</span></div>
+                                <div class="stat-block"><span class="stat-num">∞</span><span class="stat-label">CURIOSITY</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="terminal-box" style="margin-bottom:1.25rem;">
+                            <div class="terminal-titlebar"><div class="t-dot r"></div><div class="t-dot y"></div><div class="t-dot g"></div><span style="margin-left:0.5rem">cat bio.md</span></div>
+                            <div class="terminal-body">
+                                <p class="about__text">I'm a <span class="hl">BCA with specialisation in AI</span> student at Vivekanand College Surat, passionate about building intelligent, data-powered applications. From ML pipelines to interactive Streamlit dashboards, I love turning complex ideas into usable products.</p>
+                                <p class="about__text">Beyond code, I'm an active <span class="hl">chess player</span> — the game sharpens my strategic thinking. I also enjoy cricket and believe in collaboration, continuous learning, and sharing knowledge.</p>
+                            </div>
+                        </div>
+                        <div class="terminal-box">
+                            <div class="terminal-titlebar"><div class="t-dot r"></div><div class="t-dot y"></div><div class="t-dot g"></div><span style="margin-left:0.5rem">stack.list</span></div>
+                            <div class="terminal-body" style="display:flex;flex-wrap:wrap;gap:0.5rem;">
+                                <span style="font-size:0.75rem;font-family:'Share Tech Mono',monospace;color:var(--cyan);padding:3px 8px;border:1px solid rgba(0,245,255,0.2);border-radius:2px;background:rgba(0,245,255,0.05);">Python</span>
+                                <span style="font-size:0.75rem;font-family:'Share Tech Mono',monospace;color:var(--cyan);padding:3px 8px;border:1px solid rgba(0,245,255,0.2);border-radius:2px;background:rgba(0,245,255,0.05);">Scikit-learn</span>
+                                <span style="font-size:0.75rem;font-family:'Share Tech Mono',monospace;color:var(--cyan);padding:3px 8px;border:1px solid rgba(0,245,255,0.2);border-radius:2px;background:rgba(0,245,255,0.05);">Streamlit</span>
+                                <span style="font-size:0.75rem;font-family:'Share Tech Mono',monospace;color:var(--cyan);padding:3px 8px;border:1px solid rgba(0,245,255,0.2);border-radius:2px;background:rgba(0,245,255,0.05);">HTML/CSS/JS</span>
+                                <span style="font-size:0.75rem;font-family:'Share Tech Mono',monospace;color:var(--cyan);padding:3px 8px;border:1px solid rgba(0,245,255,0.2);border-radius:2px;background:rgba(0,245,255,0.05);">NumPy</span>
+                                <span style="font-size:0.75rem;font-family:'Share Tech Mono',monospace;color:var(--cyan);padding:3px 8px;border:1px solid rgba(0,245,255,0.2);border-radius:2px;background:rgba(0,245,255,0.05);">Pandas</span>
+                                <span style="font-size:0.75rem;font-family:'Share Tech Mono',monospace;color:var(--cyan);padding:3px 8px;border:1px solid rgba(0,245,255,0.2);border-radius:2px;background:rgba(0,245,255,0.05);">Matplotlib</span>
+                                <span style="font-size:0.75rem;font-family:'Share Tech Mono',monospace;color:var(--cyan);padding:3px 8px;border:1px solid rgba(0,245,255,0.2);border-radius:2px;background:rgba(0,245,255,0.05);">GitHub</span>
+                                <span style="font-size:0.75rem;font-family:'Share Tech Mono',monospace;color:var(--cyan);padding:3px 8px;border:1px solid rgba(0,245,255,0.2);border-radius:2px;background:rgba(0,245,255,0.05);">TensorFlow</span>
+                                <span style="font-size:0.75rem;font-family:'Share Tech Mono',monospace;color:var(--cyan);padding:3px 8px;border:1px solid rgba(0,245,255,0.2);border-radius:2px;background:rgba(0,245,255,0.05);">Ollama</span>
+                                <span style="font-size:0.75rem;font-family:'Share Tech Mono',monospace;color:var(--cyan);padding:3px 8px;border:1px solid rgba(0,245,255,0.2);border-radius:2px;background:rgba(0,245,255,0.05);">Deep Learning</span>
+                                <span style="font-size:0.75rem;font-family:'Share Tech Mono',monospace;color:var(--cyan);padding:3px 8px;border:1px solid rgba(0,245,255,0.2);border-radius:2px;background:rgba(0,245,255,0.05);">CNN</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SKILLS -->
+        <section class="section" id="skills">
+            <div class="bd-grid">
+                <div class="reveal">
+                    <p class="section-label">ls -la skills/</p>
+                    <h2 class="section-title">Skills & Expertise <span class="line"></span></h2>
+                </div>
+                <div class="skills__grid reveal">
+                    <div class="skill-card"><div class="skill-card-header"><span class="skill-name">Web Development</span><span class="skill-pct">90%</span></div><div class="skill-track"><div class="skill-fill" data-w="90" style="width:0%"></div></div></div>
+                    <div class="skill-card"><div class="skill-card-header"><span class="skill-name">AI & Machine Learning</span><span class="skill-pct">85%</span></div><div class="skill-track"><div class="skill-fill" data-w="85" style="width:0%"></div></div></div>
+                    <div class="skill-card"><div class="skill-card-header"><span class="skill-name">Python</span><span class="skill-pct">88%</span></div><div class="skill-track"><div class="skill-fill" data-w="88" style="width:0%"></div></div></div>
+                    <div class="skill-card"><div class="skill-card-header"><span class="skill-name">Data Science</span><span class="skill-pct">75%</span></div><div class="skill-track"><div class="skill-fill" data-w="75" style="width:0%"></div></div></div>
+                    <div class="skill-card"><div class="skill-card-header"><span class="skill-name">Git/GitHub</span><span class="skill-pct">100%</span></div><div class="skill-track"><div class="skill-fill" data-w="100" style="width:0%"></div></div></div>
+                    <div class="skill-card"><div class="skill-card-header"><span class="skill-name">Streamlit</span><span class="skill-pct">80%</span></div><div class="skill-track"><div class="skill-fill" data-w="80" style="width:0%"></div></div></div>
+                    <div class="skill-card"><div class="skill-card-header"><span class="skill-name">Chess Strategy</span><span class="skill-pct">95%</span></div><div class="skill-track"><div class="skill-fill" data-w="95" style="width:0%"></div></div></div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- EXPERIENCE -->
+        <section class="section" id="experience">
+            <div class="bd-grid">
+                <div class="reveal">
+                    <p class="section-label">cat ./experience.log</p>
+                    <h2 class="section-title">Experience <span class="line"></span></h2>
+                </div>
+                <div class="exp__list">
+                    <div class="exp__item reveal" data-start="2026-07-01" data-state="current">
+                        <div class="exp__card">
+                            <div class="exp__top">
+                                <div>
+                                    <div class="exp__cmd">whoami --current</div>
+                                    <h3 class="exp__role">Senior AI/ML &amp; Web Developer</h3>
+                                    <div class="exp__company">GrowVora Market Agency</div>
+                                </div>
+                                <span class="exp__status" data-k="current">CURRENT WORKING</span>
+                            </div>
+                            <div class="exp__meta"><span>duration:: <b>July 2026 – Present</b></span><span>status:: <b>Currently Working</b></span></div>
+                            <details class="exp__more" open>
+                                <summary role="button"><span class="lbl-show">show responsibilities</span><span class="lbl-hide">hide responsibilities</span></summary>
+                                <ul>
+                                    <li>AI/ML development and integration.</li>
+                                    <li>Website and web application development.</li>
+                                    <li>Responsive UI implementation.</li>
+                                    <li>Digital solutions and technical development.</li>
+                                    <li>Working on client-oriented web and technology projects.</li>
+                                </ul>
+                            </details>
+                        </div>
+                    </div>
+                    <div class="exp__item reveal" data-start="2026-10-12" data-end="2026-12-12" data-state="done" data-force="done">
+                        <div class="exp__card">
+                            <div class="exp__top">
+                                <div>
+                                    <div class="exp__cmd">git log --role</div>
+                                    <h3 class="exp__role">Data Scientist</h3>
+                                    <div class="exp__company">Coding House Pvt. Ltd.</div>
+                                </div>
+                                <span class="exp__status" data-k="done">COMPLETED</span>
+                            </div>
+                            <div class="exp__meta"><span>dates:: <b>12 October 2026 – 12 December 2026</b></span><span>total:: <b>2 Months</b></span></div>
+                            <details class="exp__more" open>
+                                <summary role="button"><span class="lbl-show">show responsibilities</span><span class="lbl-hide">hide responsibilities</span></summary>
+                                <ul>
+                                    <li>Data analysis and interpretation.</li>
+                                    <li>Python-based data processing.</li>
+                                    <li>Data visualization and reporting.</li>
+                                    <li>Working with datasets and analytical solutions.</li>
+                                    <li>Dataset management and analytical problem-solving.</li>
+                                    <li>Working with data-driven solutions.</li>
+                                </ul>
+                            </details>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CLIENT WORK -->
+        <section class="section" id="client-work">
+            <div class="bd-grid">
+                <div class="reveal">
+                    <p class="section-label">ls ./client_work/ --live</p>
+                    <h2 class="section-title">client_work.exe <span class="line"></span></h2>
+                </div>
+                <div class="cw__grid reveal">
+                    <article class="cw__card">
+                        <a class="cw__frame" href="https://growvora.indlan.me/" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
+                            <span class="cw__label">CLIENT PROJECT</span>
+                            <span class="cw__fallback">growvora.indlan.me</span>
+                            <iframe src="https://growvora.indlan.me/" title="Live preview of GrowVora Market Agency" loading="lazy" sandbox="allow-scripts" tabindex="-1"></iframe>
+                        </a>
+                        <div class="cw__body">
+                            <div class="work__card-tag">Digital Marketing &amp; Business Website</div>
+                            <div class="work__card-title">GrowVora Market Agency</div>
+                            <p class="work__card-desc">Professional online presence for a digital marketing agency.</p>
+                            <a class="cw__btn" href="https://growvora.indlan.me/" target="_blank" rel="noopener noreferrer" aria-label="Open GrowVora Market Agency live website">live_website.sh</a>
+                        </div>
+                    </article>
+                    <article class="cw__card">
+                        <a class="cw__frame" href="https://prathmeshfilms.netlify.app/" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
+                            <span class="cw__label">CLIENT PROJECT</span>
+                            <span class="cw__fallback">prathmeshfilms.netlify.app</span>
+                            <iframe src="https://prathmeshfilms.netlify.app/" title="Live preview of Prathmesh Films" loading="lazy" sandbox="allow-scripts" tabindex="-1"></iframe>
+                        </a>
+                        <div class="cw__body">
+                            <div class="work__card-tag">Video Editor Portfolio</div>
+                            <div class="work__card-title">Prathmesh Films</div>
+                            <p class="work__card-desc">Portfolio website showcasing video editing work and creative services.</p>
+                            <a class="cw__btn" href="https://prathmeshfilms.netlify.app/" target="_blank" rel="noopener noreferrer" aria-label="Open Prathmesh Films live website">live_website.sh</a>
+                        </div>
+                    </article>
+                    <article class="cw__card">
+                        <a class="cw__frame" href="https://rudravaghela.netlify.app/" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
+                            <span class="cw__label">CLIENT PROJECT</span>
+                            <span class="cw__fallback">rudravaghela.netlify.app</span>
+                            <iframe src="https://rudravaghela.netlify.app/" title="Live preview of Rudra Vaghela" loading="lazy" sandbox="allow-scripts" tabindex="-1"></iframe>
+                        </a>
+                        <div class="cw__body">
+                            <div class="work__card-tag">Finance Advisor &amp; Stock Trader</div>
+                            <div class="work__card-title">Rudra Vaghela</div>
+                            <p class="work__card-desc">Professional finance and stock trading portfolio website.</p>
+                            <a class="cw__btn" href="https://rudravaghela.netlify.app/" target="_blank" rel="noopener noreferrer" aria-label="Open Rudra Vaghela live website">live_website.sh</a>
+                        </div>
+                    </article>
+                    <article class="cw__card">
+                        <a class="cw__frame" href="https://srnbharatnatyam.netlify.app/" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
+                            <span class="cw__label">CLIENT PROJECT</span>
+                            <span class="cw__fallback">srnbharatnatyam.netlify.app</span>
+                            <iframe src="https://srnbharatnatyam.netlify.app/" title="Live preview of SRN Bharatanatyam" loading="lazy" sandbox="allow-scripts" tabindex="-1"></iframe>
+                        </a>
+                        <div class="cw__body">
+                            <div class="work__card-tag">Dance Academy Website</div>
+                            <div class="work__card-title">SRN Bharatanatyam</div>
+                            <p class="work__card-desc">Website for a Bharatanatyam academy showcasing its dance education and activities.</p>
+                            <a class="cw__btn" href="https://srnbharatnatyam.netlify.app/" target="_blank" rel="noopener noreferrer" aria-label="Open SRN Bharatanatyam live website">live_website.sh</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS -->
+        <section class="section" id="work">
+            <div class="bd-grid">
+                <div class="reveal">
+                    <p class="section-label">find ./projects -type f</p>
+                    <h2 class="section-title">Projects <span class="line"></span></h2>
+                </div>
+                <div class="work__grid reveal">
+                    <a href="https://indlan.netlify.app/" target="_blank" class="work__card">
+                        <div class="work__card-img-wrap"><img src="assets/img/image.png"></div>
+                        <div class="work__card-body"><div class="work__card-tag">Coding · Language</div><div class="work__card-title">Indlan Coding Language</div><p class="work__card-desc">Indlan is a custom Hindi-inspired coding language I built, featuring keywords like maano, chhap, and agar. It translates Hindi-style syntax into Python, making programming more intuitive and creative.</p><div class="work__card-arrow">view_project.sh</div></div>
+                    </a>
+                    <a href="https://e-commercechurndataanalysis.streamlit.app/" target="_blank" class="work__card">
+                        <div class="work__card-img-wrap"><img src="https://images.unsplash.com/photo-1666875753105-c63a6f3bdc86?q=80&w=600" alt="E-Commerce Churn" class="work__card-img"><div class="work__card-overlay"></div></div>
+                        <div class="work__card-body"><div class="work__card-tag">Data Science</div><div class="work__card-title">E-Commerce Churn Analysis</div><p class="work__card-desc">End-to-end churn prediction pipeline with interactive visualisations and ML models.</p><div class="work__card-arrow">view_project.sh</div></div>
+                    </a>
+                    <a href="https://ai-health-assistant-chatbot-1.streamlit.app/" target="_blank" class="work__card">
+                        <div class="work__card-img-wrap"><img src="https://images.unsplash.com/photo-1659018966820-de07c94e0d01?q=80&w=600" alt="Health Assistant" class="work__card-img"><div class="work__card-overlay"></div></div>
+                        <div class="work__card-body"><div class="work__card-tag">AI · Chatbot</div><div class="work__card-title">AI Health Assistant</div><p class="work__card-desc">Symptom analyser, BMI calculator, and X-Ray image analysis in a single AI chatbot.</p><div class="work__card-arrow">view_project.sh</div></div>
+                    </a>
+                    <a href="https://stock-price-prediction-dashboard1.streamlit.app/" target="_blank" class="work__card">
+                        <div class="work__card-img-wrap"><img src="https://images.unsplash.com/photo-1620266757065-5814239881fd?q=80&w=600" alt="Stock Price Prediction" class="work__card-img"><div class="work__card-overlay"></div></div>
+                        <div class="work__card-body"><div class="work__card-tag">ML · Finance</div><div class="work__card-title">Stock Price Prediction</div><p class="work__card-desc">Interactive dashboard forecasting stock market trends using Scikit-learn models.</p><div class="work__card-arrow">view_project.sh</div></div>
+                    </a>
+                    <a href="https://oclscnn.streamlit.app/" target="_blank" class="work__card">
+                        <div class="work__card-img-wrap"><img src="assets/img/work5.jpg" alt="Oral cancer detection" class="work__card-img" onerror="this.src='https://images.unsplash.com/photo-1660737217690-15182b43899e?q=80&w=707&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'"><div class="work__card-overlay"></div></div>
+                        <div class="work__card-body"><div class="work__card-tag">DL · CNN · Healthcare</div><div class="work__card-title">Oral Cancer Detection</div><p class="work__card-desc">Developed a Streamlit-based AI application for Oral Cancer Detection.</p><div class="work__card-arrow">view_project.sh</div></div>
+                    </a>
+                    <a href="https://sanke1.streamlit.app/" target="_blank" class="work__card">
+                        <div class="work__card-img-wrap"><img src="assets/img/work6.jpg" alt="Snake Venomous-Nonvenomous detection" class="work__card-img" onerror="this.src='https://images.unsplash.com/photo-1571391733814-15ac29ac3544?q=80&w=872&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'"><div class="work__card-overlay"></div></div>
+                        <div class="work__card-body"><div class="work__card-tag">CNN · DL</div><div class="work__card-title">Snake Venomous-Nonvenomous detection</div><p class="work__card-desc">Developed a Streamlit-based AI application for detecting venomous and non-venomous snakes.</p><div class="work__card-arrow">view_project.sh</div></div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ACHIEVEMENTS -->
+        <section class="section" id="achievement">
+            <div class="bd-grid">
+                <div class="reveal">
+                    <p class="section-label">grep -r "achievements" ./records/</p>
+                    <h2 class="section-title">Awards & Achievements <span class="line"></span></h2>
+                </div>
+                <div class="achievement__grid reveal">
+                    <div class="achievement__card">
+                        <div class="achievement__rank">🥇</div>
+                        <div class="achievement__title">1st Place — Bot Battles</div>
+                        <p class="achievement__desc">First rank in the Inter-College Coding Competition (Bot Battles, Python) at Vivekanand College, Surat. Competed against teams across multiple colleges.</p>
+                        <a href="https://www.linkedin.com/feed/update/urn:li:activity:7425187393735036928/" target="_blank" class="achievement__link">view_on_linkedin</a>
+                    </div>
+                    <div class="achievement__card">
+                        <div class="achievement__rank">🥈</div>
+                        <div class="achievement__title">2nd Place — Data Drill</div>
+                        <p class="achievement__desc">Second rank in the Inter-College Coding Competition (Data Drill, Python) at C.K. Pithawala College, Surat. Demonstrated data analysis and problem-solving skills.</p>
+                        <a href="https://www.linkedin.com/feed/update/urn:li:activity:7425183685492105216/" target="_blank" class="achievement__link">view_on_linkedin</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section class="section" id="contact">
+            <div class="bd-grid">
+                <div class="reveal">
+                    <p class="section-label">netstat -connect</p>
+                    <h2 class="section-title">Contact Me <span class="line"></span></h2>
+                </div>
+                <div class="contact__grid reveal">
+                    <div>
+                        <p class="contact__desc">Have a project idea, collaboration request, or just want to say hello? My inbox is always open. Ping me.</p>
+                        <div class="contact__details">
+                            <div class="contact__detail">bhavya.s.solanki777@gmail.com</div>
+                            <div class="contact__detail">+91 9998106880</div>
+                            <div class="contact__detail">Surat, Gujarat, India</div>
+                        </div>
+                    </div>
+                    <form class="contact__form" action="https://api.web3forms.com/submit" method="POST">
+                        <input type="hidden" name="access_key" value="302c0b1c-7ad5-4d6d-b6b9-5640e9d47a75">
+                        <input type="checkbox" name="botcheck" style="display:none">
+                        <input type="text" class="contact__input" placeholder="$ your_name" name="name" required>
+                        <input type="email" class="contact__input" placeholder="$ your_email" name="email" required>
+                        <textarea class="contact__input" placeholder="$ your_message" name="message" rows="5" required></textarea>
+                        <button type="submit" class="contact__btn">→ TRANSMIT MESSAGE</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer__name">BSS_2707</div>
+        <p class="footer__tagline">// AI/ML Developer · Data Scientist · Python Developer</p>
+        <div class="footer__social">
+            <a href="https://www.linkedin.com/in/bhavya-s-solanki-4a3530317/" target="_blank"><i class='bx bxl-linkedin'></i></a>
+            <a href="https://github.com/BSS2707/" target="_blank"><i class='bx bxl-github'></i></a>
+            <a href="https://www.instagram.com/bhavyasolanki_07/" target="_blank"><i class='bx bxl-instagram'></i></a>
+        </div>
+        <p class="footer__copy">// © Bhavya S. Solanki. All rights reserved. System uptime: <span id="footer-uptime">0</span>s</p>
+    </footer>
+
+    <!-- CHATBOT -->
+    <div id="chatbot-widget">
+        <button id="chatbot-toggle" class="chatbot-toggle-btn"><i class='bx bx-terminal'></i></button>
+        <div id="chatbot-window" class="chatbot-window">
+            <div class="chatbot-header">
+                <h3>bss_bot v1.0</h3>
+                <button id="chatbot-close" class="chatbot-close-btn"><i class='bx bx-x'></i></button>
+            </div>
+            <div id="chatbot-menu" class="chatbot-menu">
+                <div class="chatbot-menu-inner">
+                    <button class="chatbot-menu-btn" data-option="1">about</button>
+                    <button class="chatbot-menu-btn" data-option="2">skills</button>
+                    <button class="chatbot-menu-btn" data-option="3">projects</button>
+                    <button class="chatbot-menu-btn" data-option="4">awards</button>
+                    <button class="chatbot-menu-btn" data-option="5">contact</button>
+                    <button class="chatbot-menu-btn" data-option="6">resume</button>
+                    <button class="chatbot-menu-btn" data-option="7">hire</button>
+                    <button class="chatbot-menu-btn" data-option="8">experience</button>
+                    <button class="chatbot-menu-btn" data-option="9">clients</button>
+                </div>
+            </div>
+            <div id="chatbot-messages" class="chatbot-messages">
+                <div class="message bot-message"><div class="message-content">SYSTEM READY. Ask me anything about Bhavya.</div></div>
+            </div>
+            <div class="chatbot-input-container">
+                <input type="text" id="chatbot-input" placeholder="type command...">
+                <button id="chatbot-send"><i class='bx bx-send'></i></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- GAMES WIDGET -->
+    <div id="games-widget">
+        <button id="games-toggle" class="games-toggle-btn"><i class="fa-solid fa-gamepad"></i></button>
+        <div id="games-window" class="games-window">
+            <div class="chatbot-header">
+                <h3 id="game-title-bar">chess.exe</h3>
+                <button id="games-close" class="chatbot-close-btn"><i class='bx bx-x'></i></button>
+            </div>
+            <div class="game-tabs">
+                <button class="game-tab active" data-game="chess"><i class="fa-solid fa-chess"></i> chess</button>
+                <button class="game-tab" data-game="ttt"><i class="fa-solid fa-xmark"></i> tic-tac-toe</button>
+                <button class="game-tab" data-game="snl"><i class="fa-solid fa-dice"></i> snake&amp;ladder</button>
+                <button class="game-tab" data-game="g2048"><i class="fa-solid fa-table-cells"></i> 2048</button>
+            </div>
+            <div class="games-window-body">
+
+                <!-- CHESS -->
+                <div class="game-panel active" id="game-chess">
+                    <div class="mode-select" id="chess-mode">
+                        <button class="mode-btn active" data-mode="pvp"><i class='bx bx-user'></i> vs <i class='bx bx-user'></i></button>
+                        <button class="mode-btn" data-mode="bot"><i class='bx bx-user'></i> vs <i class='bx bx-bot'></i></button>
+                    </div>
+                    <div class="mode-select" id="chess-color">
+                        <button class="mode-btn active" data-color="w">♔ play white</button>
+                        <button class="mode-btn" data-color="b">♚ play black</button>
+                    </div>
+                    <div class="game-hud"><span>turn:: <b id="chess-turn">white</b></span><span>captures:: <b id="chess-caps">0</b></span></div>
+                    <div class="game-msg" id="chess-msg">select a piece to begin</div>
+                    <div class="chess-board-wrap">
+                        <div id="chess-board"></div>
+                        <div class="promo-modal" id="chess-promo">
+                            <div class="promo-box">
+                                <p>promote to:</p>
+                                <div class="promo-options">
+                                    <button data-p="q" title="Queen">♛</button>
+                                    <button data-p="r" title="Rook">♜</button>
+                                    <button data-p="b" title="Bishop">♝</button>
+                                    <button data-p="n" title="Knight">♞</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="game-actions">
+                        <button class="game-btn" id="chess-reset">↺ new_game</button>
+                        <button class="game-btn alt" id="chess-undo">← undo</button>
+                    </div>
+                </div>
+
+                <!-- TIC TAC TOE -->
+                <div class="game-panel" id="game-ttt">
+                    <div class="mode-select" id="ttt-mode">
+                        <button class="mode-btn active" data-mode="pvp"><i class='bx bx-user'></i> vs <i class='bx bx-user'></i></button>
+                        <button class="mode-btn" data-mode="bot"><i class='bx bx-user'></i> vs <i class='bx bx-bot'></i></button>
+                    </div>
+                    <div class="game-hud"><span>turn:: <b id="ttt-turn">X</b></span><span>X wins:: <b id="ttt-x-score">0</b></span><span>O wins:: <b id="ttt-o-score">0</b></span></div>
+                    <div class="game-msg" id="ttt-msg">X goes first</div>
+                    <div id="ttt-board"></div>
+                    <div class="game-actions"><button class="game-btn" id="ttt-reset">↺ new_round</button></div>
+                </div>
+
+                <!-- SNAKE & LADDER -->
+                <div class="game-panel" id="game-snl">
+                    <div class="mode-select" id="snl-mode">
+                        <button class="mode-btn active" data-mode="pvp"><i class='bx bx-user'></i> vs <i class='bx bx-user'></i></button>
+                        <button class="mode-btn" data-mode="bot"><i class='bx bx-user'></i> vs <i class='bx bx-bot'></i></button>
+                    </div>
+                    <div class="game-hud"><span>turn:: <b id="snl-turn">P1</b></span><span>P1:: <b id="snl-p1-pos">1</b></span><span>P2:: <b id="snl-p2-pos">1</b></span></div>
+                    <div class="game-msg" id="snl-msg">roll the dice to start</div>
+                    <div id="snl-board"></div>
+                    <div class="game-actions">
+                        <button class="game-btn" id="snl-roll">🎲 roll_dice <span id="snl-dice-val"></span></button>
+                        <button class="game-btn alt" id="snl-reset">↺ new_game</button>
+                    </div>
+                </div>
+
+                <!-- 2048 -->
+                <div class="game-panel" id="game-g2048">
+                    <div class="game-hud"><span>score:: <b id="g2048-score">0</b></span><span>best:: <b id="g2048-best">0</b></span></div>
+                    <div class="game-msg" id="g2048-msg">arrow keys / swipe to merge tiles</div>
+                    <div id="g2048-board"></div>
+                    <div class="game-actions"><button class="game-btn" id="g2048-reset">↺ new_game</button></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.3/chess.min.js"></script>
+    <script>
+        // ===== CURSOR =====
+        const cursor = document.getElementById('cursor');
+        const cursorDot = document.getElementById('cursor-dot');
+        document.addEventListener('mousemove', e => {
+            cursor.style.left = e.clientX + 'px'; cursor.style.top = e.clientY + 'px';
+            cursorDot.style.left = e.clientX + 'px'; cursorDot.style.top = e.clientY + 'px';
+        });
+        document.querySelectorAll('a, button, input, textarea').forEach(el => {
+            el.addEventListener('mouseenter', () => { cursor.style.width = '36px'; cursor.style.height = '36px'; });
+            el.addEventListener('mouseleave', () => { cursor.style.width = '20px'; cursor.style.height = '20px'; });
+        });
+
+        // ===== MATRIX =====
+        const canvas = document.getElementById('matrix-bg');
+        const ctx = canvas.getContext('2d');
+        function resizeCanvas() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+        resizeCanvas(); window.addEventListener('resize', resizeCanvas);
+        const chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ$#@%&*<>[]{}アイウエオカキクケコ';
+        const fontSize = 13; let cols, drops;
+        function initMatrix() { cols = Math.floor(canvas.width / fontSize); drops = Array(cols).fill(0).map(() => Math.random() * -50); }
+        initMatrix(); window.addEventListener('resize', initMatrix);
+        function drawMatrix() {
+            ctx.fillStyle = 'rgba(1,11,3,0.05)'; ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = '#00ff41'; ctx.font = fontSize + 'px Share Tech Mono';
+            drops.forEach((y, i) => {
+                ctx.fillText(chars[Math.floor(Math.random() * chars.length)], i * fontSize, y * fontSize);
+                if (y * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
+                drops[i] += 0.5;
+            });
+        }
+        setInterval(drawMatrix, 40);
+
+        // ===== LOADING SCREEN =====
+        function showLine(id) {
+            return new Promise(resolve => {
+                const el = document.getElementById(id);
+                if (el) { el.classList.add('ls-visible'); }
+                setTimeout(resolve, 150);
+            });
+        }
+
+        function animateBar(pct, label) {
+            const bar = document.getElementById('ls-bar');
+            const pctEl = document.getElementById('ls-bar-pct');
+            const statusEl = document.getElementById('ls-bar-status');
+            if (bar) bar.style.width = pct + '%';
+            if (pctEl) pctEl.textContent = pct + '%';
+            if (statusEl && label) statusEl.textContent = label;
+        }
+
+        function appendLine(container, html) {
+            const div = document.createElement('div');
+            div.className = 'ls-line';
+            div.innerHTML = html;
+            container.appendChild(div);
+            requestAnimationFrame(() => div.classList.add('ls-visible'));
+            container.scrollTop = container.scrollHeight;
+        }
+
+        function triggerDest(val) {
+            const realInput = document.getElementById('ls-real-input');
+            if (realInput) { realInput.value = val; realInput.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', bubbles: true })); }
+        }
+
+        async function startLoadingSequence() {
+            const loadingScreen = document.getElementById('loading-screen');
+            const lsBody = document.getElementById('ls-body');
+            const lsQ = document.getElementById('ls-q');
+            const inputRow = document.getElementById('ls-input-row');
+            const realInput = document.getElementById('ls-real-input');
+            const barSection = document.getElementById('ls-bar-section');
+            const lsLogo = document.getElementById('ls-logo');
+            const lsHints = document.getElementById('ls-hints');
+
+            const preferredDest = sessionStorage.getItem('preferred_destination');
+
+            // Fade in logo
+            await new Promise(r => setTimeout(r, 150));
+            if (lsLogo) lsLogo.style.opacity = '1';
+
+            // Show progress bar
+            if (barSection) barSection.style.display = 'block';
+
+            if (preferredDest === 'site' || preferredDest === 'blog') {
+                // Fast boot for returning visitors
+                animateBar(20, 'loading cached session...');
+                await showLine('ls-1');
+                animateBar(45, 'restoring modules...');
+                await showLine('ls-2');
+                animateBar(65, 'connecting matrix...');
+                await showLine('ls-3');
+                animateBar(85, 'syncing assets...');
+                await showLine('ls-4');
+                await showLine('ls-5');
+                animateBar(100, 'ready!');
+                await showLine('ls-6');
+                await new Promise(r => setTimeout(r, 500));
+                loadingScreen.style.transition = 'opacity 0.7s ease';
+                loadingScreen.style.opacity = '0';
+                setTimeout(() => loadingScreen.style.display = 'none', 700);
+                return;
+            }
+
+            // Full boot sequence for first-time visitors
+            animateBar(12, 'initializing kernel...');
+            await showLine('ls-1');
+            animateBar(30, 'loading python env...');
+            await showLine('ls-2');
+            animateBar(52, 'importing AI/ML libs...');
+            await showLine('ls-3');
+            animateBar(68, 'connecting to matrix...');
+            await showLine('ls-4');
+            animateBar(84, 'bundling assets...');
+            await showLine('ls-5');
+            animateBar(100, 'all systems online!');
+            await showLine('ls-6');
+
+            // Auto-proceed to portfolio
+            await new Promise(r => setTimeout(r, 300));
+            appendLine(lsBody, `<span style="color:var(--muted)">bss@dev:~$</span> <span style="color:var(--cyan)">site</span>`);
+            appendLine(lsBody, `<span style="color:#5dde74">[ OK ]</span> Launching <span style="color:var(--cyan)">Portfolio</span>... stand by`);
+            await new Promise(r => setTimeout(r, 600));
+            loadingScreen.style.transition = 'opacity 0.6s ease';
+            loadingScreen.style.opacity = '0';
+            setTimeout(() => loadingScreen.style.display = 'none', 600);
+        }
+
+        startLoadingSequence();
+
+        // ===== TYPED.JS =====
+        new Typed('#typed', {
+            strings: ['AI/ML_Student.py','AI/ML_Developer.py','Data_Scientist.py','Python_Dev.sh','Web_Designer.html','Streamlit_Builder.py','Chess_Player.exe'],
+            typeSpeed: 70, backSpeed: 35, backDelay: 1400, loop: true
+        });
+
+        // ===== NAV =====
+        document.getElementById('nav-toggle').addEventListener('click', () => { document.getElementById('nav-menu').classList.toggle('show'); });
+        document.querySelectorAll('.nav__link').forEach(l => l.addEventListener('click', () => { document.getElementById('nav-menu').classList.remove('show'); }));
+
+        // ===== ACTIVE NAV =====
+        const sections = document.querySelectorAll('section[id]');
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
+            sections.forEach(s => {
+                const link = document.querySelector(`.nav__link[href="#${s.id}"]`);
+                if (link) {
+                    if (scrollY >= s.offsetTop - 80 && scrollY < s.offsetTop + s.offsetHeight) link.classList.add('active-link');
+                    else link.classList.remove('active-link');
+                }
+            });
+        });
+
+        // ===== SKILL BARS =====
+        const skillObs = new IntersectionObserver(entries => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.style.width = e.target.dataset.w + '%'; skillObs.unobserve(e.target); } });
+        }, { threshold: 0.2 });
+        document.querySelectorAll('.skill-fill').forEach(f => skillObs.observe(f));
+
+        // ===== REVEAL =====
+        const revObs = new IntersectionObserver(entries => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revObs.unobserve(e.target); } });
+        }, { threshold: 0.08 });
+        document.querySelectorAll('.reveal').forEach(r => revObs.observe(r));
+
+        // ===== UPTIME =====
+        let uptime = 0;
+        setInterval(() => {
+            uptime++;
+            const el = document.getElementById('uptime-counter');
+            const fe = document.getElementById('footer-uptime');
+            if (el) el.textContent = uptime;
+            if (fe) fe.textContent = uptime;
+        }, 1000);
+
+
+        // ===== EXPERIENCE STATUS (date-based) =====
+        document.querySelectorAll('.exp__item[data-start]').forEach(el => {
+            if (el.dataset.force === 'done') return; // manually marked completed
+            const now = new Date(), s = new Date(el.dataset.start + 'T00:00:00');
+            const e = el.dataset.end ? new Date(el.dataset.end + 'T23:59:59') : null;
+            let k = 'current', t = 'CURRENT WORKING';
+            if (now < s) { k = 'upcoming'; t = 'UPCOMING'; }
+            else if (e) { if (now <= e) { k = 'active'; t = 'IN PROGRESS'; } else { k = 'done'; t = 'COMPLETED'; } }
+            el.dataset.state = k;
+            const b = el.querySelector('.exp__status'); b.dataset.k = k; b.textContent = t;
+        });
+
+        // ===== CLIENT WORK PREVIEW SCALING =====
+        function scaleClientPreviews() {
+            document.querySelectorAll('.cw__frame').forEach(w => {
+                const f = w.querySelector('iframe');
+                if (f) f.style.transform = 'scale(' + (w.clientWidth / 1280) + ')';
+            });
+        }
+        scaleClientPreviews();
+        window.addEventListener('resize', scaleClientPreviews);
+        window.addEventListener('load', scaleClientPreviews);
+
+        // ===== CHATBOT =====
+        const chatToggle = document.getElementById('chatbot-toggle');
+        const chatWindow = document.getElementById('chatbot-window');
+        const chatClose = document.getElementById('chatbot-close');
+        const chatInput = document.getElementById('chatbot-input');
+        const chatSend = document.getElementById('chatbot-send');
+        const chatMessages = document.getElementById('chatbot-messages');
+        chatToggle.addEventListener('click', () => chatWindow.classList.toggle('active'));
+        chatClose.addEventListener('click', () => chatWindow.classList.remove('active'));
+        const responses = {
+            'hello':'HELLO. How can I assist you today?','hi':'ONLINE. Ask me about Bhavya.',
+            'skills':'SKILLS:: Python(88%) · AI/ML(85%) · Web Dev(90%) · Data Science(75%) · Streamlit(80%) · TensorFlow · Ollama · Deep Learning · CNN · Chess(95%)',
+            'contact':'EMAIL:: bhavya.s.solanki777@gmail.com | PHONE:: +91 9998106880',
+            'email':'bhavya.s.solanki777@gmail.com',
+            'how are you':'I`m just a bot, but I`m functioning within normal parameters! How can I assist you?',
+            'projects':'6+ PROJECTS :: Indlan Coding Language · Stock Predictor · Health Chatbot · Churn Analysis · Oral Cancer detection · Snake Venomous-Nonvenomous detection',
+            'resume':'<a href="assets/cv/Bhavya_Solanki_Resume.pdf" download style="color:var(--cyan)">→ download_resume.pdf</a>',
+            'experience':'EXPERIENCE:: (1) Senior AI/ML &amp; Web Developer @ GrowVora Market Agency — July 2026 to Present (CURRENT) | (2) Data Scientist @ Coding House Pvt. Ltd. — 12 Oct 2026 to 12 Dec 2026 (2 months)',
+            'work experience':'EXPERIENCE:: (1) Senior AI/ML &amp; Web Developer @ GrowVora Market Agency — July 2026 to Present (CURRENT) | (2) Data Scientist @ Coding House Pvt. Ltd. — 12 Oct 2026 to 12 Dec 2026 (2 months)',
+            'current role':'CURRENT ROLE:: Senior AI/ML &amp; Web Developer at GrowVora Market Agency (since July 2026) — AI/ML development and integration, web apps, responsive UI, digital solutions and client-oriented projects.',
+            'current job':'CURRENT ROLE:: Senior AI/ML &amp; Web Developer at GrowVora Market Agency (since July 2026) — AI/ML development and integration, web apps, responsive UI, digital solutions and client-oriented projects.',
+            'growvora':'GROWVORA:: Current employer (Senior AI/ML &amp; Web Developer, since July 2026) and a client website: https://growvora.indlan.me/',
+            'coding house':'DATA SCIENTIST:: Coding House Pvt. Ltd., 12 Oct 2026 – 12 Dec 2026 (2 months). Data analysis and interpretation, Python-based data processing, data visualization and reporting, working with datasets and analytical solutions, dataset management, and data-driven solutions.',
+            'data scientist':'DATA SCIENTIST:: Coding House Pvt. Ltd., 12 Oct 2026 – 12 Dec 2026 (2 months). Data analysis and interpretation, Python-based data processing, data visualization and reporting, working with datasets and analytical solutions, dataset management, and data-driven solutions.',
+            'company':'COMPANIES:: GrowVora Market Agency (current) | Coding House Pvt. Ltd. (Data Scientist, Oct–Dec 2026)',
+            'companies':'COMPANIES:: GrowVora Market Agency (current) | Coding House Pvt. Ltd. (Data Scientist, Oct–Dec 2026)',
+            'client':'CLIENT WORK:: GrowVora Market Agency (Digital Marketing &amp; Business Website) | Prathmesh Films (Video Editor Portfolio) | Rudra Vaghela (Finance Advisor &amp; Stock Trader) | SRN Bharatanatyam (Dance Academy Website). <a href=\"#client-work\" style=\"color:var(--cyan)\">→ view_client_work</a>',
+            'clients':'CLIENT WORK:: GrowVora Market Agency (Digital Marketing &amp; Business Website) | Prathmesh Films (Video Editor Portfolio) | Rudra Vaghela (Finance Advisor &amp; Stock Trader) | SRN Bharatanatyam (Dance Academy Website). <a href=\"#client-work\" style=\"color:var(--cyan)\">→ view_client_work</a>',
+            'client work':'CLIENT WORK:: GrowVora Market Agency (Digital Marketing &amp; Business Website) | Prathmesh Films (Video Editor Portfolio) | Rudra Vaghela (Finance Advisor &amp; Stock Trader) | SRN Bharatanatyam (Dance Academy Website). <a href=\"#client-work\" style=\"color:var(--cyan)\">→ view_client_work</a>',
+            'prathmesh':'PRATHMESH FILMS:: Video Editor Portfolio — https://prathmeshfilms.netlify.app/',
+            'rudra':'RUDRA VAGHELA:: Finance Advisor &amp; Stock Trader portfolio — https://rudravaghela.netlify.app/',
+            'srn':'SRN BHARATANATYAM:: Dance Academy Website — https://srnbharatnatyam.netlify.app/',
+            'default':'COMMAND_NOT_FOUND. Try: skills | experience | clients | projects | contact | resume | hire',
+            'bye':'Good Bye Take Care','by':'Good Bye Take Care',
+            'about':'A passionate AI/ML student and developer crafting intelligent applications, data-driven dashboards, and modern web experiences.',
+            'thank you':'Don`t Worry it`s  My Work ',
+            'thanks':'Don`t Worry it`s  My Work ',
+            'awards':' 🥇 1st — Bot Battles (Vivekanand) | 🥈 2nd — Data Drill (C.K. Pithawala)',
+            'achievements':' 🥇 1st — Bot Battles (Vivekanand) | 🥈 2nd — Data Drill (C.K. Pithawala)',
+            'hire':'AVAILABLE for freelance AI/ML, data science & web projects. Contact: bhavya.s.solanki777@gmail.com/9998106880'
+    
+        };
+        const menuOpts = {
+            '1':'PROFILE:: BCA (AI) student, web developer and educator at Vivekanand College, Surat.',
+            '2':'SKILLS:: Python · AI/ML · Data Science · Streamlit · TensorFlow · Ollama · Deep Learning · CNN · HTML/CSS/JS · GitHub · Chess(95%)',
+            '3':'PROJECTS:: Indlan Coding Language | E-Commerce Churn | Health Bot | Stock Predictor | Oral Cancer detection | Snake Venomous-Nonvenomous detection',
+            '4':'ACHIEVEMENTS:: 🥇 1st — Bot Battles (Vivekanand) | 🥈 2nd — Data Drill (C.K. Pithawala)',
+            '5':'CONTACT:: bhavya.s.solanki777@gmail.com | +91 9998106880',
+            '6':'<a href="assets/cv/Bhavya_Solanki_Resume.pdf" download style="color:var(--cyan)">→ download_resume.pdf</a>',
+            '8':'EXPERIENCE:: (1) Senior AI/ML &amp; Web Developer @ GrowVora Market Agency — July 2026 to Present (CURRENT) | (2) Data Scientist @ Coding House Pvt. Ltd. — 12 Oct 2026 to 12 Dec 2026 (2 months)',
+            '9':'CLIENT WORK:: GrowVora Market Agency (Digital Marketing &amp; Business Website) | Prathmesh Films (Video Editor Portfolio) | Rudra Vaghela (Finance Advisor &amp; Stock Trader) | SRN Bharatanatyam (Dance Academy Website). <a href=\"#client-work\" style=\"color:var(--cyan)\">→ view_client_work</a>',
+            '7':'STATUS: AVAILABLE for freelance AI/ML, data science & web projects. Contact: bhavya.s.solanki777@gmail.com'
+        };
+        function getBotResponse(msg) {
+            const m = msg.toLowerCase();
+            if (menuOpts[m]) return menuOpts[m];
+            for (const key of Object.keys(responses).sort((a,b)=>b.length-a.length)) {
+                if (key !== 'default' && m.includes(key)) return responses[key];
+            }
+            return responses['default'];
+        }
+        function addMsg(text, isUser) {
+            const div = document.createElement('div');
+            div.className = 'message ' + (isUser ? 'user-message' : 'bot-message');
+            const content = document.createElement('div');
+            content.className = 'message-content'; content.innerHTML = text;
+            div.appendChild(content); chatMessages.appendChild(div);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+        function sendMsg() {
+            const msg = chatInput.value.trim(); if (!msg) return;
+            addMsg(msg, true); chatInput.value = '';
+            setTimeout(() => addMsg(getBotResponse(msg), false), 350);
+        }
+        chatSend.addEventListener('click', sendMsg);
+        chatInput.addEventListener('keypress', e => { if (e.key === 'Enter') sendMsg(); });
+        document.querySelectorAll('.chatbot-menu-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                chatWindow.classList.add('active');
+                addMsg(btn.dataset.option, true);
+                setTimeout(() => addMsg(getBotResponse(btn.dataset.option), false), 300);
+            });
+        });
+
+        // ===== GAMES WIDGET: OPEN/CLOSE =====
+        const gamesToggle = document.getElementById('games-toggle');
+        const gamesWindow = document.getElementById('games-window');
+        const gamesClose = document.getElementById('games-close');
+        gamesToggle.addEventListener('click', () => gamesWindow.classList.toggle('active'));
+        gamesClose.addEventListener('click', () => gamesWindow.classList.remove('active'));
+
+        // ===== GAMES: TAB SWITCHER =====
+        const gameTabs = document.querySelectorAll('.game-tab');
+        const gamePanels = document.querySelectorAll('.game-panel');
+        const gameTitleBar = document.getElementById('game-title-bar');
+        const gameTitles = { chess: 'chess.exe', ttt: 'tic_tac_toe.exe', snl: 'snake_ladder.exe', g2048: '2048.exe' };
+        gameTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                gameTabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                const key = tab.dataset.game;
+                gamePanels.forEach(p => p.classList.toggle('active', p.id === 'game-' + key));
+                gameTitleBar.textContent = gameTitles[key];
+                if (key === 'snl' && !snlStarted) initSnl();
+                if (key === 'g2048' && !g2048Started) initG2048();
+            });
+        });
+
+        // ===== SOUND ENGINE =====
+        const chessSounds = {
+            move: new Audio('audio/move.mp3'),
+            capture: new Audio('audio/capture.mp3'),
+            castle: new Audio('audio/castle.mp3'),
+            checkmate: new Audio('audio/checkmate.mp3'),
+            illegal: new Audio('audio/illegal.mp3'),
+            check: new Audio('audio/move-check.mp3'),
+            promote: new Audio('audio/promote.mp3'),
+        };
+        function playChessSound(key) {
+            const a = chessSounds[key];
+            if (!a) return;
+            a.currentTime = 0;
+            a.play().catch(() => {});
+        }
+        const tttSounds = {
+            place: new Audio('audio/ttt-place.mp3'),
+            win: new Audio('audio/ttt-win.mp3'),
+            draw: new Audio('audio/ttt-draw.mp3'),
+        };
+        function playTttSound(key) { const a = tttSounds[key]; if (!a) return; a.currentTime = 0; a.play().catch(() => {}); }
+        const snlSounds = {
+            dice: new Audio('audio/dice-roll.mp3'),
+            ladder: new Audio('audio/ladder-climb.mp3'),
+            snake: new Audio('audio/snake-bite.mp3'),
+            win: new Audio('audio/snl-win.mp3'),
+        };
+        function playSnlSound(key) { const a = snlSounds[key]; if (!a) return; a.currentTime = 0; a.play().catch(() => {}); }
+        const g2048Sounds = {
+            move: new Audio('audio/tile-move.mp3'),
+            merge: new Audio('audio/tile-merge.mp3'),
+            win: new Audio('audio/game-win.mp3'),
+            over: new Audio('audio/game-over.mp3'),
+        };
+        function play2048Sound(key) { const a = g2048Sounds[key]; if (!a) return; a.currentTime = 0; a.play().catch(() => {}); }
+
+        // ===== CHESS =====
+        const chessGame = new Chess();
+        const chessBoardEl = document.getElementById('chess-board');
+        const chessTurnEl = document.getElementById('chess-turn');
+        const chessMsgEl = document.getElementById('chess-msg');
+        const chessCapsEl = document.getElementById('chess-caps');
+        const chessPromoEl = document.getElementById('chess-promo');
+        const pieceGlyphs = { p:'♟', n:'♞', b:'♝', r:'♜', q:'♛', k:'♚' };
+        let chessSelected = null, chessLastMove = null, chessCaptures = 0, chessMode = 'pvp', chessColor = 'w', chessPending = null, chessBusy = false;
+
+        document.querySelectorAll('#chess-mode .mode-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('#chess-mode .mode-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                chessMode = btn.dataset.mode;
+                resetChessGame();
+            });
+        });
+        document.querySelectorAll('#chess-color .mode-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('#chess-color .mode-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                chessColor = btn.dataset.color;
+                resetChessGame();
+            });
+        });
+
+        function resetChessGame() {
+            chessGame.reset(); chessSelected = null; chessLastMove = null; chessCaptures = 0; chessBusy = false;
+            chessPending = null; chessPromoEl.classList.remove('active');
+            renderChess();
+            maybeChessBotMove();
+        }
+
+        function renderChess() {
+            chessBoardEl.innerHTML = '';
+            const board = chessGame.board();
+            const legalTargets = chessSelected ? chessGame.moves({ square: chessSelected, verbose: true }).map(m => m.to) : [];
+            const flipped = chessColor === 'b';
+            const rIdx = flipped ? [7,6,5,4,3,2,1,0] : [0,1,2,3,4,5,6,7];
+            const cIdx = flipped ? [7,6,5,4,3,2,1,0] : [0,1,2,3,4,5,6,7];
+            for (const r of rIdx) {
+                for (const c of cIdx) {
+                    const file = 'abcdefgh'[c], rank = 8 - r, sq = file + rank;
+                    const piece = board[r][c];
+                    const div = document.createElement('div');
+                    div.className = 'chess-sq ' + (((r + c) % 2 === 0) ? 'light' : 'dark');
+                    div.dataset.sq = sq;
+                    if (piece) {
+                        div.textContent = pieceGlyphs[piece.type];
+                        div.classList.add(piece.color === 'w' ? 'white-piece' : 'black-piece');
+                    }
+                    if (chessSelected === sq) div.classList.add('selected');
+                    if (chessLastMove && (chessLastMove.from === sq || chessLastMove.to === sq)) div.classList.add('lastmove');
+                    if (legalTargets.includes(sq)) {
+                        const marker = document.createElement('div');
+                        marker.className = piece ? 'capture-ring' : 'dot';
+                        div.appendChild(marker);
+                    }
+                    div.addEventListener('click', () => onChessSquareClick(sq));
+                    chessBoardEl.appendChild(div);
+                }
+            }
+            chessTurnEl.textContent = chessGame.turn() === 'w' ? 'white' : 'black';
+            chessCapsEl.textContent = chessCaptures;
+            if (chessGame.in_checkmate()) chessMsgEl.textContent = 'checkmate — ' + (chessGame.turn() === 'w' ? 'black' : 'white') + ' wins!';
+            else if (chessGame.in_stalemate() || chessGame.in_draw()) chessMsgEl.textContent = 'draw.';
+            else if (chessGame.in_check()) chessMsgEl.textContent = (chessGame.turn() === 'w' ? 'white' : 'black') + ' is in check!';
+            else if (chessMode === 'bot' && chessGame.turn() !== chessColor) chessMsgEl.textContent = 'bot is thinking...';
+            else chessMsgEl.textContent = chessSelected ? 'choose a destination square' : 'select a piece to move';
+        }
+
+        function maybeChessBotMove() {
+            if (chessMode === 'bot' && !chessGame.game_over() && chessGame.turn() !== chessColor) {
+                chessBusy = true;
+                setTimeout(chessBotMove, 550);
+            }
+        }
+
+        function applyChessMove(move) {
+            if (!move) return;
+            chessLastMove = move;
+            if (move.captured) chessCaptures++;
+            if (move.flags.includes('p')) playChessSound('promote');
+            else if (chessGame.in_checkmate()) playChessSound('checkmate');
+            else if (chessGame.in_check()) playChessSound('check');
+            else if (move.flags.includes('k') || move.flags.includes('q')) playChessSound('castle');
+            else if (move.captured) playChessSound('capture');
+            else playChessSound('move');
+            chessSelected = null;
+            chessBusy = false;
+            renderChess();
+            maybeChessBotMove();
+        }
+
+        function onChessSquareClick(sq) {
+            if (chessGame.game_over() || chessBusy) return;
+            if (chessMode === 'bot' && chessGame.turn() !== chessColor) return;
+            if (chessSelected) {
+                const moves = chessGame.moves({ square: chessSelected, verbose: true });
+                const found = moves.find(m => m.to === sq);
+                if (found) {
+                    if (found.flags.includes('p')) {
+                        chessPending = { from: chessSelected, to: sq };
+                        chessPromoEl.classList.add('active');
+                        return;
+                    }
+                    const move = chessGame.move({ from: chessSelected, to: sq });
+                    applyChessMove(move);
+                    return;
+                }
+                if (chessGame.get(sq) && chessGame.get(sq).color === chessGame.turn()) {
+                    chessSelected = sq; renderChess();
+                } else {
+                    playChessSound('illegal');
+                }
+                return;
+            }
+            const piece = chessGame.get(sq);
+            if (piece && piece.color === chessGame.turn()) { chessSelected = sq; renderChess(); }
+            else playChessSound('illegal');
+        }
+
+        document.querySelectorAll('.promo-options button').forEach(btn => {
+            btn.addEventListener('click', () => {
+                if (!chessPending) return;
+                const move = chessGame.move({ from: chessPending.from, to: chessPending.to, promotion: btn.dataset.p });
+                chessPending = null;
+                chessPromoEl.classList.remove('active');
+                applyChessMove(move);
+            });
+        });
+
+        const pieceValues = { p:1, n:3, b:3, r:5, q:9, k:0 };
+        function chessBotMove() {
+            if (chessGame.game_over()) { chessBusy = false; return; }
+            const moves = chessGame.moves({ verbose: true });
+            if (!moves.length) { chessBusy = false; return; }
+            let best = [], bestScore = -Infinity;
+            moves.forEach(m => {
+                let score = Math.random() * 2;
+                if (m.captured) score += pieceValues[m.captured] * 10;
+                if (m.flags.includes('p')) score += 9;
+                if (score > bestScore) { bestScore = score; best = [m]; }
+                else if (score === bestScore) best.push(m);
+            });
+            const chosen = best[Math.floor(Math.random() * best.length)];
+            const move = chessGame.move({ from: chosen.from, to: chosen.to, promotion: 'q' });
+            applyChessMove(move);
+        }
+
+        document.getElementById('chess-reset').addEventListener('click', resetChessGame);
+        document.getElementById('chess-undo').addEventListener('click', () => {
+            chessGame.undo();
+            if (chessMode === 'bot') chessGame.undo();
+            chessSelected = null; chessBusy = false; renderChess();
+        });
+        renderChess();
+        maybeChessBotMove();
+
+        // ===== TIC TAC TOE =====
+        const tttBoardEl = document.getElementById('ttt-board');
+        const tttTurnEl = document.getElementById('ttt-turn');
+        const tttMsgEl = document.getElementById('ttt-msg');
+        const tttXScoreEl = document.getElementById('ttt-x-score');
+        const tttOScoreEl = document.getElementById('ttt-o-score');
+        let tttCells = Array(9).fill(''), tttTurn = 'X', tttOver = false, tttXWins = 0, tttOWins = 0, tttMode = 'pvp';
+        const tttLines = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
+
+        document.querySelectorAll('#ttt-mode .mode-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('#ttt-mode .mode-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                tttMode = btn.dataset.mode;
+                tttCells = Array(9).fill(''); tttTurn = 'X'; tttOver = false;
+                tttMsgEl.textContent = "X's turn"; renderTtt();
+            });
+        });
+
+        function renderTtt() {
+            tttBoardEl.innerHTML = '';
+            tttCells.forEach((val, i) => {
+                const cell = document.createElement('div');
+                cell.className = 'ttt-cell' + (val ? ' ' + val.toLowerCase() : '');
+                cell.textContent = val;
+                cell.addEventListener('click', () => onTttClick(i));
+                tttBoardEl.appendChild(cell);
+            });
+            tttTurnEl.textContent = tttTurn;
+        }
+        function tttWinner(cells) {
+            for (const l of tttLines) if (l.every(idx => cells[idx] && cells[idx] === cells[l[0]])) return cells[l[0]];
+            return cells.every(c => c) ? 'draw' : null;
+        }
+        function tttMinimax(cells, player) {
+            const winner = tttWinner(cells);
+            if (winner === 'O') return { score: 10 };
+            if (winner === 'X') return { score: -10 };
+            if (winner === 'draw') return { score: 0 };
+            const moves = [];
+            cells.forEach((c, i) => {
+                if (c) return;
+                const next = cells.slice(); next[i] = player;
+                const result = tttMinimax(next, player === 'O' ? 'X' : 'O');
+                moves.push({ index: i, score: result.score });
+            });
+            return player === 'O'
+                ? moves.reduce((best, m) => m.score > best.score ? m : best)
+                : moves.reduce((best, m) => m.score < best.score ? m : best);
+        }
+        function onTttClick(i) {
+            if (tttOver || tttCells[i]) return;
+            if (tttMode === 'bot' && tttTurn === 'O') return;
+            placeTtt(i);
+            if (!tttOver && tttMode === 'bot' && tttTurn === 'O') {
+                tttMsgEl.textContent = 'bot is thinking...';
+                setTimeout(() => {
+                    const best = tttMinimax(tttCells, 'O');
+                    if (best && best.index !== undefined) placeTtt(best.index);
+                }, 400);
+            }
+        }
+        function placeTtt(i) {
+            tttCells[i] = tttTurn;
+            playTttSound('place');
+            const winLine = tttLines.find(l => l.every(idx => tttCells[idx] === tttTurn));
+            if (winLine) {
+                tttOver = true; tttMsgEl.textContent = tttTurn + ' wins this round!';
+                playTttSound('win');
+                if (tttTurn === 'X') tttXWins++; else tttOWins++;
+                tttXScoreEl.textContent = tttXWins; tttOScoreEl.textContent = tttOWins;
+                renderTtt();
+                [...tttBoardEl.children].forEach((el, idx) => { if (winLine.includes(idx)) el.classList.add('win'); });
+                return;
+            } else if (tttCells.every(c => c)) {
+                tttOver = true; tttMsgEl.textContent = "it's a draw.";
+                playTttSound('draw');
+            } else {
+                tttTurn = tttTurn === 'X' ? 'O' : 'X';
+                tttMsgEl.textContent = tttTurn + "'s turn";
+            }
+            renderTtt();
+        }
+        document.getElementById('ttt-reset').addEventListener('click', () => {
+            tttCells = Array(9).fill(''); tttTurn = 'X'; tttOver = false; tttMsgEl.textContent = "X's turn"; renderTtt();
+        });
+        renderTtt();
+
+        // ===== SNAKE & LADDER =====
+        let snlStarted = false;
+        function initSnl() {
+            snlStarted = true;
+            const boardEl = document.getElementById('snl-board');
+            const turnEl = document.getElementById('snl-turn');
+            const p1El = document.getElementById('snl-p1-pos');
+            const p2El = document.getElementById('snl-p2-pos');
+            const msgEl = document.getElementById('snl-msg');
+            const rollBtn = document.getElementById('snl-roll');
+            const diceValEl = document.getElementById('snl-dice-val');
+            const resetBtn = document.getElementById('snl-reset');
+
+            const ladders = { 2:38, 7:14, 8:31, 15:26, 21:42, 28:84, 36:44, 51:67, 71:91, 78:98 };
+            const snakes = { 16:6, 46:25, 49:11, 62:19, 64:60, 74:53, 89:68, 92:88, 95:75, 99:80 };
+
+            let mode = 'pvp', positions = { p1: 1, p2: 1 }, turn = 'p1', busy = false, over = false;
+            const cellEls = {};
+
+            document.querySelectorAll('#snl-mode .mode-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    document.querySelectorAll('#snl-mode .mode-btn').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    mode = btn.dataset.mode;
+                    resetGame();
+                });
+            });
+
+            function buildBoard() {
+                boardEl.innerHTML = '';
+                for (let row = 9; row >= 0; row--) {
+                    const rowNums = [];
+                    for (let col = 0; col < 10; col++) {
+                        const num = row * 10 + (row % 2 === 0 ? col + 1 : 10 - col);
+                        rowNums.push(num);
+                    }
+                    rowNums.forEach(num => {
+                        const cell = document.createElement('div');
+                        cell.className = 'snl-cell';
+                        cell.dataset.num = num;
+                        cell.innerHTML = '<span>' + num + '</span>';
+                        if (ladders[num]) { cell.classList.add('ladder-start'); cell.innerHTML += '<span class="snl-icon">🪜</span>'; }
+                        if (snakes[num]) { cell.classList.add('snake-start'); cell.innerHTML += '<span class="snl-icon">🐍</span>'; }
+                        boardEl.appendChild(cell);
+                        cellEls[num] = cell;
+                    });
+                }
+            }
+            function renderTokens() {
+                Object.values(cellEls).forEach(c => c.querySelectorAll('.snl-token').forEach(t => t.remove()));
+                const t1 = document.createElement('div'); t1.className = 'snl-token p1'; t1.textContent = 'P1';
+                cellEls[positions.p1].appendChild(t1);
+                const t2 = document.createElement('div'); t2.className = 'snl-token p2'; t2.textContent = mode === 'bot' ? 'BOT' : 'P2';
+                cellEls[positions.p2].appendChild(t2);
+                p1El.textContent = positions.p1; p2El.textContent = positions.p2;
+                turnEl.textContent = turn === 'p1' ? 'P1' : (mode === 'bot' ? 'BOT' : 'P2');
+            }
+            function resetGame() {
+                positions = { p1: 1, p2: 1 }; turn = 'p1'; busy = false; over = false;
+                msgEl.textContent = 'roll the dice to start'; diceValEl.textContent = '';
+                buildBoard(); renderTokens();
+            }
+            function rollDice() {
+                if (busy || over) return;
+                busy = true;
+                rollBtn.disabled = true;
+                playSnlSound('dice');
+                const roll = 1 + Math.floor(Math.random() * 6);
+                diceValEl.textContent = '(' + roll + ')';
+                const key = turn;
+                let pos = positions[key] + roll;
+                setTimeout(() => {
+                    if (pos > 100) {
+                        msgEl.textContent = (key === 'p1' ? 'P1' : (mode === 'bot' ? 'BOT' : 'P2')) + ' rolled ' + roll + ' — too high, turn skipped.';
+                    } else {
+                        let landed = pos;
+                        if (ladders[pos]) { landed = ladders[pos]; msgEl.textContent = 'ladder! climbing to ' + landed; playSnlSound('ladder'); }
+                        else if (snakes[pos]) { landed = snakes[pos]; msgEl.textContent = 'snake bite! sliding to ' + landed; playSnlSound('snake'); }
+                        else msgEl.textContent = (key === 'p1' ? 'P1' : (mode === 'bot' ? 'BOT' : 'P2')) + ' rolled ' + roll;
+                        positions[key] = landed;
+                        renderTokens();
+                        if (landed === 100) {
+                            over = true;
+                            msgEl.textContent = (key === 'p1' ? 'P1' : (mode === 'bot' ? 'BOT' : 'P2')) + ' wins! 🏆';
+                            playSnlSound('win');
+                            rollBtn.disabled = true; busy = false;
+                            return;
+                        }
+                    }
+                    if (roll !== 6) turn = turn === 'p1' ? 'p2' : 'p1';
+                    renderTokens();
+                    busy = false;
+                    if (mode === 'bot' && turn === 'p2' && !over) {
+                        rollBtn.disabled = true;
+                        setTimeout(rollDice, 700);
+                    } else {
+                        rollBtn.disabled = false;
+                    }
+                }, 350);
+            }
+            rollBtn.addEventListener('click', rollDice);
+            resetBtn.addEventListener('click', resetGame);
+            resetGame();
+        }
+
+        // ===== 2048 =====
+        let g2048Started = false;
+        function initG2048() {
+            g2048Started = true;
+            const boardEl = document.getElementById('g2048-board');
+            const scoreEl = document.getElementById('g2048-score'), bestEl = document.getElementById('g2048-best'), msgEl = document.getElementById('g2048-msg');
+            let grid, score, best = parseInt(localStorage.getItem('bss_2048_best') || '0', 10), has2048 = false;
+            bestEl.textContent = best;
+            for (let i = 0; i < 16; i++) { const c = document.createElement('div'); c.className = 'g2048-cell'; boardEl.appendChild(c); }
+            const tileColors = { 2:'#c8ffd4', 4:'#8affa8', 8:'#00ff41', 16:'#00e63b', 32:'#ffb700', 64:'#ff8c00', 128:'#00f5ff', 256:'#00c8ff', 512:'#ff2a2a', 1024:'#ff5cf4', 2048:'#ffffff' };
+            function newGrid() { return Array.from({ length: 4 }, () => Array(4).fill(0)); }
+            function addTile() {
+                const empties = [];
+                for (let r = 0; r < 4; r++) for (let c = 0; c < 4; c++) if (!grid[r][c]) empties.push([r, c]);
+                if (!empties.length) return;
+                const [r, c] = empties[Math.floor(Math.random() * empties.length)];
+                grid[r][c] = Math.random() < 0.9 ? 2 : 4;
+            }
+            function reset() { grid = newGrid(); score = 0; has2048 = false; scoreEl.textContent = 0; msgEl.textContent = 'arrow keys / swipe to merge tiles'; addTile(); addTile(); render(); }
+            function render() {
+                boardEl.querySelectorAll('.g2048-tile').forEach(t => t.remove());
+                const cellSize = boardEl.querySelector('.g2048-cell').getBoundingClientRect();
+                const gap = 7, pad = 7, size = cellSize.width;
+                for (let r = 0; r < 4; r++) for (let c = 0; c < 4; c++) {
+                    if (!grid[r][c]) continue;
+                    const tile = document.createElement('div');
+                    tile.className = 'g2048-tile';
+                    tile.textContent = grid[r][c];
+                    tile.style.width = size + 'px'; tile.style.height = size + 'px';
+                    tile.style.left = (pad + c * (size + gap)) + 'px'; tile.style.top = (pad + r * (size + gap)) + 'px';
+                    tile.style.background = tileColors[grid[r][c]] || '#ffffff';
+                    tile.style.color = grid[r][c] <= 4 ? '#010b03' : '#010b03';
+                    boardEl.appendChild(tile);
+                }
+                scoreEl.textContent = score;
+            }
+            function slide(row) {
+                let arr = row.filter(v => v);
+                for (let i = 0; i < arr.length - 1; i++) {
+                    if (arr[i] === arr[i + 1]) { arr[i] *= 2; score += arr[i]; arr.splice(i + 1, 1); }
+                }
+                while (arr.length < 4) arr.push(0);
+                return arr;
+            }
+            function rotate(g) { const ng = newGrid(); for (let r = 0; r < 4; r++) for (let c = 0; c < 4; c++) ng[c][3 - r] = g[r][c]; return ng; }
+            function move(dirKey) {
+                let moved = false;
+                let g = grid.map(r => r.slice());
+                let rotations = { left: 0, up: 1, right: 2, down: 3 }[dirKey];
+                const scoreBefore = score;
+                for (let i = 0; i < rotations; i++) g = rotate(g);
+                for (let r = 0; r < 4; r++) {
+                    const before = g[r].join(',');
+                    g[r] = slide(g[r]);
+                    if (g[r].join(',') !== before) moved = true;
+                }
+                for (let i = 0; i < (4 - rotations) % 4; i++) g = rotate(g);
+                if (moved) {
+                    grid = g; addTile(); render();
+                    if (score > scoreBefore) play2048Sound('merge'); else play2048Sound('move');
+                    if (best < score) { best = score; bestEl.textContent = best; localStorage.setItem('bss_2048_best', best); }
+                    if (grid.flat().includes(2048) && !has2048) { has2048 = true; msgEl.textContent = 'you hit 2048! keep going for a higher score'; play2048Sound('win'); }
+                    else if (!canMove()) { msgEl.textContent = 'game over — no more moves. tap new_game'; play2048Sound('over'); }
+                }
+            }
+            function canMove() {
+                for (let r = 0; r < 4; r++) for (let c = 0; c < 4; c++) {
+                    if (!grid[r][c]) return true;
+                    if (c < 3 && grid[r][c] === grid[r][c + 1]) return true;
+                    if (r < 3 && grid[r][c] === grid[r + 1][c]) return true;
+                }
+                return false;
+            }
+            window.addEventListener('keydown', e => {
+                if (!document.getElementById('game-g2048').classList.contains('active')) return;
+                const map = { ArrowLeft: 'left', ArrowRight: 'right', ArrowUp: 'up', ArrowDown: 'down' };
+                if (map[e.key]) { e.preventDefault(); move(map[e.key]); }
+            });
+            let touchStart = null;
+            boardEl.addEventListener('touchstart', e => { touchStart = e.touches[0]; }, { passive: true });
+            boardEl.addEventListener('touchend', e => {
+                if (!touchStart) return;
+                const dx = e.changedTouches[0].clientX - touchStart.clientX;
+                const dy = e.changedTouches[0].clientY - touchStart.clientY;
+                if (Math.max(Math.abs(dx), Math.abs(dy)) < 20) return;
+                if (Math.abs(dx) > Math.abs(dy)) move(dx > 0 ? 'right' : 'left'); else move(dy > 0 ? 'down' : 'up');
+                touchStart = null;
+            }, { passive: true });
+            document.getElementById('g2048-reset').addEventListener('click', reset);
+            reset();
+        }
+    </script>
+</body>
+</html>
+<!-- HTMLEOF -->

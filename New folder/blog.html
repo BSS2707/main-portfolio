@@ -1,0 +1,1680 @@
+<!-- cat > /mnt/user-data/outputs/blog.html << 'HTMLEOF' -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BLOG — BSS_2707 | Bhavya Solanki AI/ML Articles</title>
+    <meta name="description" content="Read Bhavya Solanki's (BSS_2707) blog — articles on AI, Machine Learning, Python, Data Science, Streamlit, and web development from an AI/ML developer based in Surat, India.">
+    <meta name="keywords" content="BSS_2707 blog, Bhavya Solanki blog, AI articles, machine learning blog, Python tutorials, data science, Streamlit, AI development, tech blog India">
+    <meta name="author" content="Bhavya Solanki">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://bhavyasolanki.netlify.app/blog">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bhavyasolanki.online/blog.html">
+    <meta property="og:title" content="BLOG — BSS_2707 | Bhavya Solanki AI/ML Articles">
+    <meta property="og:description" content="Articles on AI, Machine Learning, Python, Data Science, and Streamlit by Bhavya Solanki.">
+    <meta property="og:image" content="https://bhavyasolanki.online/assets/img/bhavya.png">
+    <link rel="image_src" href="https://bhavyasolanki.online/assets/img/bhavya.png">
+    <meta name="image" content="https://bhavyasolanki.online/assets/img/bhavya.png">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="BLOG — BSS_2707 | AI/ML Articles">
+    <meta name="twitter:description" content="Articles on AI, Machine Learning, Python, and Data Science by Bhavya Solanki.">
+    <meta name="twitter:image" content="https://bhavyasolanki.online/assets/img/bhavya.png">
+
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      "name": "BSS_2707 Blog",
+      "url": "https://bhavyasolanki.online/blog.html",
+    "image": "https://bhavyasolanki.online/assets/img/bhavya.png",
+      "description": "Articles on AI, Machine Learning, Python, Data Science, and Streamlit by Bhavya Solanki.",
+      "author": {
+        "@type": "Person",
+        "name": "Bhavya S Solanki",
+        "alternateName": "BSS_2707",
+        "url": "https://bhavyasolanki.online/"
+      }
+    }
+    </script>
+
+    <meta name="google-site-verification" content="2lSPpcWQoSJiXO74hxTrbldX7EWTUEUccsVbm_dp8PM" />
+    <link rel="icon" href="https://cdn.phototourl.com/free/2026-08-23-b1f37d5e-59a4-4f9b-a9cd-d474da5e265d.png">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=VT323&family=Fira+Code:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css' rel='stylesheet'>
+    <style>
+        :root {
+            --green: #00ff41;
+            --green-dim: #00c32f;
+            --green-dark: #003d0f;
+            --green-glow: rgba(0, 255, 65, 0.12);
+            --green-glow-strong: rgba(0, 255, 65, 0.25);
+            --amber: #ffb700;
+            --red: #ff2a2a;
+            --cyan: #00f5ff;
+            --bg: #010b03;
+            --bg2: #020e04;
+            --bg3: #031407;
+            --surface: #061209;
+            --border: rgba(0, 255, 65, 0.15);
+            --border-bright: rgba(0, 255, 65, 0.45);
+            --text: #c8ffd4;
+            --muted: #4a9957;
+            --header-h: 58px;
+        }
+
+        *, ::before, ::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Fira Code', monospace;
+            background: var(--bg);
+            color: var(--text);
+            margin-top: var(--header-h);
+            overflow-x: hidden;
+            cursor: none;
+        }
+
+        /* CURSOR */
+        #cursor {
+            position: fixed; z-index: 9999; pointer-events: none;
+            width: 20px; height: 20px;
+            border: 1.5px solid var(--green);
+            transform: translate(-50%, -50%);
+            transition: width 0.15s, height 0.15s;
+            box-shadow: 0 0 10px var(--green), 0 0 20px rgba(0,255,65,0.3);
+        }
+        #cursor-dot {
+            position: fixed; z-index: 9999; pointer-events: none;
+            width: 4px; height: 4px; border-radius: 50%;
+            background: var(--green);
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 6px var(--green);
+        }
+
+        /* CRT */
+        body::before {
+            content: ''; position: fixed; inset: 0; z-index: 9990;
+            background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.04) 2px, rgba(0,0,0,0.04) 4px);
+            pointer-events: none;
+        }
+        body::after {
+            content: ''; position: fixed; inset: 0; z-index: 9989;
+            background: radial-gradient(ellipse at center, transparent 60%, rgba(0,0,0,0.55) 100%);
+            pointer-events: none;
+        }
+
+        /* MATRIX */
+        #matrix-bg {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 0; opacity: 0.06; pointer-events: none;
+        }
+
+        /* ===== LOADING ===== */
+        #loading-screen {
+            position: fixed; inset: 0; z-index: 9998;
+            background: #000;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            gap: 1.2rem; font-family: 'Share Tech Mono', monospace;
+            overflow: hidden;
+        }
+        #loading-screen::before {
+            content: ''; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+            background: repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0,255,65,0.018) 3px, rgba(0,255,65,0.018) 4px);
+        }
+        #loading-screen::after {
+            content: ''; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+            background: radial-gradient(ellipse at center, transparent 55%, rgba(0,0,0,0.75) 100%);
+        }
+        .ls-logo {
+            position: relative; z-index: 2;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: clamp(0.38rem, 1.1vw, 0.58rem);
+            line-height: 1.25;
+            color: var(--green);
+            text-shadow: 0 0 18px rgba(0,255,65,0.7), 0 0 40px rgba(0,255,65,0.3);
+            white-space: pre; letter-spacing: 0.05em; text-align: center;
+            animation: logoFlicker 3s ease-in-out infinite;
+            user-select: none;
+        }
+        @keyframes logoFlicker {
+            0%,97%,100%{ opacity:1; text-shadow: 0 0 18px rgba(0,255,65,0.7), 0 0 40px rgba(0,255,65,0.3); }
+            98%{ opacity:0.7; text-shadow: 0 0 8px rgba(0,255,65,0.4); }
+            99%{ opacity:1; text-shadow: 0 0 35px rgba(0,255,65,0.9), 0 0 70px rgba(0,255,65,0.5); }
+        }
+        .ls-terminal {
+            position: relative; z-index: 2;
+            width: min(620px, 92vw);
+            border: 1px solid rgba(0,255,65,0.6); border-radius: 6px;
+            box-shadow: 0 0 0 1px rgba(0,255,65,0.08), 0 0 20px rgba(0,255,65,0.18), 0 0 50px rgba(0,255,65,0.08), inset 0 0 40px rgba(0,255,65,0.025);
+            animation: termPulse 4s ease-in-out infinite;
+        }
+        @keyframes termPulse {
+            0%,100%{ box-shadow: 0 0 0 1px rgba(0,255,65,0.08), 0 0 20px rgba(0,255,65,0.18), 0 0 50px rgba(0,255,65,0.08), inset 0 0 40px rgba(0,255,65,0.025); }
+            50%{ box-shadow: 0 0 0 1px rgba(0,255,65,0.12), 0 0 30px rgba(0,255,65,0.28), 0 0 70px rgba(0,255,65,0.12), inset 0 0 40px rgba(0,255,65,0.04); }
+        }
+        .ls-titlebar {
+            background: linear-gradient(90deg, #001a05, #003d0f, #001a05);
+            border-bottom: 1px solid rgba(0,255,65,0.25); border-radius: 6px 6px 0 0;
+            padding: 0.45rem 0.85rem; display: flex; align-items: center; gap: 0.5rem;
+            font-size: 0.72rem; color: rgba(0,255,65,0.7); letter-spacing: 0.08em;
+        }
+        .ls-titlebar-dots { display: flex; gap: 6px; margin-right: 0.4rem; }
+        .ls-titlebar-dot { width: 11px; height: 11px; border-radius: 50%; box-shadow: 0 0 6px currentColor; }
+        .ls-titlebar-dot:nth-child(1) { background: #ff5f56; color: #ff5f56; }
+        .ls-titlebar-dot:nth-child(2) { background: #ffbd2e; color: #ffbd2e; }
+        .ls-titlebar-dot:nth-child(3) { background: #27c93f; color: #27c93f; }
+        .ls-titlebar-text { flex: 1; text-align: center; color: rgba(0,255,65,0.6); font-size: 0.72rem; }
+        .ls-titlebar-sig { color: rgba(0,255,65,0.35); font-size: 0.68rem; }
+        .ls-body {
+            padding: 1.1rem 1.4rem 0.8rem; min-height: 200px; max-height: 320px;
+            overflow-y: auto; background: rgba(0,5,1,0.92); border-radius: 0 0 6px 6px;
+        }
+        .ls-body::-webkit-scrollbar { width: 3px; }
+        .ls-body::-webkit-scrollbar-track { background: transparent; }
+        .ls-body::-webkit-scrollbar-thumb { background: rgba(0,255,65,0.3); border-radius: 99px; }
+        .ls-line {
+            font-size: 0.8rem; color: var(--green); line-height: 1.85;
+            font-family: 'Share Tech Mono', monospace;
+            opacity: 0; transform: translateX(-6px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        .ls-line.ls-visible { opacity: 1; transform: none; }
+        .ls-line.ls-static { opacity: 1; transform: none; }
+        .ls-line .prompt { color: var(--muted); }
+        .ls-line .out { color: #5dde74; }
+        .ls-line .warn { color: var(--amber); }
+        .ls-line .info { color: var(--cyan); }
+        .ls-line .dim { color: rgba(0,255,65,0.35); }
+        .ls-cursor-blink {
+            display: inline-block; width: 7px; height: 13px; background: var(--green);
+            animation: blink 0.7s step-start infinite; vertical-align: middle;
+            box-shadow: 0 0 8px var(--green);
+        }
+        @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+        .ls-bar-section { padding: 0 1.4rem 1rem; background: rgba(0,5,1,0.92); border-radius: 0 0 6px 6px; margin-top: -0.1rem; }
+        .ls-bar-label { font-size: 0.68rem; color: var(--muted); font-family: 'Share Tech Mono', monospace; margin-bottom: 0.3rem; display: flex; justify-content: space-between; }
+        .ls-bar-wrap { height: 4px; background: rgba(0,255,65,0.1); border-radius: 99px; overflow: hidden; border: 1px solid rgba(0,255,65,0.15); }
+        .ls-bar { height: 100%; width: 0; background: linear-gradient(90deg, #00c32f, #00ff41, #5dde74); border-radius: 99px; box-shadow: 0 0 8px rgba(0,255,65,0.6); transition: width 0.15s ease; }
+        .ls-input-row {
+            display: flex; align-items: center; gap: 0; margin-top: 0.2rem;
+            background: rgba(0,255,65,0.04); border: 1px solid rgba(0,255,65,0.2);
+            border-radius: 3px; padding: 0.3rem 0.5rem;
+        }
+        .ls-input-prompt { color: var(--green); font-size: 0.8rem; font-family: 'Share Tech Mono', monospace; white-space: nowrap; line-height: 1; text-shadow: 0 0 8px var(--green); }
+        .ls-real-input {
+            flex: 1; background: transparent; border: none; outline: none;
+            color: var(--cyan); font-size: 0.8rem; font-family: 'Share Tech Mono', monospace;
+            caret-color: var(--green); padding: 0; margin: 0;
+            text-shadow: 0 0 10px var(--cyan); -webkit-appearance: none; appearance: none; border-radius: 0;
+        }
+        .ls-real-input::selection { background: rgba(0,255,65,0.3); }
+        .ls-hints { display: flex; gap: 0.5rem; margin-top: 0.55rem; flex-wrap: wrap; position: relative; z-index: 2; }
+        .ls-hint-chip {
+            font-size: 0.68rem; font-family: 'Share Tech Mono', monospace;
+            padding: 0.2rem 0.6rem; border-radius: 2px;
+            border: 1px solid rgba(0,255,65,0.25); color: rgba(0,255,65,0.6);
+            background: rgba(0,255,65,0.05); cursor: pointer; transition: all 0.15s; letter-spacing: 0.05em;
+        }
+        .ls-hint-chip:hover { border-color: var(--cyan); color: var(--cyan); background: rgba(0,245,255,0.08); box-shadow: 0 0 8px rgba(0,245,255,0.2); }
+        .ls-hint-chip span { color: var(--cyan); }
+        .blog-modal__body::-webkit-scrollbar {
+            width: 8px;
+        }
+        .blog-modal__body::-webkit-scrollbar-track {
+            background: var(--bg3);
+            border-radius: 10px;
+        }
+        .blog-modal__body::-webkit-scrollbar-thumb {
+            background: var(--green);
+            border-radius: 10px;
+            border: 2px solid var(--bg3);
+        }
+        .blog-modal__body::-webkit-scrollbar-thumb:hover {
+            background: var(--cyan);
+        }
+        .blog-modal__body::-webkit-scrollbar-corner {
+            background: var(--bg3);
+        }
+        /* HEADER */
+        .l-header {
+            position: fixed; top: 0; left: 0; right: 0;
+            height: var(--header-h); z-index: 100;
+            background: rgba(1,11,3,0.92); backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+        }
+        .l-header::after {
+            content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
+            background: linear-gradient(90deg, transparent, var(--green), transparent);
+            opacity: 0.4;
+        }
+        .nav {
+            max-width: 1200px; margin: 0 auto; height: 100%;
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 0 1.5rem;
+        }
+        .nav__logo {
+            font-family: 'VT323', monospace; font-size: 1.5rem; color: var(--green);
+            text-decoration: none; letter-spacing: 2px;
+            text-shadow: 0 0 10px var(--green), 0 0 20px rgba(0,255,65,0.4);
+        }
+        .nav__logo span { color: var(--amber); }
+        .nav__list { display: flex; align-items: center; gap: 0.25rem; list-style: none; }
+        .nav__link {
+            text-decoration: none; font-size: 0.76rem; color: var(--muted);
+            padding: 0.4rem 0.65rem; border-radius: 3px;
+            transition: color 0.2s, background 0.2s;
+            font-family: 'Share Tech Mono', monospace; letter-spacing: 1px;
+        }
+        @media(min-width:769px) and (max-width:1100px) { .nav__link { padding: 0.4rem 0.4rem; font-size: 0.7rem; letter-spacing: 0.3px; } }
+        .nav__link::before { content: './'; color: var(--green-dim); opacity: 0.6; }
+        .nav__link:hover, .nav__link.active-link {
+            color: var(--green); background: var(--green-glow);
+            text-shadow: 0 0 8px var(--green);
+        }
+        .nav__cv-btn {
+            background: transparent; color: var(--green); text-decoration: none;
+            font-size: 0.75rem; font-family: 'Share Tech Mono', monospace;
+            padding: 0.4rem 0.9rem; border-radius: 3px;
+            border: 1px solid var(--border-bright); transition: all 0.2s; letter-spacing: 1px;
+        }
+        .nav__cv-btn:hover { background: var(--green-glow); box-shadow: 0 0 12px rgba(0,255,65,0.3); }
+        .nav__toggle { display: none; background: none; border: none; color: var(--green); font-size: 1.4rem; cursor: none; }
+        @media(max-width:768px) {
+            .nav__menu {
+                position: fixed; top: var(--header-h); left: 0; right: 0;
+                background: var(--bg); padding: 1.5rem;
+                transform: translateY(-120%); transition: transform 0.3s ease;
+                border-bottom: 1px solid var(--border);
+            }
+            .nav__menu.show { transform: translateY(0); }
+            .nav__list { flex-direction: column; align-items: flex-start; }
+            .nav__toggle { display: block; }
+        }
+
+        /* HERO */
+        .blog-hero {
+            padding: 5rem 1.5rem 3.5rem; position: relative; z-index: 1;
+            border-bottom: 1px solid var(--border);
+            overflow: hidden; min-height: 280px; display: flex; align-items: center;
+        }
+        .blog-hero__bg {
+            position: absolute; inset: 0; z-index: 0;
+            background-image: url('https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=1600&q=80');
+            background-size: cover; background-position: center 40%;
+            filter: grayscale(60%) brightness(0.22) sepia(40%) hue-rotate(90deg);
+        }
+        .blog-hero__bg::after {
+            content: ''; position: absolute; inset: 0;
+            background: linear-gradient(180deg, rgba(1,11,3,0.45) 0%, rgba(1,11,3,0.88) 100%);
+        }
+        .blog-hero__inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; width: 100%; }
+        .blog-hero__label {
+            font-size: 0.72rem; letter-spacing: 0.2em; color: var(--muted);
+            margin-bottom: 0.5rem; font-family: 'Share Tech Mono', monospace;
+        }
+        .blog-hero__label::before { content: '// '; color: var(--green-dim); }
+        .blog-hero__title {
+            font-family: 'VT323', monospace;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            color: var(--green); text-shadow: 0 0 30px rgba(0,255,65,0.4);
+            line-height: 1; letter-spacing: 3px; margin-bottom: 1rem;
+        }
+        .blog-hero__title em { color: var(--amber); font-style: normal; text-shadow: 0 0 20px rgba(255,183,0,0.5); }
+        .blog-hero__sub {
+            font-size: 0.9rem; color: var(--muted); max-width: 520px;
+            line-height: 1.75; margin-bottom: 1.75rem;
+            border-left: 2px solid var(--border-bright); padding-left: 1rem;
+        }
+        .blog-pills { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+        .blog-pill {
+            display: inline-flex; align-items: center; gap: 0.35rem;
+            font-size: 0.72rem; padding: 0.3rem 0.8rem; border-radius: 2px;
+            background: var(--surface); border: 1px solid var(--border);
+            color: var(--muted); font-family: 'Share Tech Mono', monospace; letter-spacing: 1px;
+        }
+        .blog-pill::before { content: '['; color: var(--green-dim); }
+        .blog-pill::after { content: ']'; color: var(--green-dim); }
+
+        /* BLOG SECTION */
+        .blog-section { padding: 3rem 1.5rem 5rem; position: relative; z-index: 1; }
+        .blog-section__inner { max-width: 1100px; margin: 0 auto; }
+
+        /* CONTROLS */
+        .blog-controls { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; margin-bottom: 2.5rem; }
+        .blog__search {
+            flex: 1; min-width: 200px; display: flex; align-items: center; gap: 0.5rem;
+            background: var(--surface); border: 1px solid var(--border);
+            border-radius: 3px; padding: 0.55rem 0.85rem; transition: border-color 0.2s;
+        }
+        .blog__search:focus-within { border-color: var(--border-bright); box-shadow: 0 0 10px rgba(0,255,65,0.1); }
+        .blog__search i { color: var(--green); font-size: 1rem; }
+        .blog__search input {
+            flex: 1; background: none; border: none; outline: none; color: var(--text);
+            font-size: 0.82rem; font-family: 'Share Tech Mono', monospace; letter-spacing: 1px;
+        }
+        .blog__search input::placeholder { color: var(--muted); }
+        .blog__filter { display: flex; align-items: center; gap: 0.6rem; }
+        .blog__filter label { font-size: 0.75rem; color: var(--muted); font-family: 'Share Tech Mono', monospace; }
+        .blog__filter label::before { content: '$ '; color: var(--green); }
+        .blog__filter select {
+            background: var(--surface); border: 1px solid var(--border);
+            border-radius: 3px; padding: 0.5rem 0.8rem; color: var(--text);
+            font-family: 'Share Tech Mono', monospace; font-size: 0.78rem;
+            outline: none; cursor: none; transition: border-color 0.2s;
+        }
+        .blog__filter select:focus { border-color: var(--border-bright); }
+
+        /* GRID */
+        .blog__grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.25rem; }
+        .blog-card {
+            background: var(--surface); border: 1px solid var(--border);
+            border-radius: 4px; overflow: hidden; display: flex; flex-direction: column;
+            transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+        }
+        .blog-card:hover {
+            border-color: var(--border-bright); transform: translateY(-4px);
+            box-shadow: 0 16px 50px rgba(0,0,0,0.5), 0 0 20px rgba(0,255,65,0.08);
+        }
+        .blog-card__cover-wrap { position: relative; height: 165px; overflow: hidden; }
+        .blog-card__cover {
+            width: 100%; height: 100%; object-fit: cover; display: block;
+            background: var(--bg3);
+            filter: grayscale(50%) brightness(0.55) sepia(30%) hue-rotate(90deg);
+            transition: filter 0.3s;
+        }
+        .blog-card:hover .blog-card__cover { filter: grayscale(20%) brightness(0.75) sepia(20%) hue-rotate(90deg); }
+        .blog-card__cover-overlay {
+            position: absolute; inset: 0;
+            background: linear-gradient(180deg, transparent 40%, rgba(1,11,3,0.9) 100%);
+        }
+        .blog-card__body { padding: 1.1rem 1.25rem; flex: 1; display: flex; flex-direction: column; gap: 0.55rem; }
+        .blog-card__category { font-size: 0.68rem; font-family: 'Share Tech Mono', monospace; letter-spacing: 1px; color: var(--cyan); }
+        .blog-card__category::before { content: '» '; color: var(--green-dim); }
+        .blog-card__title { font-family: 'VT323', monospace; font-size: 1.25rem; color: var(--green); line-height: 1.2; letter-spacing: 1px; }
+        .blog-card__meta { font-size: 0.72rem; color: var(--muted); font-family: 'Share Tech Mono', monospace; }
+        .blog-card__meta::before { content: '// '; color: var(--green-dim); }
+        .blog-card__excerpt { font-size: 0.8rem; color: var(--muted); line-height: 1.65; flex: 1; }
+        .blog-card__tags { display: flex; gap: 0.35rem; flex-wrap: wrap; }
+        .blog-tag {
+            font-size: 0.68rem; padding: 0.18rem 0.5rem; border-radius: 2px;
+            background: rgba(0,245,255,0.05); border: 1px solid rgba(0,245,255,0.15);
+            color: var(--cyan); font-family: 'Share Tech Mono', monospace;
+        }
+        .blog-card__btn {
+            margin-top: auto; width: 100%; background: transparent; color: var(--green);
+            border: 1px solid var(--border-bright); border-radius: 2px; padding: 0.6rem;
+            cursor: none; font-weight: 600; font-size: 0.78rem;
+            font-family: 'Share Tech Mono', monospace; letter-spacing: 1px;
+            transition: background 0.2s, box-shadow 0.2s;
+        }
+        .blog-card__btn::before { content: '→ '; }
+        .blog-card__btn:hover { background: var(--green-glow-strong); box-shadow: 0 0 14px rgba(0,255,65,0.2); }
+        .blog-empty {
+            grid-column: 1/-1; padding: 4rem; text-align: center; color: var(--muted);
+            background: var(--surface); border-radius: 4px; border: 1px dashed var(--border);
+            font-family: 'Share Tech Mono', monospace;
+        }
+        .blog-empty::before { content: 'ERROR_404 :: '; color: var(--red); }
+
+        /* MODAL */
+        .blog-modal {
+            position: fixed; inset: 0; background: rgba(0,0,0,0.82);
+            display: none; align-items: center; justify-content: center;
+            z-index: 10000; padding: 1rem; backdrop-filter: blur(6px);
+        }
+        .blog-modal.active { display: flex; }
+        .blog-modal__card {
+            width: min(860px, 100%); max-height: min(88vh, 920px);
+            background: var(--bg2); border: 1px solid var(--border-bright);
+            border-radius: 4px; overflow: hidden; display: flex; flex-direction: column;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.7), 0 0 40px rgba(0,255,65,0.1);
+        }
+        .blog-modal__header {
+            padding: 1.25rem 1.5rem 1rem; border-bottom: 1px solid var(--border);
+            display: flex; justify-content: space-between; align-items: flex-start;
+            gap: 1rem; background: var(--bg3);
+        }
+        .blog-modal__category { font-size: 0.7rem; font-family: 'Share Tech Mono', monospace; color: var(--cyan); margin-bottom: 0.4rem; letter-spacing: 1px; }
+        .blog-modal__category::before { content: '['; }
+        .blog-modal__category::after { content: ']'; }
+        .blog-modal__title { font-family: 'VT323', monospace; font-size: 1.75rem; color: var(--green); text-shadow: 0 0 15px rgba(0,255,65,0.3); letter-spacing: 1px; }
+        .blog-modal__meta { font-size: 0.75rem; color: var(--muted); margin-top: 0.35rem; font-family: 'Share Tech Mono', monospace; }
+        .blog-modal__meta::before { content: '// '; color: var(--green-dim); }
+        .blog-modal__close {
+            background: var(--surface); border: 1px solid var(--border); border-radius: 3px;
+            width: 38px; height: 38px; cursor: none; color: var(--muted); font-size: 1.2rem;
+            display: grid; place-items: center; flex-shrink: 0; transition: all 0.2s;
+        }
+        .blog-modal__close:hover { color: var(--red); border-color: var(--red); background: rgba(255,42,42,0.08); }
+        .blog-modal__body { padding: 1.5rem; overflow-y: auto; flex: 1; line-height: 1.8; color: var(--muted); font-size: 0.88rem; }
+        .blog-modal__body p { margin-bottom: 1rem; }
+        .blog-modal__body h4 { font-family: 'VT323', monospace; font-size: 1.35rem; color: var(--green); margin: 1.5rem 0 0.5rem; letter-spacing: 1px; }
+        .blog-modal__body h4::before { content: '## '; color: var(--green-dim); }
+        .blog-modal__body ul, .blog-modal__body ol { padding-left: 1.5rem; margin-bottom: 1rem; }
+        .blog-modal__body li { margin-bottom: 0.4rem; }
+        .blog-modal__body li::marker { color: var(--green); }
+        .blog-modal__body strong { color: var(--text); }
+        .blog-modal__body code { font-family: 'Share Tech Mono', monospace; background: var(--bg3); border: 1px solid var(--border); padding: 0.1rem 0.4rem; border-radius: 2px; color: var(--cyan); font-size: 0.85em; }
+        .blog-modal__cover img { width: 100%; height: 220px; object-fit: cover; border-radius: 3px; margin-bottom: 1.25rem; filter: grayscale(30%) brightness(0.7) sepia(20%) hue-rotate(90deg); }
+        .blog-modal__footer { padding: 0.85rem 1.5rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; gap: 1rem; background: var(--bg3); }
+        .blog-modal__btn {
+            background: transparent; color: var(--green); border: 1px solid var(--border-bright);
+            border-radius: 2px; padding: 0.55rem 1.1rem; cursor: none; font-weight: 600;
+            font-family: 'Share Tech Mono', monospace; font-size: 0.75rem; letter-spacing: 1px;
+            display: flex; align-items: center; gap: 0.4rem; transition: all 0.2s;
+        }
+        .blog-modal__btn:hover:not([disabled]) { background: var(--green-glow); box-shadow: 0 0 12px rgba(0,255,65,0.25); }
+        .blog-modal__btn[disabled] { opacity: 0.3; cursor: not-allowed; }
+
+        /* CHATBOT */
+        #chatbot-widget { position: fixed; bottom: 1.75rem; right: 1.75rem; z-index: 500; }
+        .chatbot-toggle-btn {
+            width: 50px; height: 50px; border-radius: 3px; background: var(--bg);
+            color: var(--green); border: 1px solid var(--green); cursor: none; font-size: 1.3rem;
+            box-shadow: 0 0 20px rgba(0,255,65,0.3); display: flex; align-items: center; justify-content: center; transition: all 0.2s;
+        }
+        .chatbot-toggle-btn:hover { background: var(--green-glow); box-shadow: 0 0 30px rgba(0,255,65,0.5); transform: scale(1.05); }
+        .chatbot-window {
+            position: absolute; bottom: 65px; right: 0; width: 320px; max-height: 460px;
+            background: var(--bg2); border: 1px solid var(--border-bright); border-radius: 4px;
+            display: none; flex-direction: column;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.6), 0 0 25px rgba(0,255,65,0.08);
+        }
+        .chatbot-window.active { display: flex; }
+        .chatbot-header { background: var(--bg3); border-bottom: 1px solid var(--border); padding: 0.7rem 1rem; display: flex; align-items: center; justify-content: space-between; }
+        .chatbot-header h3 { color: var(--green); font-size: 0.8rem; font-family: 'Share Tech Mono', monospace; letter-spacing: 1px; }
+        .chatbot-header h3::before { content: '$ '; opacity: 0.6; }
+        .chatbot-close-btn { background: none; border: none; color: var(--muted); font-size: 1.2rem; cursor: none; transition: color 0.2s; }
+        .chatbot-close-btn:hover { color: var(--red); }
+        .chatbot-messages { flex: 1; overflow-y: auto; padding: 0.75rem; display: flex; flex-direction: column; gap: 0.5rem; }
+        .message { display: flex; flex-direction: column; }
+        .bot-message { align-items: flex-start; }
+        .user-message { align-items: flex-end; }
+        .message-content { max-width: 90%; border-radius: 3px; padding: 0.55rem 0.75rem; font-size: 0.78rem; line-height: 1.5; font-family: 'Share Tech Mono', monospace; }
+        .bot-message .message-content { background: var(--surface); color: var(--green); border-left: 2px solid var(--green); }
+        .bot-message .message-content::before { content: '> '; color: var(--green-dim); }
+        .user-message .message-content { background: var(--green-glow); color: var(--text); border-right: 2px solid var(--green); }
+        .chatbot-input-container { display: flex; gap: 0.4rem; padding: 0.6rem; border-top: 1px solid var(--border); }
+        #chatbot-input { flex: 1; background: var(--surface); border: 1px solid var(--border); border-radius: 2px; padding: 0.45rem 0.65rem; font-size: 0.75rem; color: var(--text); font-family: 'Share Tech Mono', monospace; outline: none; }
+        #chatbot-input:focus { border-color: var(--green); }
+        #chatbot-input::placeholder { color: var(--muted); }
+        #chatbot-send { width: 30px; height: 30px; border-radius: 2px; background: var(--green-dark); border: 1px solid var(--green); color: var(--green); cursor: none; font-size: 0.85rem; display: flex; align-items: center; justify-content: center; transition: all 0.15s; }
+        #chatbot-send:hover { background: var(--green-glow); box-shadow: 0 0 10px rgba(0,255,65,0.3); }
+
+        /* ===== GAMES WIDGET (mirrors chatbot widget) ===== */
+        #games-widget { position: fixed; bottom: 1.75rem; left: 1.75rem; z-index: 500; }
+        .games-toggle-btn { width: 50px; height: 50px; border-radius: 3px; background: var(--bg); color: var(--amber); border: 1px solid var(--amber); cursor: none; font-size: 1.3rem; box-shadow: 0 0 20px rgba(255,183,0,0.3); display: flex; align-items: center; justify-content: center; transition: all 0.2s; font-family: 'Share Tech Mono', monospace; }
+        .games-toggle-btn:hover { background: rgba(255,183,0,0.12); box-shadow: 0 0 30px rgba(255,183,0,0.5); transform: scale(1.05); }
+        .games-window { position: absolute; bottom: 65px; left: 0; width: min(92vw, 380px); max-height: 82vh; overflow-y: auto; background: var(--bg2); border: 1px solid var(--border-bright); border-radius: 4px; display: none; flex-direction: column; box-shadow: 0 20px 60px rgba(0,0,0,0.6), 0 0 30px rgba(255,183,0,0.1); }
+        .games-window.active { display: flex; }
+        .games-window .chatbot-header h3 { color: var(--amber); }
+        .games-window .chatbot-header h3::before { content: '▶ '; opacity: 0.7; }
+        .games-window-body { padding: 1.25rem; display: flex; flex-direction: column; align-items: center; }
+
+        .game-tabs { display: flex; flex-wrap: wrap; gap: 0.4rem; padding: 0.6rem; background: var(--bg3); border-bottom: 1px solid var(--border); }
+        .game-tab { background: var(--surface); border: 1px solid var(--border); color: var(--muted); font-family: 'Share Tech Mono', monospace; font-size: 0.68rem; letter-spacing: 0.5px; padding: 0.4rem 0.6rem; border-radius: 3px; cursor: none; display: inline-flex; align-items: center; gap: 0.35rem; transition: all 0.2s; }
+        .game-tab i { font-size: 0.75rem; }
+        .game-tab:hover { border-color: var(--border-bright); color: var(--green); }
+        .game-tab.active { color: var(--green); border-color: var(--green); background: var(--green-glow); box-shadow: 0 0 15px rgba(0,255,65,0.15); text-shadow: 0 0 8px rgba(0,255,65,0.4); }
+        .game-panel { display: none; width: 100%; flex-direction: column; align-items: center; }
+        .game-panel.active { display: flex; }
+        .game-hud { display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center; margin-bottom: 1rem; font-family: 'Share Tech Mono', monospace; font-size: 0.8rem; color: var(--muted); }
+        .game-hud b { color: var(--green); text-shadow: 0 0 8px rgba(0,255,65,0.4); }
+        .game-msg { min-height: 1.4rem; font-family: 'Share Tech Mono', monospace; font-size: 0.82rem; color: var(--amber); margin-bottom: 0.75rem; text-align: center; }
+        .game-actions { display: flex; gap: 0.75rem; margin-top: 1.25rem; flex-wrap: wrap; justify-content: center; }
+        .game-btn { background: transparent; color: var(--green); border: 1px solid var(--green); font-family: 'Share Tech Mono', monospace; font-size: 0.75rem; padding: 0.5rem 1.1rem; border-radius: 3px; cursor: none; letter-spacing: 1px; transition: all 0.2s; }
+        .game-btn:hover { background: var(--green-glow-strong); box-shadow: 0 0 15px rgba(0,255,65,0.3); }
+        .game-btn.alt { color: var(--muted); border-color: var(--border); }
+        .game-btn.alt:hover { color: var(--cyan); border-color: var(--cyan); }
+
+        /* chess */
+        #chess-board { display: grid; grid-template-columns: repeat(8, min(9.5vw, 38px)); grid-template-rows: repeat(8, min(9.5vw, 38px)); border: 2px solid var(--border-bright); box-shadow: 0 0 25px rgba(0,255,65,0.1); }
+        .chess-sq { display: flex; align-items: center; justify-content: center; font-size: min(6vw, 24px); position: relative; user-select: none; }
+        .chess-sq.light { background: var(--bg3); }
+        .chess-sq.dark { background: var(--bg); }
+        .chess-sq.selected { box-shadow: inset 0 0 0 2px var(--green); background: var(--green-glow); }
+        .chess-sq.lastmove { box-shadow: inset 0 0 0 2px rgba(0,245,255,0.5); }
+        .chess-sq .dot { position: absolute; width: 22%; height: 22%; border-radius: 50%; background: rgba(0,255,65,0.55); }
+        .chess-sq .capture-ring { position: absolute; inset: 3px; border: 3px solid rgba(255,42,42,0.6); border-radius: 4px; }
+        .chess-sq.white-piece { color: var(--cyan); text-shadow: 0 0 6px rgba(0,245,255,0.5); }
+        .chess-sq.black-piece { color: var(--green); text-shadow: 0 0 6px rgba(0,255,65,0.5); }
+
+        /* tic tac toe */
+        #ttt-board { display: grid; grid-template-columns: repeat(3, min(22vw, 90px)); grid-template-rows: repeat(3, min(22vw, 90px)); gap: 6px; }
+        .ttt-cell { background: var(--bg3); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-family: 'VT323', monospace; font-size: min(12vw, 3rem); cursor: none; color: var(--green); transition: all 0.15s; }
+        .ttt-cell:hover:empty { border-color: var(--border-bright); background: var(--green-glow); }
+        .ttt-cell.o { color: var(--cyan); text-shadow: 0 0 10px rgba(0,245,255,0.5); }
+        .ttt-cell.x { color: var(--green); text-shadow: 0 0 10px rgba(0,255,65,0.5); }
+        .ttt-cell.win { background: var(--green-glow-strong); }
+
+        /* snake */
+        /* mode select (pvp/bot toggle) */
+        .mode-select { display: flex; gap: 0.5rem; margin-bottom: 0.9rem; }
+        .mode-btn { background: var(--surface); border: 1px solid var(--border); color: var(--muted); font-family: 'Share Tech Mono', monospace; font-size: 0.7rem; padding: 0.4rem 0.8rem; border-radius: 3px; cursor: none; display: inline-flex; align-items: center; gap: 0.35rem; transition: all 0.2s; }
+        .mode-btn i { font-size: 0.9rem; }
+        .mode-btn:hover { border-color: var(--border-bright); color: var(--cyan); }
+        .mode-btn.active { color: var(--cyan); border-color: var(--cyan); background: rgba(0,245,255,0.08); box-shadow: 0 0 12px rgba(0,245,255,0.2); }
+
+        /* chess promotion modal */
+        .chess-board-wrap { position: relative; }
+        .promo-modal { display: none; position: absolute; inset: 0; background: rgba(1,11,3,0.9); align-items: center; justify-content: center; z-index: 5; }
+        .promo-modal.active { display: flex; }
+        .promo-box { background: var(--bg2); border: 1px solid var(--green); border-radius: 4px; padding: 1rem; text-align: center; box-shadow: 0 0 20px rgba(0,255,65,0.25); }
+        .promo-box p { font-family: 'Share Tech Mono', monospace; font-size: 0.75rem; color: var(--muted); margin-bottom: 0.6rem; }
+        .promo-options { display: flex; gap: 0.5rem; }
+        .promo-options button { width: 42px; height: 42px; font-size: 1.6rem; background: var(--surface); border: 1px solid var(--border-bright); border-radius: 3px; color: var(--green); cursor: none; }
+        .promo-options button:hover { background: var(--green-glow); box-shadow: 0 0 12px rgba(0,255,65,0.3); }
+
+        /* snake & ladder */
+        #snl-board { display: grid; grid-template-columns: repeat(10, min(8vw, 32px)); grid-template-rows: repeat(10, min(8vw, 32px)); border: 2px solid var(--border-bright); box-shadow: 0 0 25px rgba(0,255,65,0.1); }
+        .snl-cell { position: relative; display: flex; align-items: center; justify-content: center; font-family: 'Share Tech Mono', monospace; font-size: min(2.2vw, 0.6rem); color: var(--muted); border: 1px solid rgba(255,255,255,0.03); }
+        .snl-cell:nth-child(odd) { background: rgba(255,255,255,0.015); }
+        .snl-cell .snl-icon { position: absolute; top: 1px; font-size: 0.8rem; opacity: 0.85; }
+        .snl-cell.ladder-start .snl-icon { color: var(--cyan); }
+        .snl-cell.snake-start .snl-icon { color: var(--red); }
+        .snl-token { position: absolute; width: 40%; height: 40%; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.55rem; font-weight: 700; bottom: 1px; }
+        .snl-token.p1 { background: var(--green); color: #010b03; left: 2px; box-shadow: 0 0 6px rgba(0,255,65,0.6); }
+        .snl-token.p2 { background: var(--amber); color: #010b03; right: 2px; box-shadow: 0 0 6px rgba(255,183,0,0.6); }
+
+        /* 2048 */
+        #g2048-board { position: relative; display: grid; grid-template-columns: repeat(4, min(15vw, 65px)); grid-template-rows: repeat(4, min(15vw, 65px)); gap: 7px; background: var(--bg3); padding: 7px; border: 2px solid var(--border-bright); border-radius: 4px; touch-action: none; }
+        .g2048-cell { background: rgba(0,255,65,0.04); border-radius: 3px; }
+        .g2048-tile { position: absolute; display: flex; align-items: center; justify-content: center; font-family: 'VT323', monospace; font-size: min(7vw, 1.5rem); font-weight: 600; border-radius: 3px; background: var(--surface); border: 1px solid var(--border-bright); color: var(--green); text-shadow: 0 0 8px rgba(0,255,65,0.4); transition: top 0.1s ease, left 0.1s ease; }
+    </style>
+</head>
+
+<body>
+
+    <div id="cursor"></div>
+    <div id="cursor-dot"></div>
+    <canvas id="matrix-bg"></canvas>
+
+    <!-- LOADING -->
+    <div id="loading-screen">
+        <!-- ASCII art logo -->
+        <pre class="ls-logo" id="ls-logo" style="opacity:0;transition:opacity 0.6s ease">
+ ██████╗ ███████╗███████╗    ██████╗ ███████╗██╗   ██╗
+ ██╔══██╗██╔════╝██╔════╝    ██╔══██╗██╔════╝██║   ██║
+ ██████╔╝███████╗███████╗    ██║  ██║█████╗  ██║   ██║
+ ██╔══██╗╚════██║╚════██║    ██║  ██║██╔══╝  ╚██╗ ██╔╝
+ ██████╔╝███████║███████║    ██████╔╝███████╗ ╚████╔╝ 
+ ╚═════╝ ╚══════╝╚══════╝    ╚═════╝ ╚══════╝  ╚═══╝  
+        </pre>
+
+        <div class="ls-terminal">
+            <div class="ls-titlebar">
+                <div class="ls-titlebar-dots">
+                    <div class="ls-titlebar-dot"></div>
+                    <div class="ls-titlebar-dot"></div>
+                    <div class="ls-titlebar-dot"></div>
+                </div>
+                <span class="ls-titlebar-text">bss@terminal: ~/portfolio — bash</span>
+                <span class="ls-titlebar-sig">BSS_2707</span>
+            </div>
+            <div class="ls-body" id="ls-body">
+                <div class="ls-line ls-static"><span class="prompt">bss@dev:~$ </span><span class="out">./boot_portfolio.sh</span></div>
+                <div class="ls-line" id="ls-1" style="opacity:0;color:#5dde74">[ OK ] Initializing environment...</div>
+                <div class="ls-line" id="ls-2" style="opacity:0;color:#5dde74">[ OK ] Loading AI/ML modules...</div>
+                <div class="ls-line" id="ls-3" style="opacity:0;color:var(--amber)">[ .. ] Connecting to matrix...</div>
+                <div class="ls-line" id="ls-4" style="opacity:0;color:#5dde74">[ OK ] Systems online. Welcome.</div>
+            </div>
+            <div class="ls-bar-section" id="ls-bar-section">
+                <div class="ls-bar-label">
+                    <span id="ls-bar-status">booting...</span>
+                    <span id="ls-bar-pct">0%</span>
+                </div>
+                <div class="ls-bar-wrap">
+                    <div class="ls-bar" id="ls-bar"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- HEADER -->
+    <header class="l-header">
+        <nav class="nav">
+            <a class='nav__logo' href='/'>BSS<span>_</span>2707</a>
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li><a class='nav__link' href='/#home'>home</a></li>
+                    <li><a class='nav__link' href='/#about'>about</a></li>
+                    <li><a class='nav__link' href='/#skills'>skills</a></li>
+                    <li><a class='nav__link' href='/#experience'>experience</a></li>
+                    <li><a class='nav__link' href='/#client-work'>client work</a></li>
+                    <li><a class='nav__link' href='/#work'>projects</a></li>
+                    <li><a class='nav__link' href='/#achievement'>awards</a></li>
+                    <li><a class='nav__link active-link' href='/blog'>blog</a></li>
+                    <li><a class='nav__link' href='/#contact'>contact</a></li>
+                </ul>
+            </div>
+            <div style="display:flex;align-items:center;gap:0.5rem;">
+                <a href="assets/cv/Bhavya_Solanki_Resume.pdf" download class="nav__cv-btn"><i class='bx bx-download'></i> resume.pdf</a>
+                <button class="nav__toggle" id="nav-toggle"><i class='bx bx-menu'></i></button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- BLOG HERO -->
+    <section class="blog-hero">
+        <div class="blog-hero__bg"></div>
+        <div class="blog-hero__inner reveal">
+            <p class="blog-hero__label">writing_and_thoughts.log</p>
+            <h1 class="blog-hero__title">Bhavya's <em>Blog</em></h1>
+            <p class="blog-hero__sub">Articles on AI/ML, Python, Data Science, Web Development, and everything in between. Raw thoughts. Real code.</p>
+            <div class="blog-pills">
+                <span class="blog-pill">Articles</span>
+                <span class="blog-pill">Searchable</span>
+                <span class="blog-pill">Regularly Updated</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- BLOG MAIN -->
+    <section class="blog-section">
+        <div class="blog-section__inner">
+            <div class="blog-controls reveal">
+                <div class="blog__search">
+                    <i class='bx bx-search'></i>
+                    <input id="blogSearch" type="text" placeholder="search_posts --query=...">
+                </div>
+                <div class="blog__filter">
+                    <label for="blogTag">filter</label>
+                    <select id="blogTag">
+                        <option value="all">all_topics</option>
+                    </select>
+                </div>
+            </div>
+            <div class="blog__grid reveal" id="blogGrid"></div>
+        </div>
+    </section>
+
+    <!-- MODAL -->
+    <div class="blog-modal" id="blogModal" aria-hidden="true">
+        <div class="blog-modal__card" role="dialog" aria-modal="true">
+            <div class="blog-modal__header">
+                <div>
+                    <div class="blog-modal__category" id="blogModalCategory"></div>
+                    <h3 class="blog-modal__title" id="blogModalTitle"></h3>
+                    <div class="blog-modal__meta" id="blogModalMeta"></div>
+                </div>
+                <button class="blog-modal__close" id="blogModalClose"><i class='bx bx-x'></i></button>
+            </div>
+            <div class="blog-modal__body" id="blogModalBody"></div>
+            <div class="blog-modal__footer">
+                <button class="blog-modal__btn" id="blogModalPrev"><i class='bx bx-left-arrow-alt'></i> prev_post</button>
+                <button class="blog-modal__btn" id="blogModalNext">next_post <i class='bx bx-right-arrow-alt'></i></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- CHATBOT -->
+    <div id="chatbot-widget">
+        <button id="chatbot-toggle" class="chatbot-toggle-btn"><i class='bx bx-terminal'></i></button>
+        <div id="chatbot-window" class="chatbot-window">
+            <div class="chatbot-header">
+                <h3>bss_bot v1.0</h3>
+                <button id="chatbot-close" class="chatbot-close-btn"><i class='bx bx-x'></i></button>
+            </div>
+            <div id="chatbot-messages" class="chatbot-messages">
+                <div class="message bot-message">
+                    <div class="message-content">BLOG_BOT READY. Ask about skills, projects or contact.</div>
+                </div>
+            </div>
+            <div class="chatbot-input-container">
+                <input type="text" id="chatbot-input" placeholder="type command...">
+                <button id="chatbot-send"><i class='bx bx-send'></i></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- GAMES WIDGET -->
+    <div id="games-widget">
+        <button id="games-toggle" class="games-toggle-btn"><i class="fa-solid fa-gamepad"></i></button>
+        <div id="games-window" class="games-window">
+            <div class="chatbot-header">
+                <h3 id="game-title-bar">chess.exe</h3>
+                <button id="games-close" class="chatbot-close-btn"><i class='bx bx-x'></i></button>
+            </div>
+            <div class="game-tabs">
+                <button class="game-tab active" data-game="chess"><i class="fa-solid fa-chess"></i> chess</button>
+                <button class="game-tab" data-game="ttt"><i class="fa-solid fa-xmark"></i> tic-tac-toe</button>
+                <button class="game-tab" data-game="snl"><i class="fa-solid fa-dice"></i> snake&amp;ladder</button>
+                <button class="game-tab" data-game="g2048"><i class="fa-solid fa-table-cells"></i> 2048</button>
+            </div>
+            <div class="games-window-body">
+
+                <!-- CHESS -->
+                <div class="game-panel active" id="game-chess">
+                    <div class="mode-select" id="chess-mode">
+                        <button class="mode-btn active" data-mode="pvp"><i class='bx bx-user'></i> vs <i class='bx bx-user'></i></button>
+                        <button class="mode-btn" data-mode="bot"><i class='bx bx-user'></i> vs <i class='bx bx-bot'></i></button>
+                    </div>
+                    <div class="mode-select" id="chess-color">
+                        <button class="mode-btn active" data-color="w">♔ play white</button>
+                        <button class="mode-btn" data-color="b">♚ play black</button>
+                    </div>
+                    <div class="game-hud"><span>turn:: <b id="chess-turn">white</b></span><span>captures:: <b id="chess-caps">0</b></span></div>
+                    <div class="game-msg" id="chess-msg">select a piece to begin</div>
+                    <div class="chess-board-wrap">
+                        <div id="chess-board"></div>
+                        <div class="promo-modal" id="chess-promo">
+                            <div class="promo-box">
+                                <p>promote to:</p>
+                                <div class="promo-options">
+                                    <button data-p="q" title="Queen">♛</button>
+                                    <button data-p="r" title="Rook">♜</button>
+                                    <button data-p="b" title="Bishop">♝</button>
+                                    <button data-p="n" title="Knight">♞</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="game-actions">
+                        <button class="game-btn" id="chess-reset">↺ new_game</button>
+                        <button class="game-btn alt" id="chess-undo">← undo</button>
+                    </div>
+                </div>
+
+                <!-- TIC TAC TOE -->
+                <div class="game-panel" id="game-ttt">
+                    <div class="mode-select" id="ttt-mode">
+                        <button class="mode-btn active" data-mode="pvp"><i class='bx bx-user'></i> vs <i class='bx bx-user'></i></button>
+                        <button class="mode-btn" data-mode="bot"><i class='bx bx-user'></i> vs <i class='bx bx-bot'></i></button>
+                    </div>
+                    <div class="game-hud"><span>turn:: <b id="ttt-turn">X</b></span><span>X wins:: <b id="ttt-x-score">0</b></span><span>O wins:: <b id="ttt-o-score">0</b></span></div>
+                    <div class="game-msg" id="ttt-msg">X goes first</div>
+                    <div id="ttt-board"></div>
+                    <div class="game-actions"><button class="game-btn" id="ttt-reset">↺ new_round</button></div>
+                </div>
+
+                <!-- SNAKE & LADDER -->
+                <div class="game-panel" id="game-snl">
+                    <div class="mode-select" id="snl-mode">
+                        <button class="mode-btn active" data-mode="pvp"><i class='bx bx-user'></i> vs <i class='bx bx-user'></i></button>
+                        <button class="mode-btn" data-mode="bot"><i class='bx bx-user'></i> vs <i class='bx bx-bot'></i></button>
+                    </div>
+                    <div class="game-hud"><span>turn:: <b id="snl-turn">P1</b></span><span>P1:: <b id="snl-p1-pos">1</b></span><span>P2:: <b id="snl-p2-pos">1</b></span></div>
+                    <div class="game-msg" id="snl-msg">roll the dice to start</div>
+                    <div id="snl-board"></div>
+                    <div class="game-actions">
+                        <button class="game-btn" id="snl-roll">🎲 roll_dice <span id="snl-dice-val"></span></button>
+                        <button class="game-btn alt" id="snl-reset">↺ new_game</button>
+                    </div>
+                </div>
+
+                <!-- 2048 -->
+                <div class="game-panel" id="game-g2048">
+                    <div class="game-hud"><span>score:: <b id="g2048-score">0</b></span><span>best:: <b id="g2048-best">0</b></span></div>
+                    <div class="game-msg" id="g2048-msg">arrow keys / swipe to merge tiles</div>
+                    <div id="g2048-board"></div>
+                    <div class="game-actions"><button class="game-btn" id="g2048-reset">↺ new_game</button></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.3/chess.min.js"></script>
+    <script>
+        // CURSOR
+        const cursor = document.getElementById('cursor');
+        const cursorDot = document.getElementById('cursor-dot');
+        document.addEventListener('mousemove', e => {
+            cursor.style.left = e.clientX + 'px'; cursor.style.top = e.clientY + 'px';
+            cursorDot.style.left = e.clientX + 'px'; cursorDot.style.top = e.clientY + 'px';
+        });
+        document.querySelectorAll('a, button, input, select, textarea').forEach(el => {
+            el.addEventListener('mouseenter', () => { cursor.style.width = '34px'; cursor.style.height = '34px'; });
+            el.addEventListener('mouseleave', () => { cursor.style.width = '20px'; cursor.style.height = '20px'; });
+        });
+
+        // Reading cursor for article content
+        const articleBody = document.querySelector('.blog-modal__body');
+        if (articleBody) {
+            articleBody.addEventListener('mouseenter', () => {
+                cursor.style.width = '40px';
+                cursor.style.height = '40px';
+                cursor.style.borderColor = 'var(--cyan)';
+                cursor.style.boxShadow = '0 0 15px var(--cyan), 0 0 30px rgba(0,245,255,0.4)';
+                cursorDot.style.background = 'var(--cyan)';
+                cursorDot.style.boxShadow = '0 0 8px var(--cyan)';
+            });
+            articleBody.addEventListener('mouseleave', () => {
+                cursor.style.width = '20px';
+                cursor.style.height = '20px';
+                cursor.style.borderColor = 'var(--green)';
+                cursor.style.boxShadow = '0 0 10px var(--green), 0 0 20px rgba(0,255,65,0.3)';
+                cursorDot.style.background = 'var(--green)';
+                cursorDot.style.boxShadow = '0 0 6px var(--green)';
+            });
+        }
+
+        // MATRIX
+        const canvas = document.getElementById('matrix-bg');
+        const ctx = canvas.getContext('2d');
+        function resizeCanvas() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+        resizeCanvas(); window.addEventListener('resize', resizeCanvas);
+        const chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ$#@%&*<>[]{}';
+        const fontSize = 13; let cols, drops;
+        function initMatrix() { cols = Math.floor(canvas.width / fontSize); drops = Array(cols).fill(0).map(() => Math.random() * -50); }
+        initMatrix(); window.addEventListener('resize', initMatrix);
+        function drawMatrix() {
+            ctx.fillStyle = 'rgba(1,11,3,0.05)'; ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = '#00ff41'; ctx.font = fontSize + 'px Share Tech Mono';
+            drops.forEach((y, i) => {
+                ctx.fillText(chars[Math.floor(Math.random() * chars.length)], i * fontSize, y * fontSize);
+                if (y * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
+                drops[i] += 0.5;
+            });
+        }
+        setInterval(drawMatrix, 40);
+
+        // ===== LOADING =====
+        // ===== LOADING SCREEN =====
+        function showLine(id, delay) {
+            return new Promise(resolve => {
+                setTimeout(() => { const el = document.getElementById(id); if (el) el.style.opacity = '1'; resolve(); }, delay || 100);
+            });
+        }
+
+        async function startLoadingSequence() {
+            const loadingScreen = document.getElementById('loading-screen');
+            const bar = document.getElementById('ls-bar');
+            const barStatus = document.getElementById('ls-bar-status');
+            const barPct = document.getElementById('ls-bar-pct');
+
+            await showLine('ls-1', 200);
+            if (bar) bar.style.width = '25%';
+            if (barPct) barPct.textContent = '25%';
+            if (barStatus) barStatus.textContent = 'loading modules...';
+            
+            await showLine('ls-2', 200);
+            if (bar) bar.style.width = '50%';
+            if (barPct) barPct.textContent = '50%';
+            if (barStatus) barStatus.textContent = 'initializing blog...';
+            
+            await showLine('ls-3', 200);
+            if (bar) bar.style.width = '75%';
+            if (barPct) barPct.textContent = '75%';
+            if (barStatus) barStatus.textContent = 'syncing articles...';
+            
+            await showLine('ls-4', 200);
+            if (bar) bar.style.width = '100%';
+            if (barPct) barPct.textContent = '100%';
+            if (barStatus) barStatus.textContent = 'ready!';
+
+            setTimeout(() => {
+                loadingScreen.style.transition = 'opacity 0.6s ease';
+                loadingScreen.style.opacity = '0';
+                setTimeout(() => loadingScreen.style.display = 'none', 600);
+            }, 300);
+        }
+
+
+        function appendLine(container, text, color, isHTML) {
+            const div = document.createElement('div');
+            div.className = 'ls-line';
+            div.style.color = color || 'var(--green)';
+            if (isHTML) div.innerHTML = text;
+            else div.textContent = text;
+            const bar = document.getElementById('ls-bar-wrap');
+            container.insertBefore(div, bar);
+            container.scrollTop = container.scrollHeight;
+        }
+
+        startLoadingSequence();
+
+        // NAV
+        document.getElementById('nav-toggle').addEventListener('click', () => document.getElementById('nav-menu').classList.toggle('show'));
+
+        // REVEAL
+        const revObs = new IntersectionObserver(entries => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revObs.unobserve(e.target); } });
+        }, { threshold: 0.08 });
+        document.querySelectorAll('.reveal').forEach(r => revObs.observe(r));
+
+        // BLOG DATA
+        const posts = [
+            { id:1, title:"Getting Started with Machine Learning in Python", category:"Machine Learning", date:"May 2025", readTime:"8 min read", excerpt:"A beginner-friendly guide to understanding core ML concepts and implementing your first model using Scikit-learn.", tags:["Python","ML","Scikit-learn"], cover:"https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&q=80", content:`<div class="blog-modal__cover"><img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=860&q=80" alt="ML"></div><p>Machine learning has transformed how we build intelligent applications. In this guide, I walk you through the fundamental concepts and help you implement your first predictive model using Python and Scikit-learn.</p><h4>What is Machine Learning?</h4><p>Machine learning is a subset of artificial intelligence where systems learn from data to make predictions or decisions.</p><h4>Types of Machine Learning</h4><ul><li><strong>Supervised Learning:</strong> Learning from labelled data</li><li><strong>Unsupervised Learning:</strong> Finding patterns in unlabelled data</li><li><strong>Reinforcement Learning:</strong> Learning through rewards and feedback</li></ul><h4>Your First ML Model</h4><p>Start by installing: <code>pip install scikit-learn pandas numpy matplotlib</code>. Load a dataset, preprocess, split into train/test, train your model, then evaluate.</p>` },
+            { id:2, title:"Building AI-Powered Apps with Streamlit", category:"Web Development", date:"April 2025", readTime:"6 min read", excerpt:"How I build and deploy interactive AI dashboards in Python without needing a full web framework.", tags:["Python","Streamlit","AI"], cover:"https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&q=80", content:`<div class="blog-modal__cover"><img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=860&q=80" alt="Streamlit"></div><p>Streamlit has completely changed how I prototype and ship AI applications. It lets you build interactive dashboards purely in Python.</p><h4>Why Streamlit?</h4><p>As an AI/ML developer, I want to focus on the intelligence layer, not the plumbing.</p><h4>Key Features</h4><ul><li>Hot-reloading during development</li><li>Native support for Pandas DataFrames</li><li>Easy file upload and download</li><li>Free deployment via Streamlit Community Cloud</li></ul>` },
+            { id:3, title:"Chess and Coding: How Strategy Improves My Code", category:"Personal", date:"March 2025", readTime:"5 min read", excerpt:"Surprising parallels between chess strategy and software architecture.", tags:["Chess","Productivity","Mindset"], cover:"https://images.unsplash.com/photo-1528819622765-d6bcf132f793?w=800&q=80", content:`<div class="blog-modal__cover"><img src="https://images.unsplash.com/photo-1528819622765-d6bcf132f793?w=860&q=80" alt="Chess"></div><p>I have been playing chess seriously for years, and I have noticed how deeply it has shaped the way I write and design software.</p><h4>Think Ahead, Plan Early</h4><p>Strong players think 5-10 moves ahead. In coding, this means designing your architecture before writing a single line.</p><h4>Learn from Losses</h4><p>My biggest coding growth has come from debugging hard problems and understanding why my initial approach failed.</p>` },
+            { id:4, title:"Understanding SVM: Intuition and Implementation", category:"Machine Learning", date:"February 2025", readTime:"10 min read", excerpt:"Breaking down Support Vector Machines from intuition to code.", tags:["ML","SVM","Python"], cover:"https://images.unsplash.com/photo-1509228627152-72ae9ae6848d?w=800&q=80", content:`<div class="blog-modal__cover"><img src="https://images.unsplash.com/photo-1509228627152-72ae9ae6848d?w=860&q=80" alt="SVM"></div><p>Support Vector Machines are among the most elegant algorithms in machine learning.</p><h4>The Core Idea</h4><p>SVM finds the hyperplane that maximises the margin between classes. Wider margin means better generalisation.</p><h4>When to Use SVM</h4><ul><li>High-dimensional data</li><li>Small to medium datasets</li><li>When you need a clear margin of separation</li></ul>` },
+            { id:5, title:"Data Science Workflow: From Raw Data to Insight", category:"Data Science", date:"January 2025", readTime:"7 min read", excerpt:"The end-to-end workflow I use for every data science project.", tags:["Data Science","Python","Pandas"], cover:"https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80", content:`<div class="blog-modal__cover"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=860&q=80" alt="Data Science"></div><p>Every data science project follows a similar lifecycle.</p><h4>1. EDA</h4><p>I spend 30-40% of project time on Exploratory Data Analysis.</p><h4>2. Feature Engineering</h4><p>Raw features are rarely optimal. Creating interaction features often delivers more accuracy than trying a fancier model.</p><h4>3. Modelling</h4><p>Start simple. A well-tuned linear model often beats a poorly configured neural network.</p>` },
+            { id:6, title:"Winning My First Coding Competition", category:"Personal", date:"December 2025", readTime:"4 min read", excerpt:"The story behind winning Bot Battles at Vivekanand College.", tags:["Competition","Python","Chatbot"], cover:"https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&q=80", content:`<div class="blog-modal__cover"><img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=860&q=80" alt="Competition"></div><p>When I signed up for Bot Battles at Vivekanand College, I had no idea I would walk out with first place.</p><h4>The Challenge</h4><p>Build a Python chatbot that handles a set of use-case queries.</p><h4>Key Takeaway</h4><p>Polish matters. A simple idea executed flawlessly beats a complex idea executed poorly.</p>` },
+            { id:7, title:"K-Means Clustering: From Intuition to Practical Tips", category:"Data Science", date:"June 2025", readTime:"9 min read", excerpt:"How I explain K-Means intuitively and how I make clustering actually work on real data.", tags:["Clustering","K-Means","Python"], cover:"https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80", content:`<div class="blog-modal__cover"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=860&q=80" alt="K-Means"></div><p>K-Means is one of the most approachable unsupervised learning algorithms. But it is also easy to misuse.</p><h4>Common Mistakes</h4><ul><li>Not scaling features</li><li>Choosing k blindly</li><li>Ignoring initialization</li></ul><h4>Practical Workflow</h4><ol><li>Scale features (StandardScaler)</li><li>Try k in range 2-10</li><li>Use inertia / elbow method</li><li>Validate clusters with business meaning</li></ol>` },
+            { id:8, title:"Python Data Pipelines: A Clean Structure That Scales", category:"Python", date:"May 2025", readTime:"8 min read", excerpt:"A simple structure I use for reliable data preprocessing, training, and evaluation.", tags:["Python","Pipelines","Pandas"], cover:"https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=800&q=80", content:`<div class="blog-modal__cover"><img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=860&q=80" alt="Pipeline"></div><p>Most ML projects fail before the model, during data preprocessing.</p><h4>My 3-Layer Approach</h4><ul><li><strong>Load layer:</strong> reading files, handling paths</li><li><strong>Transform layer:</strong> cleaning, encoding, feature engineering</li><li><strong>Train/Eval layer:</strong> training models and measuring results</li></ul>` },
+            { id:9, title:"Feature Engineering for ML: What Actually Moves the Needle", category:"Machine Learning", date:"April 2025", readTime:"11 min read", excerpt:"Feature engineering strategies I rely on for better accuracy and more robust models.", tags:["Feature Engineering","ML","Pandas"], cover:"https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=800&q=80", content:`<div class="blog-modal__cover"><img src="https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=860&q=80" alt="Feature Eng"></div><p>In many projects, improving features beats switching algorithms.</p><h4>High-Impact Techniques</h4><ul><li>Handling missing values</li><li>Encoding categoricals</li><li>Scaling numerics for distance-based models</li><li>Creating interactions when domain knowledge suggests it</li></ul><h4>Evaluation Rule</h4><p>Never engineer features using information from the test set.</p>` },
+            { id:10, title:"Streamlit Dashboard Design: UI Patterns That Work", category:"Web Development", date:"March 2025", readTime:"7 min read", excerpt:"UI/UX patterns for Streamlit apps so your dashboards feel fast and professional.", tags:["Streamlit","UI","Web Development"], cover:"https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=800&q=80", content:`<div class="blog-modal__cover"><img src="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=860&q=80" alt="Streamlit UI"></div><p>A great dashboard is not only accurate, it is usable.</p><h4>Sidebar for Inputs</h4><p>Put controls in the sidebar. Keep the main area for charts and results.</p><h4>Cache Expensive Steps</h4><p>Caching reduces reruns and improves perceived performance dramatically.</p>` },
+            { id:11, title:"Neural Networks Demystified: A Visual Walkthrough", category:"Machine Learning", date:"July 2025", readTime:"12 min read", excerpt:"From perceptrons to deep networks, building a mental model of how neural nets actually learn.", tags:["Deep Learning","Neural Networks","Python"], cover:"https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=800&q=80", content:`<div class="blog-modal__cover"><img src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=860&q=80" alt="Neural Networks"></div><p>Neural networks power everything from image recognition to language models.</p><h4>Backpropagation in Plain English</h4><p>After a forward pass, compute the error and propagate it backwards, updating weights proportional to their contribution to the error. Repeat thousands of times and the network learns.</p><h4>Practical Tips</h4><ul><li>Use ReLU activation for hidden layers</li><li>Normalise your inputs</li><li>Start with a small network and scale up only if needed</li></ul>` },
+            { id:12, title:"Git Workflows Every Developer Should Know", category:"Web Development", date:"June 2025", readTime:"6 min read", excerpt:"The branching strategies and commit habits that keep projects sane.", tags:["Git","Workflow","Productivity"], cover:"https://images.unsplash.com/photo-1556075798-4825dfaaf498?w=800&q=80", content:`<div class="blog-modal__cover"><img src="https://images.unsplash.com/photo-1556075798-4825dfaaf498?w=860&q=80" alt="Git"></div><p>Git is the foundation of modern software development.</p><h4>Feature Branch Workflow</h4><p>Every new feature gets its own branch. This keeps main always deployable.</p><h4>Commit Message Conventions</h4><p>Follow Conventional Commits: prefix with <code>feat:</code>, <code>fix:</code>, <code>docs:</code>, <code>refactor:</code>.</p>` },
+            { id:13, title:"Stock Price Prediction: Lessons from My ML Project", category:"Data Science", date:"August 2025", readTime:"9 min read", excerpt:"What I learned building a stock price predictor — the parts that worked, the parts that didn't.", tags:["Finance","ML","Time Series"], cover:"https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&q=80", content:`<div class="blog-modal__cover"><img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=860&q=80" alt="Stock Prediction"></div><p>I spent two months building a stock price prediction system.</p><h4>What Worked</h4><p>Combining lagged returns with rolling volatility measures gave the model better signal than raw prices alone.</p><h4>Key Takeaways</h4><ul><li>Always use walk-forward cross-validation</li><li>Directional accuracy matters more than RMSE</li><li>Markets are non-stationary</li></ul>` },
+            { id:14, title:"The Power of Pandas: 10 Functions I Use Every Day", category:"Python", date:"July 2025", readTime:"7 min read", excerpt:"The Pandas functions that appear in nearly every data project I work on.", tags:["Pandas","Python","Data Science"], cover:"https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=800&q=80", content:`<div class="blog-modal__cover"><img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=860&q=80" alt="Pandas"></div><p>Pandas is the workhorse of Python data science.</p><h4>The Essential 10</h4><ol><li><code>df.info()</code></li><li><code>df.value_counts()</code></li><li><code>df.groupby().agg()</code></li><li><code>df.merge()</code></li><li><code>df.pivot_table()</code></li><li><code>df.apply()</code></li><li><code>df.query()</code></li><li><code>pd.cut()</code></li><li><code>df.melt()</code></li><li><code>df.pipe()</code></li></ol>` },
+            { id:15, title:"How I Stay Productive as a Student Developer", category:"Personal", date:"August 2025", readTime:"5 min read", excerpt:"Tools, habits, and mindset shifts that help me balance academics, projects, and competitions.", tags:["Productivity","Mindset","Student"], cover:"https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&q=80", content:`<div class="blog-modal__cover"><img src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=860&q=80" alt="Productivity"></div><p>Balancing coursework, projects, hackathons, and chess is not easy.</p><h4>Time Blocking</h4><p>90-minute deep work sessions with no distractions has been my biggest productivity unlock.</p><h4>Tools I Use</h4><ul><li><strong>Notion</strong> — project planning</li><li><strong>VS Code</strong> — minimal plugin setup</li><li><strong>GitHub</strong> — version control and accountability</li></ul>` },
+            { id:16, title:"AI in Stocks: Sentiment Analysis from News Headlines", category:"Data Science", date:"September 2025", readTime:"8 min read", excerpt:"Extracting sentiment from financial news headlines to predict short-term stock market movements.", tags:["Stocks","AI","NLP"], cover:"https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?w=800&q=80", content:`<div class="blog-modal__cover"><img src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?w=860&q=80" alt="Sentiment Stocks"></div><p>Markets are driven by news, opinions, and emotions.</p><h4>FinBERT vs VADER</h4><ul><li><strong>VADER:</strong> Rule-based, very fast</li><li><strong>FinBERT:</strong> Transformer-based, highly accurate for financial contexts</li></ul>` },
+            { id:17, title:"Building a Chess AI: Minimax with Alpha-Beta Pruning", category:"Machine Learning", date:"October 2025", readTime:"12 min read", excerpt:"Building a chess bot engine from scratch using Minimax and alpha-beta pruning in Python.", tags:["Chess","AI","Algorithms"], cover:"https://images.unsplash.com/photo-1611195974226-a6a9be9dd763?w=800&q=80", content:`<div class="blog-modal__cover"><img src="https://images.unsplash.com/photo-1611195974226-a6a9be9dd763?w=860&q=80" alt="Chess Bot"></div><p>At the core of classic game-playing AI is the Minimax algorithm, enhanced by alpha-beta pruning.</p><h4>Alpha-Beta Pruning</h4><p>Without optimization, searching 5 moves ahead takes billions of positions. Pruning cuts off branches that do not affect the final decision.</p>` },
+            { id:18, title:"Streamlit + Stock Market APIs: Real-time Portfolio Tracker", category:"Web Development", date:"November 2025", readTime:"6 min read", excerpt:"Creating a stock portfolio dashboard using Streamlit, yfinance, and interactive Plotly charts.", tags:["Streamlit","Stocks","Python"], cover:"https://images.unsplash.com/photo-1642390091310-20edf2d1dd37?w=800&q=80", content:`<div class="blog-modal__cover"><img src="https://images.unsplash.com/photo-1642390091310-20edf2d1dd37?w=860&q=80" alt="Realtime Stocks"></div><p>Streamlit is the fastest way to turn code scripts into data tools.</p><h4>Getting Market Data</h4><p>We use <code>yfinance</code> to download historical prices dynamically based on user ticker inputs.</p>` },
+            { id:19, title:"Chess AI Evaluation Functions: Teach Your Code to Value Positions", category:"Machine Learning", date:"December 2025", readTime:"9 min read", excerpt:"Writing evaluation functions for board control, king safety, and pawn structure in custom chess bots.", tags:["Chess","Python","AI"], cover:"https://images.unsplash.com/photo-1586165368502-1badb97794bc?w=800&q=80", content:`<div class="blog-modal__cover"><img src="https://images.unsplash.com/photo-1586165368502-1badb97794bc?w=860&q=80" alt="Chess Valuation"></div><p>A search algorithm is only as good as its evaluation function.</p><h4>Piece-Square Tables</h4><p>A knight on the rim is dim, so we reward central control using PSTs.</p><h4>Advanced Factors</h4><ul><li>King safety</li><li>Pawn structure</li><li>Mobility</li></ul>` },
+            { id:20, title:"Predicting Stock Trends using LSTM Neural Networks", category:"Machine Learning", date:"January 2026", readTime:"11 min read", excerpt:"Using LSTM recurrent neural networks to model sequential stock price patterns in Python.", tags:["Stocks","ML","Deep Learning"], cover:"https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&q=80", content:`<div class="blog-modal__cover"><img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=860&q=80" alt="LSTM"></div><p>LSTMs are ideal for trend forecasting because they store long-term sequence dependencies.</p><h4>Implementation Tips</h4><ul><li>Always scale data using MinMaxScaler</li><li>Use a sliding window approach</li><li>Add Dropout layers to prevent overfitting</li></ul>` },
+            { id:21, title:"Streamlit Secrets: Managing API Keys and Databases Securely", category:"Web Development", date:"February 2026", readTime:"6 min read", excerpt:"Best practices for managing credentials and deploying secure public apps.", tags:["Streamlit","Security","Python"], cover:"https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&q=80", content:`<div class="blog-modal__cover"><img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=860&q=80" alt="Security"></div><p>Exposing credentials in your repository is a high risk.</p><h4>Using Streamlit Secrets</h4><p>Create a <code>.streamlit/secrets.toml</code> file locally. Access with <code>st.secrets["db_password"]</code>.</p>` },
+            { id:22, title:"Machine Learning for Algorithmic Trading", category:"Machine Learning", date:"March 2026", readTime:"9 min read", excerpt:"How quantitative analysts leverage ML to discover statistical arbitrage in financial markets.", tags:["ML","Stocks","Finance"], cover:"https://images.unsplash.com/photo-1535320903710-d993d3d77d29?w=800&q=80", content:`<div class="blog-modal__cover"><img src="https://images.unsplash.com/photo-1535320903710-d993d3d77d29?w=860&q=80" alt="Algo trading"></div><p>Algorithmic trading is the automated execution of trades based on quantitative models.</p><h4>Challenges</h4><ul><li>Low Signal-to-Noise Ratio</li><li>Regime Shifts during market crises</li></ul>` },
+            { id:23, title:"Reinforcement Learning in Chess: Training Bots from Self-Play", category:"Machine Learning", date:"April 2026", readTime:"10 min read", excerpt:"How neural networks like AlphaZero learn chess from scratch by playing millions of games against themselves.", tags:["Chess","ML","Reinforcement Learning"], cover:"https://images.unsplash.com/photo-1604881988758-f76ad2f7accf?w=800&q=80", content:`<div class="blog-modal__cover"><img src="https://images.unsplash.com/photo-1604881988758-f76ad2f7accf?w=860&q=80" alt="Selfplay RL"></div><p>Reinforcement learning changed the paradigm by teaching agents to learn strictly from self-play.</p><h4>MCTS</h4><p>Combined with policy networks, Monte Carlo Tree Search narrows the search tree by prioritizing high win-probability moves.</p>` },
+            { id:24, title:"Streamlit Layout Hacks: Responsive Columns and Containers", category:"Web Development", date:"May 2026", readTime:"7 min read", excerpt:"Mastering columns, tabs, and containers for polished dashboard design.", tags:["Streamlit","UI","Web Development"], cover:"https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=800&q=80", content:`<div class="blog-modal__cover"><img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=860&q=80" alt="Layout Design"></div><p>Streamlit is simple, but you can customize its grid system for complex layouts.</p><h4>Key Hacks</h4><ul><li>Nested columns with <code>st.columns([2,1])</code></li><li>Tabs with <code>st.tabs()</code></li><li>Dynamic containers with <code>st.empty()</code></li></ul>` },
+            { id:25, title:"Volatile Stock Markets: Anomaly Detection Using Isolation Forest", category:"Data Science", date:"June 2026", readTime:"8 min read", excerpt:"Detecting flash crashes and abnormal trading patterns using unsupervised ML.", tags:["Stocks","ML","Pandas"], cover:"https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=800&q=80", content:`<div class="blog-modal__cover"><img src="https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=860&q=80" alt="Anomalies"></div><p>Isolation Forest isolates anomalies instead of profiling normal data.</p>` },
+            { id:26, title:"Chess Piece Detection with YOLOv8: Computer Vision on the Board", category:"Machine Learning", date:"July 2026", readTime:"10 min read", excerpt:"Building a CV pipeline that processes chessboard photos into FEN notation.", tags:["Chess","Computer Vision","Deep Learning"], cover:"https://images.unsplash.com/photo-1610631889004-9441a59665db?w=800&q=80", content:`<div class="blog-modal__cover"><img src="https://images.unsplash.com/photo-1610631889004-9441a59665db?w=860&q=80" alt="YOLO Chess"></div><p>YOLOv8 is a state-of-the-art object detector that makes turning a physical chess game into a digital format simple.</p>` },
+            { id:27, title:"Deploying Streamlit Apps to Hugging Face Spaces", category:"Web Development", date:"August 2026", readTime:"7 min read", excerpt:"A step-by-step guide to sharing your Streamlit app with the world for free.", tags:["Streamlit","DevOps","Python"], cover:"https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=800&q=80", content:`<div class="blog-modal__cover"><img src="https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=860&q=80" alt="Deployment"></div><p>Hugging Face Spaces provides free hosting with git-based workflows.</p><h4>Steps</h4><ol><li>Create a HF account and initialize a Streamlit Space</li><li>Add <code>requirements.txt</code></li><li>Push your code to the HF remote — build kicks off automatically</li></ol>` },
+            { id:28, title:"AI Chess Bots: Comparing Minimax Against Neural Networks", category:"Machine Learning", date:"September 2026", readTime:"9 min read", excerpt:"Fundamental tradeoffs between search-based and learning-based approaches to game-playing AI.", tags:["Chess","AI","Neural Networks"], cover:"https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80", content:`<div class="blog-modal__cover"><img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=860&q=80" alt="AI engines"></div><h4>Minimax Engines</h4><ul><li>Pros: extreme calculation depth, predictable</li><li>Cons: relies on handcrafted evaluation</li></ul><h4>Neural Network Engines</h4><ul><li>Pros: strong positional understanding</li><li>Cons: hardware heavy, slower search</li></ul>` },
+            { id:29, title:"Stock Portfolio Optimization using Mean-Variance Analysis", category:"Data Science", date:"October 2026", readTime:"8 min read", excerpt:"Implementing Modern Portfolio Theory in Python to build efficient, diversified portfolios.", tags:["Stocks","Python","Finance"], cover:"https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=800&q=80", content:`<div class="blog-modal__cover"><img src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=860&q=80" alt="Portfolio"></div><p>Modern Portfolio Theory helps investors maximize returns for a given level of risk.</p>` },
+            { id:30, title:"AI-Powered Coding Assistants for Machine Learning Development", category:"Machine Learning", date:"November 2026", readTime:"7 min read", excerpt:"Evaluating how LLM coding assistants speed up ML prototyping and data cleaning.", tags:["ML","Productivity","AI"], cover:"https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&q=80", content:`<div class="blog-modal__cover"><img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=860&q=80" alt="Coding assistants"></div><p>AI assistants have become active pairing partners for ML engineers.</p><h4>Best Practices for Prompting</h4><p>Provide specific API versions, expected input/output shapes, and detailed requirements to get clean, runnable ML scripts on the first try.</p>` }
+        ];
+
+        // RENDER
+        const blogGrid = document.getElementById('blogGrid');
+        const blogSearch = document.getElementById('blogSearch');
+        const blogTag = document.getElementById('blogTag');
+        const blogModal = document.getElementById('blogModal');
+        const blogModalTitle = document.getElementById('blogModalTitle');
+        const blogModalCategory = document.getElementById('blogModalCategory');
+        const blogModalMeta = document.getElementById('blogModalMeta');
+        const blogModalBody = document.getElementById('blogModalBody');
+        const blogModalClose = document.getElementById('blogModalClose');
+        const blogModalPrev = document.getElementById('blogModalPrev');
+        const blogModalNext = document.getElementById('blogModalNext');
+        let activeIndex = -1;
+        let filteredPosts = [...posts];
+
+        function buildTagOptions() {
+            const tags = new Set(); const cats = new Set();
+            posts.forEach(p => { p.tags.forEach(t => tags.add(t)); cats.add(p.category); });
+            cats.forEach(c => { const o = document.createElement('option'); o.value = c; o.textContent = c; blogTag.appendChild(o); });
+            tags.forEach(t => { const o = document.createElement('option'); o.value = t; o.textContent = t; blogTag.appendChild(o); });
+        }
+
+        function renderGrid(list) {
+            filteredPosts = list;
+            if (!list.length) { blogGrid.innerHTML = '<div class="blog-empty">No posts found. Try a different search query.</div>'; return; }
+            blogGrid.innerHTML = list.map((p, i) => `
+                <div class="blog-card">
+                    <div class="blog-card__cover-wrap">
+                        <img class="blog-card__cover" src="${p.cover}" alt="${p.title}" loading="lazy">
+                        <div class="blog-card__cover-overlay"></div>
+                    </div>
+                    <div class="blog-card__body">
+                        <div class="blog-card__category">${p.category}</div>
+                        <div class="blog-card__title">${p.title}</div>
+                        <div class="blog-card__meta">${p.date} · ${p.readTime}</div>
+                        <p class="blog-card__excerpt">${p.excerpt}</p>
+                        <div class="blog-card__tags">${p.tags.map(t => `<span class="blog-tag">${t}</span>`).join('')}</div>
+                        <button class="blog-card__btn" onclick="openArticleNewTab(${i})">read_article.sh</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function openArticleNewTab(i) {
+            if (i < 0 || i >= filteredPosts.length) return;
+            const p = filteredPosts[i];
+            const html = `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>${p.title} — BSS_2707 Blog</title>
+<meta name="description" content="${p.excerpt}">
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--green:#00ff41;--cyan:#00f5ff;--bg:#010b03;--surface:#061209;--text:#c8ffd4;--muted:#4a9957;--border:rgba(0,255,65,0.18);}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Fira Code',monospace;background:var(--bg);color:var(--text);padding:2rem 1rem;min-height:100vh;}
+  .article-wrap{max-width:780px;margin:0 auto;}
+  .back-btn{display:inline-block;margin-bottom:1.5rem;color:var(--green);text-decoration:none;border:1px solid var(--border);padding:.4rem .9rem;border-radius:4px;font-size:.82rem;cursor:pointer;background:transparent;}
+  .back-btn:hover{background:rgba(0,255,65,.1);}
+  .cat{color:var(--cyan);font-size:.75rem;letter-spacing:2px;text-transform:uppercase;margin-bottom:.5rem;}
+  h1{color:var(--green);font-size:1.6rem;line-height:1.35;margin-bottom:.75rem;text-shadow:0 0 12px rgba(0,255,65,.4);}
+  .meta{color:var(--muted);font-size:.78rem;margin-bottom:2rem;border-bottom:1px solid var(--border);padding-bottom:1rem;}
+  .content img{width:100%;border-radius:6px;margin-bottom:1.5rem;border:1px solid var(--border);}
+  .content p{line-height:1.9;margin-bottom:1.2rem;font-size:.9rem;color:var(--text);}
+  .content h4{color:var(--green);margin:1.5rem 0 .6rem;font-size:1rem;}
+  .tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:2rem;}
+  .tag{background:rgba(0,255,65,.08);border:1px solid var(--border);color:var(--green);padding:.25rem .65rem;border-radius:3px;font-size:.72rem;}
+</style>
+</head>
+<body>
+<div class="article-wrap">
+  <button class="back-btn" onclick="window.close()">← close_tab.sh</button>
+  <div class="cat">${p.category}</div>
+  <h1>${p.title}</h1>
+  <div class="meta">${p.date} &nbsp;·&nbsp; ${p.readTime}</div>
+  <div class="content">${p.content}</div>
+  <div class="tags">${p.tags.map(t=>'<span class="tag">'+t+'</span>').join('')}</div>
+</div>
+</body>
+</html>`;
+            const blob = new Blob([html], {type: 'text/html'});
+            const url = URL.createObjectURL(blob);
+            window.open(url, '_blank');
+        }
+
+        function openModalByIndex(i) {
+            if (i < 0 || i >= filteredPosts.length) return;
+            activeIndex = i; const p = filteredPosts[i];
+            blogModalCategory.textContent = p.category;
+            blogModalTitle.textContent = p.title;
+            blogModalMeta.textContent = p.date + ' · ' + p.readTime;
+            blogModalBody.innerHTML = p.content;
+            blogModalPrev.disabled = i === 0;
+            blogModalNext.disabled = i === filteredPosts.length - 1;
+            blogModal.classList.add('active');
+            cursor.style.width = '40px';
+            cursor.style.height = '40px';
+            cursor.style.borderColor = 'var(--cyan)';
+            cursor.style.boxShadow = '0 0 15px var(--cyan), 0 0 30px rgba(0,245,255,0.4)';
+            cursorDot.style.background = 'var(--cyan)';
+            cursorDot.style.boxShadow = '0 0 8px var(--cyan)';
+            blogModal.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            blogModal.classList.remove('active');
+            blogModal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+            cursor.style.width = '20px';
+            cursor.style.height = '20px';
+            cursor.style.borderColor = 'var(--green)';
+            cursor.style.boxShadow = '0 0 10px var(--green), 0 0 20px rgba(0,255,65,0.3)';
+            cursorDot.style.background = 'var(--green)';
+            cursorDot.style.boxShadow = '0 0 6px var(--green)';
+        }
+
+        blogModalClose.addEventListener('click', closeModal);
+        blogModal.addEventListener('click', e => { if (e.target === blogModal) closeModal(); });
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape') { closeModal(); return; }
+            if (!blogModal.classList.contains('active')) return;
+            if (e.key === 'ArrowLeft') { e.preventDefault(); openModalByIndex(activeIndex - 1); }
+            if (e.key === 'ArrowRight') { e.preventDefault(); openModalByIndex(activeIndex + 1); }
+        });
+        blogModalPrev.addEventListener('click', () => openModalByIndex(activeIndex - 1));
+        blogModalNext.addEventListener('click', () => openModalByIndex(activeIndex + 1));
+
+        function applyFilters() {
+            const q = blogSearch.value.trim().toLowerCase();
+            const tag = blogTag.value;
+            renderGrid(posts.filter(p => {
+                const matchTag = tag === 'all' ? true : p.tags.includes(tag) || p.category === tag;
+                const text = (p.title + ' ' + p.category + ' ' + p.tags.join(' ') + ' ' + p.excerpt).toLowerCase();
+                return matchTag && (!q || text.includes(q));
+            }));
+        }
+        blogSearch.addEventListener('input', applyFilters);
+        blogTag.addEventListener('change', applyFilters);
+        buildTagOptions();
+        renderGrid(posts);
+
+        // CHATBOT
+        const cToggle = document.getElementById('chatbot-toggle');
+        const cWindow = document.getElementById('chatbot-window');
+        const cClose = document.getElementById('chatbot-close');
+        const cInput = document.getElementById('chatbot-input');
+        const cSend = document.getElementById('chatbot-send');
+        const cMessages = document.getElementById('chatbot-messages');
+        cToggle.addEventListener('click', () => cWindow.classList.toggle('active'));
+        cClose.addEventListener('click', () => cWindow.classList.remove('active'));
+        const cResponses = {
+            'hello':'HELLO. How can I assist you today?','hi':'ONLINE. Ask me about Bhavya.',
+            'skills':'SKILLS:: Python(88%) · AI/ML(85%) · Web Dev(90%) · Data Science(75%) · Streamlit(80%) · Chess(95%)',
+            'contact':'EMAIL:: bhavya.s.solanki777@gmail.com | PHONE:: +91 9998106880',
+            'email':'bhavya.s.solanki777@gmail.com',
+            'projects':'6+ PROJECTS ::  Indlan Coding Language  · Stock Predictor · Health Chatbot · Churn Analysis · Oral Cancer detection · Snake Venomous-Nonvenomous detection',
+            'resume':'<a href="assets/cv/Bhavya_Solanki_Resume.pdf" download style="color:var(--cyan)">→ download_resume.pdf</a>',
+            'default':'COMMAND_NOT_FOUND. Try: skills | projects | contact | resume | hire',
+            'bye':'Good Bye Take Care','by':'Good Bye Take Care',
+            'thank you':'Don`t Worry it`s  My Work ',
+            'about':'A passionate AI/ML student and developer crafting intelligent applications, data-driven dashboards, and modern web experiences.',
+            'thanks':'Don`t Worry it`s  My Work ',
+            'how are you':'I`m just a bot, but I`m functioning within normal parameters! How can I assist you?',
+            'awards':' 🥇 1st — Bot Battles (Vivekanand) | 🥈 2nd — Data Drill (C.K. Pithawala)',
+            'achievements':' 🥇 1st — Bot Battles (Vivekanand) | 🥈 2nd — Data Drill (C.K. Pithawala)',
+            'hire':'AVAILABLE for freelance AI/ML, data science & web projects. Contact: bhavya.s.solanki777@gmail.com/9998106880'
+        };
+        function getChatResponse(msg) {
+            const m = msg.toLowerCase();
+            for (const k of Object.keys(cResponses).sort((a, b) => b.length - a.length)) {
+                if (k !== 'default' && m.includes(k)) return cResponses[k];
+            }
+            return cResponses['default'];
+        }
+        function addChatMsg(text, isUser) {
+            const d = document.createElement('div');
+            d.className = 'message ' + (isUser ? 'user-message' : 'bot-message');
+            d.innerHTML = '<div class="message-content">' + text + '</div>';
+            cMessages.appendChild(d); cMessages.scrollTop = cMessages.scrollHeight;
+        }
+        function sendChatMsg() {
+            const msg = cInput.value.trim(); if (!msg) return;
+            addChatMsg(msg, true); cInput.value = '';
+            setTimeout(() => addChatMsg(getChatResponse(msg), false), 350);
+        }
+        cSend.addEventListener('click', sendChatMsg);
+        cInput.addEventListener('keypress', e => { if (e.key === 'Enter') sendChatMsg(); });
+
+        // ===== GAMES WIDGET: OPEN/CLOSE =====
+        const gamesToggle = document.getElementById('games-toggle');
+        const gamesWindow = document.getElementById('games-window');
+        const gamesClose = document.getElementById('games-close');
+        gamesToggle.addEventListener('click', () => gamesWindow.classList.toggle('active'));
+        gamesClose.addEventListener('click', () => gamesWindow.classList.remove('active'));
+
+        // ===== GAMES: TAB SWITCHER =====
+        const gameTabs = document.querySelectorAll('.game-tab');
+        const gamePanels = document.querySelectorAll('.game-panel');
+        const gameTitleBar = document.getElementById('game-title-bar');
+        const gameTitles = { chess: 'chess.exe', ttt: 'tic_tac_toe.exe', snl: 'snake_ladder.exe', g2048: '2048.exe' };
+        gameTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                gameTabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                const key = tab.dataset.game;
+                gamePanels.forEach(p => p.classList.toggle('active', p.id === 'game-' + key));
+                gameTitleBar.textContent = gameTitles[key];
+                if (key === 'snl' && !snlStarted) initSnl();
+                if (key === 'g2048' && !g2048Started) initG2048();
+            });
+        });
+
+        // ===== SOUND ENGINE =====
+        const chessSounds = {
+            move: new Audio('audio/move.mp3'),
+            capture: new Audio('audio/capture.mp3'),
+            castle: new Audio('audio/castle.mp3'),
+            checkmate: new Audio('audio/checkmate.mp3'),
+            illegal: new Audio('audio/illegal.mp3'),
+            check: new Audio('audio/move-check.mp3'),
+            promote: new Audio('audio/promote.mp3'),
+        };
+        function playChessSound(key) {
+            const a = chessSounds[key];
+            if (!a) return;
+            a.currentTime = 0;
+            a.play().catch(() => {});
+        }
+        const tttSounds = {
+            place: new Audio('audio/ttt-place.mp3'),
+            win: new Audio('audio/ttt-win.mp3'),
+            draw: new Audio('audio/ttt-draw.mp3'),
+        };
+        function playTttSound(key) { const a = tttSounds[key]; if (!a) return; a.currentTime = 0; a.play().catch(() => {}); }
+        const snlSounds = {
+            dice: new Audio('audio/dice-roll.mp3'),
+            ladder: new Audio('audio/ladder-climb.mp3'),
+            snake: new Audio('audio/snake-bite.mp3'),
+            win: new Audio('audio/snl-win.mp3'),
+        };
+        function playSnlSound(key) { const a = snlSounds[key]; if (!a) return; a.currentTime = 0; a.play().catch(() => {}); }
+        const g2048Sounds = {
+            move: new Audio('audio/tile-move.mp3'),
+            merge: new Audio('audio/tile-merge.mp3'),
+            win: new Audio('audio/game-win.mp3'),
+            over: new Audio('audio/game-over.mp3'),
+        };
+        function play2048Sound(key) { const a = g2048Sounds[key]; if (!a) return; a.currentTime = 0; a.play().catch(() => {}); }
+
+        // ===== CHESS =====
+        const chessGame = new Chess();
+        const chessBoardEl = document.getElementById('chess-board');
+        const chessTurnEl = document.getElementById('chess-turn');
+        const chessMsgEl = document.getElementById('chess-msg');
+        const chessCapsEl = document.getElementById('chess-caps');
+        const chessPromoEl = document.getElementById('chess-promo');
+        const pieceGlyphs = { p:'♟', n:'♞', b:'♝', r:'♜', q:'♛', k:'♚' };
+        let chessSelected = null, chessLastMove = null, chessCaptures = 0, chessMode = 'pvp', chessColor = 'w', chessPending = null, chessBusy = false;
+
+        document.querySelectorAll('#chess-mode .mode-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('#chess-mode .mode-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                chessMode = btn.dataset.mode;
+                resetChessGame();
+            });
+        });
+        document.querySelectorAll('#chess-color .mode-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('#chess-color .mode-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                chessColor = btn.dataset.color;
+                resetChessGame();
+            });
+        });
+
+        function resetChessGame() {
+            chessGame.reset(); chessSelected = null; chessLastMove = null; chessCaptures = 0; chessBusy = false;
+            chessPending = null; chessPromoEl.classList.remove('active');
+            renderChess();
+            maybeChessBotMove();
+        }
+
+        function renderChess() {
+            chessBoardEl.innerHTML = '';
+            const board = chessGame.board();
+            const legalTargets = chessSelected ? chessGame.moves({ square: chessSelected, verbose: true }).map(m => m.to) : [];
+            const flipped = chessColor === 'b';
+            const rIdx = flipped ? [7,6,5,4,3,2,1,0] : [0,1,2,3,4,5,6,7];
+            const cIdx = flipped ? [7,6,5,4,3,2,1,0] : [0,1,2,3,4,5,6,7];
+            for (const r of rIdx) {
+                for (const c of cIdx) {
+                    const file = 'abcdefgh'[c], rank = 8 - r, sq = file + rank;
+                    const piece = board[r][c];
+                    const div = document.createElement('div');
+                    div.className = 'chess-sq ' + (((r + c) % 2 === 0) ? 'light' : 'dark');
+                    div.dataset.sq = sq;
+                    if (piece) {
+                        div.textContent = pieceGlyphs[piece.type];
+                        div.classList.add(piece.color === 'w' ? 'white-piece' : 'black-piece');
+                    }
+                    if (chessSelected === sq) div.classList.add('selected');
+                    if (chessLastMove && (chessLastMove.from === sq || chessLastMove.to === sq)) div.classList.add('lastmove');
+                    if (legalTargets.includes(sq)) {
+                        const marker = document.createElement('div');
+                        marker.className = piece ? 'capture-ring' : 'dot';
+                        div.appendChild(marker);
+                    }
+                    div.addEventListener('click', () => onChessSquareClick(sq));
+                    chessBoardEl.appendChild(div);
+                }
+            }
+            chessTurnEl.textContent = chessGame.turn() === 'w' ? 'white' : 'black';
+            chessCapsEl.textContent = chessCaptures;
+            if (chessGame.in_checkmate()) chessMsgEl.textContent = 'checkmate — ' + (chessGame.turn() === 'w' ? 'black' : 'white') + ' wins!';
+            else if (chessGame.in_stalemate() || chessGame.in_draw()) chessMsgEl.textContent = 'draw.';
+            else if (chessGame.in_check()) chessMsgEl.textContent = (chessGame.turn() === 'w' ? 'white' : 'black') + ' is in check!';
+            else if (chessMode === 'bot' && chessGame.turn() !== chessColor) chessMsgEl.textContent = 'bot is thinking...';
+            else chessMsgEl.textContent = chessSelected ? 'choose a destination square' : 'select a piece to move';
+        }
+
+        function maybeChessBotMove() {
+            if (chessMode === 'bot' && !chessGame.game_over() && chessGame.turn() !== chessColor) {
+                chessBusy = true;
+                setTimeout(chessBotMove, 550);
+            }
+        }
+
+        function applyChessMove(move) {
+            if (!move) return;
+            chessLastMove = move;
+            if (move.captured) chessCaptures++;
+            if (move.flags.includes('p')) playChessSound('promote');
+            else if (chessGame.in_checkmate()) playChessSound('checkmate');
+            else if (chessGame.in_check()) playChessSound('check');
+            else if (move.flags.includes('k') || move.flags.includes('q')) playChessSound('castle');
+            else if (move.captured) playChessSound('capture');
+            else playChessSound('move');
+            chessSelected = null;
+            chessBusy = false;
+            renderChess();
+            maybeChessBotMove();
+        }
+
+        function onChessSquareClick(sq) {
+            if (chessGame.game_over() || chessBusy) return;
+            if (chessMode === 'bot' && chessGame.turn() !== chessColor) return;
+            if (chessSelected) {
+                const moves = chessGame.moves({ square: chessSelected, verbose: true });
+                const found = moves.find(m => m.to === sq);
+                if (found) {
+                    if (found.flags.includes('p')) {
+                        chessPending = { from: chessSelected, to: sq };
+                        chessPromoEl.classList.add('active');
+                        return;
+                    }
+                    const move = chessGame.move({ from: chessSelected, to: sq });
+                    applyChessMove(move);
+                    return;
+                }
+                if (chessGame.get(sq) && chessGame.get(sq).color === chessGame.turn()) {
+                    chessSelected = sq; renderChess();
+                } else {
+                    playChessSound('illegal');
+                }
+                return;
+            }
+            const piece = chessGame.get(sq);
+            if (piece && piece.color === chessGame.turn()) { chessSelected = sq; renderChess(); }
+            else playChessSound('illegal');
+        }
+
+        document.querySelectorAll('.promo-options button').forEach(btn => {
+            btn.addEventListener('click', () => {
+                if (!chessPending) return;
+                const move = chessGame.move({ from: chessPending.from, to: chessPending.to, promotion: btn.dataset.p });
+                chessPending = null;
+                chessPromoEl.classList.remove('active');
+                applyChessMove(move);
+            });
+        });
+
+        const pieceValues = { p:1, n:3, b:3, r:5, q:9, k:0 };
+        function chessBotMove() {
+            if (chessGame.game_over()) { chessBusy = false; return; }
+            const moves = chessGame.moves({ verbose: true });
+            if (!moves.length) { chessBusy = false; return; }
+            let best = [], bestScore = -Infinity;
+            moves.forEach(m => {
+                let score = Math.random() * 2;
+                if (m.captured) score += pieceValues[m.captured] * 10;
+                if (m.flags.includes('p')) score += 9;
+                if (score > bestScore) { bestScore = score; best = [m]; }
+                else if (score === bestScore) best.push(m);
+            });
+            const chosen = best[Math.floor(Math.random() * best.length)];
+            const move = chessGame.move({ from: chosen.from, to: chosen.to, promotion: 'q' });
+            applyChessMove(move);
+        }
+
+        document.getElementById('chess-reset').addEventListener('click', resetChessGame);
+        document.getElementById('chess-undo').addEventListener('click', () => {
+            chessGame.undo();
+            if (chessMode === 'bot') chessGame.undo();
+            chessSelected = null; chessBusy = false; renderChess();
+        });
+        renderChess();
+        maybeChessBotMove();
+
+        // ===== TIC TAC TOE =====
+        const tttBoardEl = document.getElementById('ttt-board');
+        const tttTurnEl = document.getElementById('ttt-turn');
+        const tttMsgEl = document.getElementById('ttt-msg');
+        const tttXScoreEl = document.getElementById('ttt-x-score');
+        const tttOScoreEl = document.getElementById('ttt-o-score');
+        let tttCells = Array(9).fill(''), tttTurn = 'X', tttOver = false, tttXWins = 0, tttOWins = 0, tttMode = 'pvp';
+        const tttLines = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
+
+        document.querySelectorAll('#ttt-mode .mode-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('#ttt-mode .mode-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                tttMode = btn.dataset.mode;
+                tttCells = Array(9).fill(''); tttTurn = 'X'; tttOver = false;
+                tttMsgEl.textContent = "X's turn"; renderTtt();
+            });
+        });
+
+        function renderTtt() {
+            tttBoardEl.innerHTML = '';
+            tttCells.forEach((val, i) => {
+                const cell = document.createElement('div');
+                cell.className = 'ttt-cell' + (val ? ' ' + val.toLowerCase() : '');
+                cell.textContent = val;
+                cell.addEventListener('click', () => onTttClick(i));
+                tttBoardEl.appendChild(cell);
+            });
+            tttTurnEl.textContent = tttTurn;
+        }
+        function tttWinner(cells) {
+            for (const l of tttLines) if (l.every(idx => cells[idx] && cells[idx] === cells[l[0]])) return cells[l[0]];
+            return cells.every(c => c) ? 'draw' : null;
+        }
+        function tttMinimax(cells, player) {
+            const winner = tttWinner(cells);
+            if (winner === 'O') return { score: 10 };
+            if (winner === 'X') return { score: -10 };
+            if (winner === 'draw') return { score: 0 };
+            const moves = [];
+            cells.forEach((c, i) => {
+                if (c) return;
+                const next = cells.slice(); next[i] = player;
+                const result = tttMinimax(next, player === 'O' ? 'X' : 'O');
+                moves.push({ index: i, score: result.score });
+            });
+            return player === 'O'
+                ? moves.reduce((best, m) => m.score > best.score ? m : best)
+                : moves.reduce((best, m) => m.score < best.score ? m : best);
+        }
+        function onTttClick(i) {
+            if (tttOver || tttCells[i]) return;
+            if (tttMode === 'bot' && tttTurn === 'O') return;
+            placeTtt(i);
+            if (!tttOver && tttMode === 'bot' && tttTurn === 'O') {
+                tttMsgEl.textContent = 'bot is thinking...';
+                setTimeout(() => {
+                    const best = tttMinimax(tttCells, 'O');
+                    if (best && best.index !== undefined) placeTtt(best.index);
+                }, 400);
+            }
+        }
+        function placeTtt(i) {
+            tttCells[i] = tttTurn;
+            playTttSound('place');
+            const winLine = tttLines.find(l => l.every(idx => tttCells[idx] === tttTurn));
+            if (winLine) {
+                tttOver = true; tttMsgEl.textContent = tttTurn + ' wins this round!';
+                playTttSound('win');
+                if (tttTurn === 'X') tttXWins++; else tttOWins++;
+                tttXScoreEl.textContent = tttXWins; tttOScoreEl.textContent = tttOWins;
+                renderTtt();
+                [...tttBoardEl.children].forEach((el, idx) => { if (winLine.includes(idx)) el.classList.add('win'); });
+                return;
+            } else if (tttCells.every(c => c)) {
+                tttOver = true; tttMsgEl.textContent = "it's a draw.";
+                playTttSound('draw');
+            } else {
+                tttTurn = tttTurn === 'X' ? 'O' : 'X';
+                tttMsgEl.textContent = tttTurn + "'s turn";
+            }
+            renderTtt();
+        }
+        document.getElementById('ttt-reset').addEventListener('click', () => {
+            tttCells = Array(9).fill(''); tttTurn = 'X'; tttOver = false; tttMsgEl.textContent = "X's turn"; renderTtt();
+        });
+        renderTtt();
+
+        // ===== SNAKE & LADDER =====
+        let snlStarted = false;
+        function initSnl() {
+            snlStarted = true;
+            const boardEl = document.getElementById('snl-board');
+            const turnEl = document.getElementById('snl-turn');
+            const p1El = document.getElementById('snl-p1-pos');
+            const p2El = document.getElementById('snl-p2-pos');
+            const msgEl = document.getElementById('snl-msg');
+            const rollBtn = document.getElementById('snl-roll');
+            const diceValEl = document.getElementById('snl-dice-val');
+            const resetBtn = document.getElementById('snl-reset');
+
+            const ladders = { 2:38, 7:14, 8:31, 15:26, 21:42, 28:84, 36:44, 51:67, 71:91, 78:98 };
+            const snakes = { 16:6, 46:25, 49:11, 62:19, 64:60, 74:53, 89:68, 92:88, 95:75, 99:80 };
+
+            let mode = 'pvp', positions = { p1: 1, p2: 1 }, turn = 'p1', busy = false, over = false;
+            const cellEls = {};
+
+            document.querySelectorAll('#snl-mode .mode-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    document.querySelectorAll('#snl-mode .mode-btn').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    mode = btn.dataset.mode;
+                    resetGame();
+                });
+            });
+
+            function buildBoard() {
+                boardEl.innerHTML = '';
+                for (let row = 9; row >= 0; row--) {
+                    const rowNums = [];
+                    for (let col = 0; col < 10; col++) {
+                        const num = row * 10 + (row % 2 === 0 ? col + 1 : 10 - col);
+                        rowNums.push(num);
+                    }
+                    rowNums.forEach(num => {
+                        const cell = document.createElement('div');
+                        cell.className = 'snl-cell';
+                        cell.dataset.num = num;
+                        cell.innerHTML = '<span>' + num + '</span>';
+                        if (ladders[num]) { cell.classList.add('ladder-start'); cell.innerHTML += '<span class="snl-icon">🪜</span>'; }
+                        if (snakes[num]) { cell.classList.add('snake-start'); cell.innerHTML += '<span class="snl-icon">🐍</span>'; }
+                        boardEl.appendChild(cell);
+                        cellEls[num] = cell;
+                    });
+                }
+            }
+            function renderTokens() {
+                Object.values(cellEls).forEach(c => c.querySelectorAll('.snl-token').forEach(t => t.remove()));
+                const t1 = document.createElement('div'); t1.className = 'snl-token p1'; t1.textContent = 'P1';
+                cellEls[positions.p1].appendChild(t1);
+                const t2 = document.createElement('div'); t2.className = 'snl-token p2'; t2.textContent = mode === 'bot' ? 'BOT' : 'P2';
+                cellEls[positions.p2].appendChild(t2);
+                p1El.textContent = positions.p1; p2El.textContent = positions.p2;
+                turnEl.textContent = turn === 'p1' ? 'P1' : (mode === 'bot' ? 'BOT' : 'P2');
+            }
+            function resetGame() {
+                positions = { p1: 1, p2: 1 }; turn = 'p1'; busy = false; over = false;
+                msgEl.textContent = 'roll the dice to start'; diceValEl.textContent = '';
+                buildBoard(); renderTokens();
+            }
+            function rollDice() {
+                if (busy || over) return;
+                busy = true;
+                rollBtn.disabled = true;
+                playSnlSound('dice');
+                const roll = 1 + Math.floor(Math.random() * 6);
+                diceValEl.textContent = '(' + roll + ')';
+                const key = turn;
+                let pos = positions[key] + roll;
+                setTimeout(() => {
+                    if (pos > 100) {
+                        msgEl.textContent = (key === 'p1' ? 'P1' : (mode === 'bot' ? 'BOT' : 'P2')) + ' rolled ' + roll + ' — too high, turn skipped.';
+                    } else {
+                        let landed = pos;
+                        if (ladders[pos]) { landed = ladders[pos]; msgEl.textContent = 'ladder! climbing to ' + landed; playSnlSound('ladder'); }
+                        else if (snakes[pos]) { landed = snakes[pos]; msgEl.textContent = 'snake bite! sliding to ' + landed; playSnlSound('snake'); }
+                        else msgEl.textContent = (key === 'p1' ? 'P1' : (mode === 'bot' ? 'BOT' : 'P2')) + ' rolled ' + roll;
+                        positions[key] = landed;
+                        renderTokens();
+                        if (landed === 100) {
+                            over = true;
+                            msgEl.textContent = (key === 'p1' ? 'P1' : (mode === 'bot' ? 'BOT' : 'P2')) + ' wins! 🏆';
+                            playSnlSound('win');
+                            rollBtn.disabled = true; busy = false;
+                            return;
+                        }
+                    }
+                    if (roll !== 6) turn = turn === 'p1' ? 'p2' : 'p1';
+                    renderTokens();
+                    busy = false;
+                    if (mode === 'bot' && turn === 'p2' && !over) {
+                        rollBtn.disabled = true;
+                        setTimeout(rollDice, 700);
+                    } else {
+                        rollBtn.disabled = false;
+                    }
+                }, 350);
+            }
+            rollBtn.addEventListener('click', rollDice);
+            resetBtn.addEventListener('click', resetGame);
+            resetGame();
+        }
+
+        // ===== 2048 =====
+        let g2048Started = false;
+        function initG2048() {
+            g2048Started = true;
+            const boardEl = document.getElementById('g2048-board');
+            const scoreEl = document.getElementById('g2048-score'), bestEl = document.getElementById('g2048-best'), msgEl = document.getElementById('g2048-msg');
+            let grid, score, best = parseInt(localStorage.getItem('bss_2048_best') || '0', 10), has2048 = false;
+            bestEl.textContent = best;
+            for (let i = 0; i < 16; i++) { const c = document.createElement('div'); c.className = 'g2048-cell'; boardEl.appendChild(c); }
+            const tileColors = { 2:'#c8ffd4', 4:'#8affa8', 8:'#00ff41', 16:'#00e63b', 32:'#ffb700', 64:'#ff8c00', 128:'#00f5ff', 256:'#00c8ff', 512:'#ff2a2a', 1024:'#ff5cf4', 2048:'#ffffff' };
+            function newGrid() { return Array.from({ length: 4 }, () => Array(4).fill(0)); }
+            function addTile() {
+                const empties = [];
+                for (let r = 0; r < 4; r++) for (let c = 0; c < 4; c++) if (!grid[r][c]) empties.push([r, c]);
+                if (!empties.length) return;
+                const [r, c] = empties[Math.floor(Math.random() * empties.length)];
+                grid[r][c] = Math.random() < 0.9 ? 2 : 4;
+            }
+            function reset() { grid = newGrid(); score = 0; has2048 = false; scoreEl.textContent = 0; msgEl.textContent = 'arrow keys / swipe to merge tiles'; addTile(); addTile(); render(); }
+            function render() {
+                boardEl.querySelectorAll('.g2048-tile').forEach(t => t.remove());
+                const cellSize = boardEl.querySelector('.g2048-cell').getBoundingClientRect();
+                const gap = 7, pad = 7, size = cellSize.width;
+                for (let r = 0; r < 4; r++) for (let c = 0; c < 4; c++) {
+                    if (!grid[r][c]) continue;
+                    const tile = document.createElement('div');
+                    tile.className = 'g2048-tile';
+                    tile.textContent = grid[r][c];
+                    tile.style.width = size + 'px'; tile.style.height = size + 'px';
+                    tile.style.left = (pad + c * (size + gap)) + 'px'; tile.style.top = (pad + r * (size + gap)) + 'px';
+                    tile.style.background = tileColors[grid[r][c]] || '#ffffff';
+                    tile.style.color = grid[r][c] <= 4 ? '#010b03' : '#010b03';
+                    boardEl.appendChild(tile);
+                }
+                scoreEl.textContent = score;
+            }
+            function slide(row) {
+                let arr = row.filter(v => v);
+                for (let i = 0; i < arr.length - 1; i++) {
+                    if (arr[i] === arr[i + 1]) { arr[i] *= 2; score += arr[i]; arr.splice(i + 1, 1); }
+                }
+                while (arr.length < 4) arr.push(0);
+                return arr;
+            }
+            function rotate(g) { const ng = newGrid(); for (let r = 0; r < 4; r++) for (let c = 0; c < 4; c++) ng[c][3 - r] = g[r][c]; return ng; }
+            function move(dirKey) {
+                let moved = false;
+                let g = grid.map(r => r.slice());
+                let rotations = { left: 0, up: 1, right: 2, down: 3 }[dirKey];
+                const scoreBefore = score;
+                for (let i = 0; i < rotations; i++) g = rotate(g);
+                for (let r = 0; r < 4; r++) {
+                    const before = g[r].join(',');
+                    g[r] = slide(g[r]);
+                    if (g[r].join(',') !== before) moved = true;
+                }
+                for (let i = 0; i < (4 - rotations) % 4; i++) g = rotate(g);
+                if (moved) {
+                    grid = g; addTile(); render();
+                    if (score > scoreBefore) play2048Sound('merge'); else play2048Sound('move');
+                    if (best < score) { best = score; bestEl.textContent = best; localStorage.setItem('bss_2048_best', best); }
+                    if (grid.flat().includes(2048) && !has2048) { has2048 = true; msgEl.textContent = 'you hit 2048! keep going for a higher score'; play2048Sound('win'); }
+                    else if (!canMove()) { msgEl.textContent = 'game over — no more moves. tap new_game'; play2048Sound('over'); }
+                }
+            }
+            function canMove() {
+                for (let r = 0; r < 4; r++) for (let c = 0; c < 4; c++) {
+                    if (!grid[r][c]) return true;
+                    if (c < 3 && grid[r][c] === grid[r][c + 1]) return true;
+                    if (r < 3 && grid[r][c] === grid[r + 1][c]) return true;
+                }
+                return false;
+            }
+            window.addEventListener('keydown', e => {
+                if (!document.getElementById('game-g2048').classList.contains('active')) return;
+                const map = { ArrowLeft: 'left', ArrowRight: 'right', ArrowUp: 'up', ArrowDown: 'down' };
+                if (map[e.key]) { e.preventDefault(); move(map[e.key]); }
+            });
+            let touchStart = null;
+            boardEl.addEventListener('touchstart', e => { touchStart = e.touches[0]; }, { passive: true });
+            boardEl.addEventListener('touchend', e => {
+                if (!touchStart) return;
+                const dx = e.changedTouches[0].clientX - touchStart.clientX;
+                const dy = e.changedTouches[0].clientY - touchStart.clientY;
+                if (Math.max(Math.abs(dx), Math.abs(dy)) < 20) return;
+                if (Math.abs(dx) > Math.abs(dy)) move(dx > 0 ? 'right' : 'left'); else move(dy > 0 ? 'down' : 'up');
+                touchStart = null;
+            }, { passive: true });
+            document.getElementById('g2048-reset').addEventListener('click', reset);
+            reset();
+        }
+    </script>
+</body>
+</html>
+<!-- HTMLEOF -->
